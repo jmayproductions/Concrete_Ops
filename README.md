@@ -1,5 +1,3 @@
-# 🏗️ ConcreteOps™
-
 # 🧱 ConcreteOps™ – Real-Time Concrete Operations Platform
 
 **ConcreteOps™** is the first fully modular, AI-augmented command center for managing structural pours, QC, labor, logistics, and BIM integration — in real time, from rebar to rooftop. Built by field-tested union carpenters and VDC engineers, it automates everything you hate and augments everything you love about pour days.
