@@ -1,9 +1,5 @@
 # 🏗️ ConcreteOps™
 
-![CI](https://github.com/your-username/concrete-ops/actions/workflows/main.yml/badge.svg)
-![License](https://img.shields.io/github/license/your-username/concrete-ops)
-![Version](https://img.shields.io/badge/version-v1.0-blue)
-
 # 🧱 ConcreteOps™ – Real-Time Concrete Operations Platform
 
 **ConcreteOps™** is the first fully modular, AI-augmented command center for managing structural pours, QC, labor, logistics, and BIM integration — in real time, from rebar to rooftop. Built by field-tested union carpenters and VDC engineers, it automates everything you hate and augments everything you love about pour days.
