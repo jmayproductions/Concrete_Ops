@@ -1,0 +1,61 @@
+# ===============================
+# 🧱 ConcreteOps Shared Config
+# Version: 1.0
+# Path: config/config.yaml
+# ===============================
+
+global:
+  project_name: "StructureWave - ConcreteOps"
+  mode: "dev"  # Options: dev, sim, field, prod
+  timezone: "America/Los_Angeles"
+  log_level: "INFO"
+  log_to_file: true
+
+weather:
+  provider: "OpenMeteo"
+  api_key: "your_openmeteo_api_key_here"
+  default_coords:
+    lat: 45.5152
+    lon: -122.6784
+  rain_threshold_mm: 2.5
+  wind_max_kph: 40
+  freeze_threshold_c: 2
+
+qc:
+  curing_temp_min: 10
+  curing_temp_max: 32
+  slump_target_mm: 100
+  psi_min: 3500
+  psi_max: 6000
+
+crew:
+  fatigue_threshold_hours: 10
+  max_shifts_per_week: 6
+  break_required_hours: 5
+
+materials:
+  mix_submittal_folder: "./data/mix_submittals"
+  auto_mix_recommendation: true
+
+safety:
+  enable_violations_logging: true
+  enable_root_cause_analysis: true
+
+bim:
+  ifc_path: "./data/bim_models"
+  clash_tolerance_mm: 25
+
+cost:
+  currency: "USD"
+  default_budget: 75000
+  inflation_adjustment: 1.03
+
+ai:
+  enable_predictive_modules: true
+  psi_prediction_model: "./models/psi_predictor.joblib"
+  cost_optimizer_model: "./models/cost_optimizer.joblib"
+
+logging:
+  log_path: "./logs/concrete_ops.log"
+  error_alert_email: "alerts@structurewave.ai"
+

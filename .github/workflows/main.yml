@@ -1,0 +1,72 @@
+name: ConcreteOps CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, modules, v1.1_dev ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-test:
+    name: 🧪 Validate Build & Tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout Code
+      uses: actions/checkout@v3
+
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: 📦 Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: 🧹 Lint (flake8 style check)
+      run: |
+        pip install flake8
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics || true
+
+    - name: ✅ Run Tests + Coverage
+      run: |
+        pytest --cov=modules --cov-report=xml --cov-report=term
+
+    - name: 🧪 Upload Coverage Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage-report
+        path: coverage.xml
+
+    - name: 📦 Package Release (zip)
+      run: |
+        mkdir -p dist
+        zip -r dist/concrete_ops_v${{ github.run_number }}.zip . -x "*.git*" "*.pytest_cache*" "__pycache__/*"
+
+    - name: 🚀 Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: concrete_ops_build
+        path: dist/concrete_ops_v*.zip
+
+  release:
+    name: 🚀 Release to GitHub if Tagged
+    needs: build-test
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout Code
+      uses: actions/checkout@v3
+
+    - name: 🔥 Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        name: "ConcreteOps v${{ github.ref_name }}"
+        tag_name: ${{ github.ref_name }}
+        files: dist/concrete_ops_v*.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
