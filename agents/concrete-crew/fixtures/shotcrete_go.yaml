@@ -1,0 +1,36 @@
+pour_id: SHOT-TUNNEL-1
+shotcrete_pre_shoot_go: true
+mix:
+  ticket_id: SC-T1
+  psi: 5000
+  w_c_ratio: 0.40
+  slump: 4.0
+  air_content: 4.5
+weather:
+  temp_f: 68
+  wind_kph: 12
+  rain_mm: 0
+readiness:
+  forms_ready: true
+  rebar_ready: true
+  cylinders_ready: true
+crew:
+  roles: [nozzleman, blowpipe, pump_operator, qc_tech, safety_watch]
+  headcount: 5
+  briefing_complete: true
+  fatigued_workers: []
+shotcrete:
+  substrate_clean: true
+  substrate_ssd: true
+  reinforcement_cover_ok: true
+  nozzleman_certified: true
+  test_panels_scheduled: true
+  exclusion_zone_set: true
+  placement:
+    rebound_pct: 12
+    layer_thickness_in: 3.0
+    cold_joint_unprepared: false
+    uncontrolled_hazard: false
+site_conditions:
+  wind_speed: 8
+  evaporation_rate: 0.1

@@ -1,0 +1,29 @@
+pour_id: CIP-WALL-GRID-B
+cip_pre_pour_go: true
+weather:
+  temp_f: 66
+  wind_kph: 10
+  rain_mm: 0
+crew:
+  roles: [wall_lead, pump_operator, vibrator, form_watch, qc_tech, safety_watch]
+  headcount: 7
+  briefing_complete: true
+  fatigued_workers: []
+cip_wall:
+  forms_plumb: true
+  ties_torqued: true
+  rebar_inspected: true
+  waterstops_ok: true
+  embeds_ok: true
+  lift_plan_published: true
+  cleanouts_staged: true
+  pour:
+    lift_height_ft: 6.0
+    rate_ft_per_hr: 10.0
+    form_pressure_psf: 1400
+    vibration_continuous: true
+    form_bulge: true
+    form_leak: false
+site_conditions:
+  wind_speed: 8
+  evaporation_rate: 0.1

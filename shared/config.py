@@ -70,3 +70,22 @@ ANCHOR_TOLERANCES = {
 }
 WEATHER_API_KEY = "your-api-key-here"
 WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/forecast"
+
+# ---- Specialty workflow thresholds ----
+SLAB_TOLERANCES = {
+    "max_variation": 0.25,  # inches across survey set
+    "min_ff": 25,
+    "min_fl": 20,
+}
+SHOTCRETE_LIMITS = {
+    "max_rebound_pct": 20.0,
+    "min_core_psi": 4000,
+    "max_layer_thickness_in": 4.0,
+    "max_wind_kph": 35.0,
+}
+CIP_WALL_LIMITS = {
+    "max_lift_height_ft": 5.0,
+    "max_rate_ft_per_hr": 8.0,
+    "max_form_pressure_psf": 1200.0,
+    "min_vibrate_interval_ft": 2.0,
+}

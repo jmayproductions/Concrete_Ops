@@ -129,3 +129,35 @@ def test_tilt_brace_release_instability_abort():
     ctx["tilt"]["panels"][0]["instability"] = True
     result = CrewSwarm().run("tilt-up-brace-release", ctx)
     assert result.decision == "ABORT"
+
+
+def test_sog_pre_pour_go():
+    result = CrewSwarm().run("sog-pre-pour-gate", _load("sog_pre_pour_go.yaml"))
+    assert result.decision == "GO"
+
+
+def test_sog_finish_hold():
+    result = CrewSwarm().run("sog-finish-fffl", _load("sog_finish_hold.yaml"))
+    assert result.decision == "HOLD"
+    sog = next(g for g in result.gates if g.agent == "sog")
+    assert sog.status == "HOLD"
+
+
+def test_shotcrete_placement_go():
+    result = CrewSwarm().run("shotcrete-placement", _load("shotcrete_go.yaml"))
+    assert result.decision == "GO"
+
+
+def test_shotcrete_rebound_hold():
+    result = CrewSwarm().run("shotcrete-placement", _load("shotcrete_rebound_hold.yaml"))
+    assert result.decision == "HOLD"
+
+
+def test_cip_wall_pour_go():
+    result = CrewSwarm().run("cip-wall-pour", _load("cip_wall_go.yaml"))
+    assert result.decision == "GO"
+
+
+def test_cip_wall_pressure_abort():
+    result = CrewSwarm().run("cip-wall-pour", _load("cip_wall_pressure_abort.yaml"))
+    assert result.decision == "ABORT"

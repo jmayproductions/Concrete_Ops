@@ -3,6 +3,9 @@
 # Pour: /pre-pour | /pour-day | /mid-pour | /closeout | /briefing | /hold-abort
 # PT: /pt-pre-stress | /pt-stress
 # Tilt-up: /tilt-cast | /tilt-lift | /tilt-brace
+# SOG: /sog-pre-pour | /sog-finish
+# Shotcrete: /shot-pre | /shot-place
+# CIP walls: /cip-pre-pour | /cip-pour
 
 models:
   coordinator:
@@ -31,6 +34,9 @@ agents:
       - materials-mix
       - pt-stress
       - tilt-up
+      - sog
+      - shotcrete
+      - cip-wall
     toolsets:
       - type: think
       - type: todo
@@ -138,6 +144,39 @@ agents:
     max_iterations: 25
     redact_secrets: true
 
+  sog:
+    model: specialist
+    description: Owns slab-on-grade subgrade, vapor barrier, pour readiness, and FF/FL finish gates.
+    instruction_file: instructions/sog.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: todo
+    max_iterations: 20
+    redact_secrets: true
+
+  shotcrete:
+    model: specialist
+    description: Owns shotcrete pre-shoot readiness, layer control, and rebound quality gates.
+    instruction_file: instructions/shotcrete.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: todo
+    max_iterations: 20
+    redact_secrets: true
+
+  cip-wall:
+    model: specialist
+    description: Owns CIP wall form readiness, lift/rate plans, and form-pressure monitoring.
+    instruction_file: instructions/cip-wall.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: todo
+    max_iterations: 20
+    redact_secrets: true
+
 commands:
   pre-pour:
     description: Run the pre-pour gate workflow (mix → weather → QC → crew → failsafe → pour lead).
@@ -206,3 +245,38 @@ commands:
     prompt: |
       Execute workflow `tilt-up-brace-release` from workflows/tilt-up-brace-release.md.
       HOLD if permanent connections are incomplete.
+
+  sog-pre-pour:
+    description: Slab-on-grade pre-pour gate (subgrade, vapor barrier, joints).
+    prompt: |
+      Execute workflow `sog-pre-pour-gate` from workflows/sog-pre-pour-gate.md.
+      Return WORKFLOW/DECISION/GATES/ACTIONS.
+
+  sog-finish:
+    description: SOG finish / FF-FL acceptance gate.
+    prompt: |
+      Execute workflow `sog-finish-fffl` from workflows/sog-finish-fffl.md.
+      HOLD if flatness/levelness outside tolerance.
+
+  shot-pre:
+    description: Shotcrete pre-shoot gate.
+    prompt: |
+      Execute workflow `shotcrete-pre-shoot-gate` from workflows/shotcrete-pre-shoot-gate.md.
+      Wind and substrate are first-class.
+
+  shot-place:
+    description: Shotcrete placement with rebound/layer control.
+    prompt: |
+      Execute workflow `shotcrete-placement` from workflows/shotcrete-placement.md.
+      High rebound or over-thick lifts → HOLD; uncontrolled hazard → ABORT.
+
+  cip-pre-pour:
+    description: CIP wall pre-pour gate (forms, ties, waterstops, rate plan).
+    prompt: |
+      Execute workflow `cip-wall-pre-pour-gate` from workflows/cip-wall-pre-pour-gate.md.
+
+  cip-pour:
+    description: CIP wall pour with lift height and form-pressure watches.
+    prompt: |
+      Execute workflow `cip-wall-pour` from workflows/cip-wall-pour.md.
+      Form bulge/over-pressure → ABORT.

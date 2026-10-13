@@ -15,6 +15,9 @@ Multi-agent swarm for **perfect, repeatable concrete crew workflows**.
 | `materials-mix` | Mix ticket + delivery cadence |
 | `pt-stress` | Post-tension strength gate, stressing sequence, elongation, cert |
 | `tilt-up` | Panel cast, cure-to-lift, erect day, brace & release |
+| `sog` | Slab-on-grade subgrade, vapor barrier, FF/FL |
+| `shotcrete` | Shotcrete pre-shoot + rebound/layer control |
+| `cip-wall` | CIP wall forms, lift rate, form pressure |
 
 ## Named workflows
 
@@ -31,6 +34,12 @@ Multi-agent swarm for **perfect, repeatable concrete crew workflows**.
 | `/tilt-cast` | `tilt-up-cast-gate` | Panel bed cast readiness (embeds/plates) |
 | `/tilt-lift` | `tilt-up-lift-day` | Erect day — wind, crane, braces before release |
 | `/tilt-brace` | `tilt-up-brace-release` | Temporary brace removal gate |
+| `/sog-pre-pour` | `sog-pre-pour-gate` | Subgrade, vapor barrier, joints |
+| `/sog-finish` | `sog-finish-fffl` | FF/FL + saw-cut plan |
+| `/shot-pre` | `shotcrete-pre-shoot-gate` | Substrate, cover, nozzle crew |
+| `/shot-place` | `shotcrete-placement` | Rebound / layer thickness |
+| `/cip-pre-pour` | `cip-wall-pre-pour-gate` | Forms, ties, waterstops, rate plan |
+| `/cip-pour` | `cip-wall-pour` | Lift height + form pressure |
 
 Playbooks live in `workflows/`. Specialist prompts live in `instructions/`.
 
@@ -60,6 +69,9 @@ python -m modules.agent_swarm.cli run pt-pre-stress-gate -c agents/concrete-crew
 python -m modules.agent_swarm.cli run pt-stress-sequence -c agents/concrete-crew/fixtures/pt_elongation_hold.yaml
 python -m modules.agent_swarm.cli run tilt-up-cast-gate -c agents/concrete-crew/fixtures/tilt_cast_go.yaml
 python -m modules.agent_swarm.cli run tilt-up-lift-day -c agents/concrete-crew/fixtures/tilt_lift_wind_hold.yaml
+python -m modules.agent_swarm.cli run sog-pre-pour-gate -c agents/concrete-crew/fixtures/sog_pre_pour_go.yaml
+python -m modules.agent_swarm.cli run shotcrete-placement -c agents/concrete-crew/fixtures/shotcrete_rebound_hold.yaml
+python -m modules.agent_swarm.cli run cip-wall-pour -c agents/concrete-crew/fixtures/cip_wall_pressure_abort.yaml
 ```
 
 Exit code `0` = GO, `2` = HOLD/ABORT.

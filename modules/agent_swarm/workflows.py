@@ -5,13 +5,19 @@ from __future__ import annotations
 from typing import Any, Callable
 
 from modules.agent_swarm.agents import (
+    CIP_WALL_CREW_ROLES,
+    CIPWallAgent,
     CrewOpsAgent,
     MaterialsMixAgent,
     PourLeadAgent,
     PT_CREW_ROLES,
     PTStressAgent,
     QCInspectorAgent,
+    SHOTCRETE_CREW_ROLES,
+    SOG_CREW_ROLES,
+    SOGAgent,
     SafetyFailsafeAgent,
+    ShotcreteAgent,
     TILT_CREW_ROLES,
     TiltUpAgent,
     WeatherGateAgent,
@@ -30,6 +36,12 @@ WORKFLOW_IDS = (
     "tilt-up-cast-gate",
     "tilt-up-lift-day",
     "tilt-up-brace-release",
+    "sog-pre-pour-gate",
+    "sog-finish-fffl",
+    "shotcrete-pre-shoot-gate",
+    "shotcrete-placement",
+    "cip-wall-pre-pour-gate",
+    "cip-wall-pour",
 )
 
 
@@ -70,6 +82,9 @@ class WorkflowRunner:
         self.pour_lead = PourLeadAgent()
         self.pt = PTStressAgent()
         self.tilt = TiltUpAgent()
+        self.sog = SOGAgent()
+        self.shotcrete = ShotcreteAgent()
+        self.cip_wall = CIPWallAgent()
 
     def pre_pour_gate(self, ctx: dict[str, Any]) -> SwarmResult:
         gates = [
@@ -365,6 +380,141 @@ class WorkflowRunner:
             _actions(decision, gates),
         )
 
+    def sog_pre_pour_gate(self, ctx: dict[str, Any]) -> SwarmResult:
+        gates = [
+            self.sog.pre_pour_gate(ctx),
+            self.materials.evaluate(ctx) if ctx.get("mix") else GateResult("materials-mix", "HOLD", "Mix ticket missing for SOG", {}),
+            self.qc.evaluate(ctx, phase="pre"),
+            self.crew.evaluate(ctx, require_briefing=True, required_roles=SOG_CREW_ROLES),
+            self.weather.evaluate(ctx),
+            self.safety.evaluate(ctx),
+        ]
+        gates.append(self.pour_lead.assemble(ctx, gates, "sog-pre-pour-gate"))
+        decision = _decide(gates)
+        summary = {
+            "GO": "SOG pre-pour clear — slab may place.",
+            "HOLD": "SOG pre-pour holding — subgrade/barrier/forms blockers.",
+            "ABORT": "SOG pre-pour aborted by fail-safe.",
+        }[decision]
+        return SwarmResult("sog-pre-pour-gate", ctx.get("pour_id", "UNKNOWN"), decision, summary, gates, _actions(decision, gates))
+
+    def sog_finish_fffl(self, ctx: dict[str, Any]) -> SwarmResult:
+        gates = [
+            self.sog.finish_fffl(ctx),
+            self.qc.evaluate(ctx, phase="post")
+            if ctx.get("finish_accepted") or (ctx.get("curing") or {}).get("started")
+            else GateResult("qc-inspector", "PASS", "Finish QC per SOG survey packet", {}),
+            self.weather.evaluate(ctx) if ctx.get("weather") else GateResult("weather-gate", "ADVISORY", "No live weather for finish window", {}),
+            self.crew.evaluate(ctx, require_briefing=False, required_roles=SOG_CREW_ROLES),
+            self.safety.evaluate(ctx),
+        ]
+        gates.append(self.pour_lead.assemble(ctx, gates, "sog-finish-fffl"))
+        decision = _decide(gates)
+        summary = {
+            "GO": "SOG finish/FF-FL accepted — proceed to saw-cut/cure.",
+            "HOLD": "SOG finish holding — flatness or saw-cut plan incomplete.",
+            "ABORT": "SOG finish aborted by fail-safe.",
+        }[decision]
+        return SwarmResult("sog-finish-fffl", ctx.get("pour_id", "UNKNOWN"), decision, summary, gates, _actions(decision, gates))
+
+    def shotcrete_pre_shoot_gate(self, ctx: dict[str, Any]) -> SwarmResult:
+        gates = [
+            self.shotcrete.pre_shoot_gate(ctx),
+            self.materials.evaluate(ctx) if ctx.get("mix") else GateResult("materials-mix", "HOLD", "Shotcrete mix ticket missing", {}),
+            self.qc.evaluate(ctx, phase="pre"),
+            self.crew.evaluate(ctx, require_briefing=True, required_roles=SHOTCRETE_CREW_ROLES),
+            self.weather.evaluate(ctx),
+            self.safety.evaluate(ctx),
+        ]
+        gates.append(self.pour_lead.assemble(ctx, gates, "shotcrete-pre-shoot-gate"))
+        decision = _decide(gates)
+        summary = {
+            "GO": "Shotcrete pre-shoot clear — nozzle may start.",
+            "HOLD": "Shotcrete pre-shoot holding — substrate/crew/wind blockers.",
+            "ABORT": "Shotcrete pre-shoot aborted by fail-safe.",
+        }[decision]
+        return SwarmResult("shotcrete-pre-shoot-gate", ctx.get("pour_id", "UNKNOWN"), decision, summary, gates, _actions(decision, gates))
+
+    def shotcrete_placement(self, ctx: dict[str, Any]) -> SwarmResult:
+        if not ctx.get("shotcrete_pre_shoot_go"):
+            pre = self.shotcrete_pre_shoot_gate(ctx)
+            if pre.decision != "GO":
+                pre.workflow = "shotcrete-placement"
+                pre.summary = "Shotcrete placement blocked — pre-shoot gate is not GO."
+                return pre
+
+        sc_gate = self.shotcrete.placement(ctx)
+        gates = [
+            sc_gate,
+            self.qc.evaluate(ctx, phase="during")
+            if ctx.get("telemetry")
+            else GateResult("qc-inspector", "PASS", "Cores/probe schedule active", {}),
+            self.weather.evaluate(ctx),
+            self.crew.evaluate(ctx, require_briefing=False, required_roles=SHOTCRETE_CREW_ROLES),
+            self.safety.evaluate(ctx),
+        ]
+        if sc_gate.status == "FAIL":
+            gates.append(GateResult("safety-failsafe", "FAIL", sc_gate.detail, sc_gate.evidence))
+        gates.append(self.pour_lead.assemble(ctx, gates, "shotcrete-placement"))
+        decision = _decide(gates)
+        if sc_gate.status == "FAIL":
+            decision = "ABORT"
+        summary = {
+            "GO": "Shotcrete placement clear — continue layers.",
+            "HOLD": "Shotcrete placement holding — rebound/thickness/cold joint.",
+            "ABORT": "Shotcrete placement aborted — stop shoot and secure area.",
+        }[decision]
+        return SwarmResult("shotcrete-placement", ctx.get("pour_id", "UNKNOWN"), decision, summary, gates, _actions(decision, gates))
+
+    def cip_wall_pre_pour_gate(self, ctx: dict[str, Any]) -> SwarmResult:
+        gates = [
+            self.cip_wall.pre_pour_gate(ctx),
+            self.materials.evaluate(ctx) if ctx.get("mix") else GateResult("materials-mix", "HOLD", "CIP wall mix ticket missing", {}),
+            self.qc.evaluate(ctx, phase="pre"),
+            self.crew.evaluate(ctx, require_briefing=True, required_roles=CIP_WALL_CREW_ROLES),
+            self.weather.evaluate(ctx),
+            self.safety.evaluate(ctx),
+        ]
+        gates.append(self.pour_lead.assemble(ctx, gates, "cip-wall-pre-pour-gate"))
+        decision = _decide(gates)
+        summary = {
+            "GO": "CIP wall pre-pour clear — wall may place.",
+            "HOLD": "CIP wall pre-pour holding — forms/rebar/plan blockers.",
+            "ABORT": "CIP wall pre-pour aborted by fail-safe.",
+        }[decision]
+        return SwarmResult("cip-wall-pre-pour-gate", ctx.get("pour_id", "UNKNOWN"), decision, summary, gates, _actions(decision, gates))
+
+    def cip_wall_pour(self, ctx: dict[str, Any]) -> SwarmResult:
+        if not ctx.get("cip_pre_pour_go"):
+            pre = self.cip_wall_pre_pour_gate(ctx)
+            if pre.decision != "GO":
+                pre.workflow = "cip-wall-pour"
+                pre.summary = "CIP wall pour blocked — pre-pour gate is not GO."
+                return pre
+
+        wall_gate = self.cip_wall.pour_monitor(ctx)
+        gates = [
+            wall_gate,
+            self.qc.evaluate(ctx, phase="during")
+            if ctx.get("telemetry")
+            else GateResult("qc-inspector", "PASS", "Wall QC witnessing lifts", {}),
+            self.crew.evaluate(ctx, require_briefing=False, required_roles=CIP_WALL_CREW_ROLES),
+            self.weather.evaluate(ctx),
+            self.safety.evaluate(ctx),
+        ]
+        if wall_gate.status == "FAIL":
+            gates.append(GateResult("safety-failsafe", "FAIL", wall_gate.detail, wall_gate.evidence))
+        gates.append(self.pour_lead.assemble(ctx, gates, "cip-wall-pour"))
+        decision = _decide(gates)
+        if wall_gate.status == "FAIL":
+            decision = "ABORT"
+        summary = {
+            "GO": "CIP wall pour clear — continue lifts.",
+            "HOLD": "CIP wall pour holding — rate/lift/vibration blockers.",
+            "ABORT": "CIP wall pour aborted — stop pump and secure forms.",
+        }[decision]
+        return SwarmResult("cip-wall-pour", ctx.get("pour_id", "UNKNOWN"), decision, summary, gates, _actions(decision, gates))
+
 
 RunnerFn = Callable[[dict[str, Any]], SwarmResult]
 
@@ -383,4 +533,10 @@ def get_workflow_handlers(runner: WorkflowRunner | None = None) -> dict[str, Run
         "tilt-up-cast-gate": r.tilt_up_cast_gate,
         "tilt-up-lift-day": r.tilt_up_lift_day,
         "tilt-up-brace-release": r.tilt_up_brace_release,
+        "sog-pre-pour-gate": r.sog_pre_pour_gate,
+        "sog-finish-fffl": r.sog_finish_fffl,
+        "shotcrete-pre-shoot-gate": r.shotcrete_pre_shoot_gate,
+        "shotcrete-placement": r.shotcrete_placement,
+        "cip-wall-pre-pour-gate": r.cip_wall_pre_pour_gate,
+        "cip-wall-pour": r.cip_wall_pour,
     }

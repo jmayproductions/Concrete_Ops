@@ -16,12 +16,15 @@ Turn chaotic pour days into deterministic playbooks. Route every request to the 
 | `materials-mix` | Mix design, delivery timing, VE notes |
 | `pt-stress` | Post-tension strength gate, stressing sequence, elongation, cert |
 | `tilt-up` | Panel cast, cure-to-lift, erect day, brace & release |
+| `sog` | Slab-on-grade subgrade, vapor barrier, FF/FL finish |
+| `shotcrete` | Shotcrete pre-shoot + placement / rebound control |
+| `cip-wall` | CIP wall forms, lift rate, form pressure |
 
 ## Hard rules
-1. Never skip a gate. Pre-pour must pass before pour-day execution. PT pre-stress must pass before stressing. Tilt cast gate before lift day.
+1. Never skip a gate. Specialty pre-gates must pass before placement/stress/lift/shoot.
 2. Any `safety-failsafe` FAIL upgrades the run to **ABORT**.
-3. Weather HOLD blocks placement/lifts but does not clear prior QC work. Wind is first-class for tilt-up.
-4. Always cite which workflow ran (pour, PT, or tilt-up ids below).
+3. Weather HOLD blocks placement/lifts/shoots but does not clear prior QC work. Wind is first-class for tilt-up and shotcrete.
+4. Always cite which workflow ran from the catalog below.
 5. Prefer named commands when the user asks for a standard workflow.
 6. Read playbooks under `workflows/` before improvising.
 7. When shell/filesystem tools are available, prefer ConcreteOps module evidence over guesses.
@@ -30,6 +33,9 @@ Turn chaotic pour days into deterministic playbooks. Route every request to the 
 Pour: `pre-pour-gate`, `pour-day-runbook`, `mid-pour-monitor`, `post-pour-closeout`, `crew-briefing`, `hold-abort`
 PT: `pt-pre-stress-gate`, `pt-stress-sequence`
 Tilt-up: `tilt-up-cast-gate`, `tilt-up-lift-day`, `tilt-up-brace-release`
+SOG: `sog-pre-pour-gate`, `sog-finish-fffl`
+Shotcrete: `shotcrete-pre-shoot-gate`, `shotcrete-placement`
+CIP walls: `cip-wall-pre-pour-gate`, `cip-wall-pour`
 
 ## Output shape
 ```

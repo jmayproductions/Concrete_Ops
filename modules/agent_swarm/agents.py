@@ -11,8 +11,12 @@ from typing import Any
 
 from modules.agent_swarm.schemas import GateResult
 from shared.config import (
+    CIP_WALL_LIMITS,
     FAILSAFE_RULES,
+    GEO_RISK_THRESHOLDS,
     MIX_REQUIREMENTS,
+    SHOTCRETE_LIMITS,
+    SLAB_TOLERANCES,
     SLUMP_RANGE,
     STRENGTH_THRESHOLD_PSI,
     TEMPERATURE_THRESHOLDS,
@@ -40,6 +44,31 @@ TILT_CREW_ROLES = (
     "crane_operator",
     "rigger",
     "brace_crew",
+    "qc_tech",
+    "safety_watch",
+)
+
+SOG_CREW_ROLES = (
+    "pour_lead",
+    "screed_operator",
+    "finisher",
+    "qc_tech",
+    "safety_watch",
+)
+
+SHOTCRETE_CREW_ROLES = (
+    "nozzleman",
+    "blowpipe",
+    "pump_operator",
+    "qc_tech",
+    "safety_watch",
+)
+
+CIP_WALL_CREW_ROLES = (
+    "wall_lead",
+    "pump_operator",
+    "vibrator",
+    "form_watch",
     "qc_tech",
     "safety_watch",
 )
@@ -640,4 +669,216 @@ class TiltUpAgent:
             "PASS",
             f"Brace release clear for {len(panels)} panel(s)",
             {"panel_ids": [p.get("id") for p in panels]},
+        )
+
+
+class SOGAgent:
+    name = "sog"
+
+    def pre_pour_gate(self, ctx: dict[str, Any]) -> GateResult:
+        sog = ctx.get("sog") or {}
+        geo = sog.get("subgrade") or ctx.get("subgrade") or {}
+        issues: list[str] = []
+
+        bearing = _num(geo.get("bearing_capacity_ksf"))
+        gw = _num(geo.get("groundwater_depth_ft"))
+        slope = _num(geo.get("slope_percent"))
+        if bearing is None or bearing < GEO_RISK_THRESHOLDS["min_bearing_capacity_ksf"]:
+            issues.append(
+                f"bearing {bearing} < {GEO_RISK_THRESHOLDS['min_bearing_capacity_ksf']} ksf"
+            )
+        if gw is None or gw < GEO_RISK_THRESHOLDS["min_groundwater_depth_ft"]:
+            issues.append(
+                f"groundwater {gw} < {GEO_RISK_THRESHOLDS['min_groundwater_depth_ft']} ft"
+            )
+        if slope is not None and slope > GEO_RISK_THRESHOLDS["max_slope_percent"]:
+            issues.append(f"slope {slope}% > {GEO_RISK_THRESHOLDS['max_slope_percent']}%")
+        if not sog.get("proof_roll_accepted", geo.get("proof_roll_accepted")):
+            issues.append("proof-roll not accepted")
+
+        for field, label in (
+            ("vapor_barrier_continuous", "vapor barrier continuous"),
+            ("joints_set", "isolation/control joints set"),
+            ("dowels_set", "dowels set"),
+            ("reinforcement_ready", "reinforcement/fiber ready"),
+            ("edge_forms_ready", "edge forms ready"),
+        ):
+            if not sog.get(field):
+                issues.append(f"{label} incomplete")
+
+        if issues:
+            return GateResult(self.name, "HOLD", "; ".join(issues), {"sog": sog, "subgrade": geo})
+        return GateResult(self.name, "PASS", "SOG pre-pour subgrade/barrier/forms clear", {"sog": sog})
+
+    def finish_fffl(self, ctx: dict[str, Any]) -> GateResult:
+        sog = ctx.get("sog") or {}
+        finish = sog.get("finish") or {}
+        if not finish and not sog.get("pour_completed", ctx.get("pour_completed")):
+            return GateResult(self.name, "HOLD", "SOG pour not completed / no finish data", {})
+
+        issues: list[str] = []
+        max_var = _num(finish.get("max_variation_in"))
+        ff = _num(finish.get("ff"))
+        fl = _num(finish.get("fl"))
+        min_ff = _num(finish.get("min_ff"), float(SLAB_TOLERANCES["min_ff"])) or float(
+            SLAB_TOLERANCES["min_ff"]
+        )
+        min_fl = _num(finish.get("min_fl"), float(SLAB_TOLERANCES["min_fl"])) or float(
+            SLAB_TOLERANCES["min_fl"]
+        )
+        max_allowed = _num(
+            finish.get("max_variation_allowed"), float(SLAB_TOLERANCES["max_variation"])
+        ) or float(SLAB_TOLERANCES["max_variation"])
+
+        if max_var is not None and max_var > max_allowed:
+            issues.append(f"elevation variation {max_var} in > {max_allowed} in")
+        if ff is not None and ff < min_ff:
+            issues.append(f"FF {ff} < {min_ff}")
+        if fl is not None and fl < min_fl:
+            issues.append(f"FL {fl} < {min_fl}")
+        if ff is None and fl is None and max_var is None:
+            issues.append("no FF/FL or elevation survey provided")
+        if not finish.get("saw_cut_plan"):
+            issues.append("saw-cut plan missing")
+
+        if issues:
+            return GateResult(self.name, "HOLD", "; ".join(issues), {"finish": finish})
+        return GateResult(
+            self.name,
+            "PASS",
+            f"SOG finish accepted FF={ff} FL={fl} Δ={max_var}",
+            {"finish": finish},
+        )
+
+
+class ShotcreteAgent:
+    name = "shotcrete"
+
+    def pre_shoot_gate(self, ctx: dict[str, Any]) -> GateResult:
+        sc = ctx.get("shotcrete") or {}
+        issues: list[str] = []
+        for field, label in (
+            ("substrate_clean", "substrate clean"),
+            ("substrate_ssd", "substrate SSD/prep"),
+            ("reinforcement_cover_ok", "mesh/rebar cover"),
+            ("nozzleman_certified", "nozzleman certified"),
+            ("test_panels_scheduled", "test panels scheduled"),
+            ("exclusion_zone_set", "exclusion zone set"),
+        ):
+            if not sc.get(field):
+                issues.append(f"{label} incomplete")
+
+        wind = _num((ctx.get("weather") or {}).get("wind_kph"))
+        max_wind = _num(sc.get("max_wind_kph"), SHOTCRETE_LIMITS["max_wind_kph"]) or SHOTCRETE_LIMITS[
+            "max_wind_kph"
+        ]
+        if wind is not None and wind >= max_wind:
+            issues.append(f"wind {wind}kph ≥ shotcrete hold {max_wind}kph")
+
+        if issues:
+            return GateResult(self.name, "HOLD", "; ".join(issues), {"shotcrete": sc})
+        return GateResult(self.name, "PASS", "Shotcrete pre-shoot clear", {"shotcrete": sc})
+
+    def placement(self, ctx: dict[str, Any]) -> GateResult:
+        sc = ctx.get("shotcrete") or {}
+        placement = sc.get("placement") or {}
+        if not placement:
+            return GateResult(self.name, "HOLD", "No shotcrete placement telemetry", {})
+
+        issues: list[str] = []
+        abort: list[str] = []
+        rebound = _num(placement.get("rebound_pct"))
+        max_rebound = _num(sc.get("max_rebound_pct"), SHOTCRETE_LIMITS["max_rebound_pct"]) or SHOTCRETE_LIMITS[
+            "max_rebound_pct"
+        ]
+        layer = _num(placement.get("layer_thickness_in"))
+        max_layer = _num(
+            sc.get("max_layer_thickness_in"), SHOTCRETE_LIMITS["max_layer_thickness_in"]
+        ) or SHOTCRETE_LIMITS["max_layer_thickness_in"]
+
+        if rebound is not None and rebound > max_rebound:
+            issues.append(f"rebound {rebound}% > {max_rebound}%")
+        if layer is not None and layer > max_layer:
+            issues.append(f"layer {layer} in > {max_layer} in")
+        if placement.get("cold_joint_unprepared"):
+            issues.append("cold joint not prepared")
+        if placement.get("uncontrolled_hazard"):
+            abort.append("uncontrolled rebound/substrate hazard")
+
+        if abort:
+            return GateResult(self.name, "FAIL", "; ".join(abort), {"placement": placement})
+        if issues:
+            return GateResult(self.name, "HOLD", "; ".join(issues), {"placement": placement})
+        return GateResult(
+            self.name,
+            "PASS",
+            f"Placement clear rebound={rebound}% layer={layer}in",
+            {"placement": placement},
+        )
+
+
+class CIPWallAgent:
+    name = "cip-wall"
+
+    def pre_pour_gate(self, ctx: dict[str, Any]) -> GateResult:
+        wall = ctx.get("cip_wall") or ctx.get("wall") or {}
+        issues: list[str] = []
+        for field, label in (
+            ("forms_plumb", "forms plumb/aligned"),
+            ("ties_torqued", "form ties torqued"),
+            ("rebar_inspected", "rebar inspected"),
+            ("waterstops_ok", "waterstops OK"),
+            ("embeds_ok", "embeds OK"),
+            ("lift_plan_published", "lift/rate plan published"),
+            ("cleanouts_staged", "cleanouts staged"),
+        ):
+            if not wall.get(field):
+                issues.append(f"{label} incomplete")
+
+        if issues:
+            status = "FAIL" if wall.get("waterstops_ok") is False else "HOLD"
+            return GateResult(self.name, status, "; ".join(issues), {"cip_wall": wall})
+        return GateResult(self.name, "PASS", "CIP wall pre-pour forms/rebar/plan clear", {"cip_wall": wall})
+
+    def pour_monitor(self, ctx: dict[str, Any]) -> GateResult:
+        wall = ctx.get("cip_wall") or ctx.get("wall") or {}
+        pour = wall.get("pour") or {}
+        if not pour:
+            return GateResult(self.name, "HOLD", "No CIP wall pour telemetry", {})
+
+        issues: list[str] = []
+        abort: list[str] = []
+        lift = _num(pour.get("lift_height_ft"))
+        rate = _num(pour.get("rate_ft_per_hr"))
+        pressure = _num(pour.get("form_pressure_psf"))
+        max_lift = _num(wall.get("max_lift_height_ft"), CIP_WALL_LIMITS["max_lift_height_ft"]) or CIP_WALL_LIMITS[
+            "max_lift_height_ft"
+        ]
+        max_rate = _num(wall.get("max_rate_ft_per_hr"), CIP_WALL_LIMITS["max_rate_ft_per_hr"]) or CIP_WALL_LIMITS[
+            "max_rate_ft_per_hr"
+        ]
+        max_pressure = _num(
+            wall.get("max_form_pressure_psf"), CIP_WALL_LIMITS["max_form_pressure_psf"]
+        ) or CIP_WALL_LIMITS["max_form_pressure_psf"]
+
+        if lift is not None and lift > max_lift:
+            issues.append(f"lift {lift} ft > {max_lift} ft")
+        if rate is not None and rate > max_rate:
+            issues.append(f"pour rate {rate} ft/hr > {max_rate}")
+        if pressure is not None and pressure > max_pressure:
+            abort.append(f"form pressure {pressure} psf > {max_pressure}")
+        if pour.get("form_bulge") or pour.get("form_leak"):
+            abort.append("form bulge/leak observed")
+        if pour.get("vibration_continuous") is False:
+            issues.append("vibration not continuous")
+
+        if abort:
+            return GateResult(self.name, "FAIL", "; ".join(abort), {"pour": pour})
+        if issues:
+            return GateResult(self.name, "HOLD", "; ".join(issues), {"pour": pour})
+        return GateResult(
+            self.name,
+            "PASS",
+            f"CIP pour clear lift={lift}ft rate={rate} pressure={pressure}",
+            {"pour": pour},
         )
