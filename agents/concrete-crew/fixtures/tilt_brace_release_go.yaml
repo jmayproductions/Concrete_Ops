@@ -1,0 +1,23 @@
+pour_id: TILT-ERECT-01
+crew:
+  roles: [tilt_lead, crane_operator, rigger, brace_crew, qc_tech, safety_watch]
+  headcount: 8
+  briefing_complete: true
+  fatigued_workers: []
+finish_accepted: true
+curing:
+  started: true
+  owner: QC-Tilt
+tilt:
+  panels:
+    - id: P-101
+      permanent_connections_complete: true
+      connection_inspection_accepted: true
+      instability: false
+    - id: P-102
+      permanent_connections_complete: true
+      connection_inspection_accepted: true
+      instability: false
+site_conditions:
+  wind_speed: 8
+  evaporation_rate: 0.1

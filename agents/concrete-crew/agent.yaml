@@ -1,6 +1,8 @@
 # ConcreteOps™ Crew Swarm — repeatable concrete crew workflows
 # Run: docker agent run ./agents/concrete-crew/agent.yaml
-# Named workflows: /pre-pour | /pour-day | /mid-pour | /closeout | /briefing | /hold-abort
+# Pour: /pre-pour | /pour-day | /mid-pour | /closeout | /briefing | /hold-abort
+# PT: /pt-pre-stress | /pt-stress
+# Tilt-up: /tilt-cast | /tilt-lift | /tilt-brace
 
 models:
   coordinator:
@@ -18,7 +20,7 @@ models:
 agents:
   root:
     model: coordinator
-    description: ConcreteOps crew swarm coordinator for repeatable pour-day workflows.
+    description: ConcreteOps crew swarm coordinator for pour, PT stress, and tilt-up workflows.
     instruction_file: instructions/root.md
     sub_agents:
       - pour-lead
@@ -27,6 +29,8 @@ agents:
       - weather-gate
       - safety-failsafe
       - materials-mix
+      - pt-stress
+      - tilt-up
     toolsets:
       - type: think
       - type: todo
@@ -111,6 +115,29 @@ agents:
     max_iterations: 15
     redact_secrets: true
 
+  pt-stress:
+    model: specialist
+    description: Owns post-tension pre-stress gates, stressing sequence, elongation checks, and certification.
+    instruction_file: instructions/pt-stress.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: todo
+    max_iterations: 25
+    redact_secrets: true
+
+  tilt-up:
+    model: specialist
+    description: Owns tilt-up panel cast, cure-to-lift, erect day, and brace-release workflows.
+    instruction_file: instructions/tilt-up.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: todo
+      - type: shell
+    max_iterations: 25
+    redact_secrets: true
+
 commands:
   pre-pour:
     description: Run the pre-pour gate workflow (mix → weather → QC → crew → failsafe → pour lead).
@@ -149,3 +176,33 @@ commands:
     prompt: |
       Execute workflow `hold-abort` from workflows/hold-abort.md for the user's blocking condition.
       State owner, evidence to preserve, and re-entry path.
+
+  pt-pre-stress:
+    description: PT pre-stress gate (strength, inventory, sequence, safety).
+    prompt: |
+      Execute workflow `pt-pre-stress-gate` from workflows/pt-pre-stress-gate.md.
+      Delegate in documented order. Return WORKFLOW/DECISION/GATES/ACTIONS.
+
+  pt-stress:
+    description: PT stressing sequence with elongation and certification checks.
+    prompt: |
+      Execute workflow `pt-stress-sequence` from workflows/pt-stress-sequence.md.
+      Flag any tendon outside elongation/psi tolerance as HOLD; broken strand/anchorage as ABORT.
+
+  tilt-cast:
+    description: Tilt-up panel cast gate.
+    prompt: |
+      Execute workflow `tilt-up-cast-gate` from workflows/tilt-up-cast-gate.md.
+      Missing embeds or weld plates are FAIL.
+
+  tilt-lift:
+    description: Tilt-up lift / erect day runbook.
+    prompt: |
+      Execute workflow `tilt-up-lift-day` from workflows/tilt-up-lift-day.md.
+      Wind is first-class. Never release the crane before braces are secured.
+
+  tilt-brace:
+    description: Tilt-up temporary brace release gate.
+    prompt: |
+      Execute workflow `tilt-up-brace-release` from workflows/tilt-up-brace-release.md.
+      HOLD if permanent connections are incomplete.

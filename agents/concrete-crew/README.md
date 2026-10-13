@@ -13,6 +13,8 @@ Multi-agent swarm for **perfect, repeatable concrete crew workflows**.
 | `weather-gate` | Weather holds + hot/cold/rain/wind protocols |
 | `safety-failsafe` | Stop-work authority (FAIL → ABORT) |
 | `materials-mix` | Mix ticket + delivery cadence |
+| `pt-stress` | Post-tension strength gate, stressing sequence, elongation, cert |
+| `tilt-up` | Panel cast, cure-to-lift, erect day, brace & release |
 
 ## Named workflows
 
@@ -24,6 +26,11 @@ Multi-agent swarm for **perfect, repeatable concrete crew workflows**.
 | `/closeout` | `post-pour-closeout` | Closeout packet + curing owner |
 | `/briefing` | `crew-briefing` | Six-item morning briefing |
 | `/hold-abort` | `hold-abort` | Standard HOLD/ABORT escalation |
+| `/pt-pre-stress` | `pt-pre-stress-gate` | Strength + tendon inventory before jacks |
+| `/pt-stress` | `pt-stress-sequence` | Stressing order, elongation, inspection/cert |
+| `/tilt-cast` | `tilt-up-cast-gate` | Panel bed cast readiness (embeds/plates) |
+| `/tilt-lift` | `tilt-up-lift-day` | Erect day — wind, crane, braces before release |
+| `/tilt-brace` | `tilt-up-brace-release` | Temporary brace removal gate |
 
 Playbooks live in `workflows/`. Specialist prompts live in `instructions/`.
 
@@ -49,6 +56,10 @@ python -m modules.agent_swarm.cli demo
 python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixtures/pre_pour_go.yaml
 python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixtures/pre_pour_weather_hold.yaml
 python -m modules.agent_swarm.cli run pour-day-runbook -c agents/concrete-crew/fixtures/failsafe_abort.yaml
+python -m modules.agent_swarm.cli run pt-pre-stress-gate -c agents/concrete-crew/fixtures/pt_pre_stress_go.yaml
+python -m modules.agent_swarm.cli run pt-stress-sequence -c agents/concrete-crew/fixtures/pt_elongation_hold.yaml
+python -m modules.agent_swarm.cli run tilt-up-cast-gate -c agents/concrete-crew/fixtures/tilt_cast_go.yaml
+python -m modules.agent_swarm.cli run tilt-up-lift-day -c agents/concrete-crew/fixtures/tilt_lift_wind_hold.yaml
 ```
 
 Exit code `0` = GO, `2` = HOLD/ABORT.

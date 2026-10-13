@@ -1,0 +1,34 @@
+pour_id: PT-DECK-L4
+deck_id: PT-DECK-L4
+pt_pre_stress_go: true
+pt:
+  concrete_strength_psi: 4200
+  min_stress_psi: 4000
+  gauge_calibrated: true
+  exclusion_zone_set: true
+  elongation_tolerance: 0.07
+  sequence: [T1, T2]
+  cables:
+    - id: T1
+      spacing_in: 36
+      planned_stress_psi: 33000
+      inspected: false
+      certified: false
+      stress:
+        planned_psi: 33000
+        actual_psi: 32900
+        planned_elongation: 8.0
+        actual_elongation: 9.5
+    - id: T2
+      spacing_in: 36
+      planned_stress_psi: 33000
+      inspected: false
+      certified: false
+crew:
+  roles: [pt_lead, jack_operator, qc_tech, safety_watch]
+  headcount: 4
+  briefing_complete: true
+  fatigued_workers: []
+site_conditions:
+  wind_speed: 6
+  evaporation_rate: 0.08

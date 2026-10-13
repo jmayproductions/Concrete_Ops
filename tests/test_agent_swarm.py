@@ -76,3 +76,56 @@ def test_unknown_workflow_raises():
         assert False, "expected ValueError"
     except ValueError as exc:
         assert "Unknown workflow" in str(exc)
+
+
+def test_pt_pre_stress_go():
+    result = CrewSwarm().run("pt-pre-stress-gate", _load("pt_pre_stress_go.yaml"))
+    assert result.decision == "GO"
+    assert any(g.agent == "pt-stress" and g.status == "PASS" for g in result.gates)
+
+
+def test_pt_stress_sequence_go():
+    result = CrewSwarm().run("pt-stress-sequence", _load("pt_pre_stress_go.yaml"))
+    assert result.decision == "GO"
+
+
+def test_pt_elongation_hold():
+    result = CrewSwarm().run("pt-stress-sequence", _load("pt_elongation_hold.yaml"))
+    assert result.decision == "HOLD"
+    pt = next(g for g in result.gates if g.agent == "pt-stress")
+    assert pt.status == "HOLD"
+    assert "elongation" in pt.detail.lower() or "inspected" in pt.detail.lower()
+
+
+def test_tilt_cast_go():
+    result = CrewSwarm().run("tilt-up-cast-gate", _load("tilt_cast_go.yaml"))
+    assert result.decision == "GO"
+
+
+def test_tilt_cast_missing_embeds_fail_hold():
+    ctx = _load("tilt_cast_go.yaml")
+    ctx["tilt"]["panels"][0]["embeds_complete"] = False
+    result = CrewSwarm().run("tilt-up-cast-gate", ctx)
+    assert result.decision == "HOLD"
+    tilt = next(g for g in result.gates if g.agent == "tilt-up")
+    assert tilt.status == "FAIL"
+
+
+def test_tilt_lift_wind_hold():
+    result = CrewSwarm().run("tilt-up-lift-day", _load("tilt_lift_wind_hold.yaml"))
+    assert result.decision == "HOLD"
+    assert any(
+        g.agent in ("tilt-up", "weather-gate") and g.status == "HOLD" for g in result.gates
+    )
+
+
+def test_tilt_brace_release_go():
+    result = CrewSwarm().run("tilt-up-brace-release", _load("tilt_brace_release_go.yaml"))
+    assert result.decision == "GO"
+
+
+def test_tilt_brace_release_instability_abort():
+    ctx = _load("tilt_brace_release_go.yaml")
+    ctx["tilt"]["panels"][0]["instability"] = True
+    result = CrewSwarm().run("tilt-up-brace-release", ctx)
+    assert result.decision == "ABORT"

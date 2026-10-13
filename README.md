@@ -32,7 +32,9 @@ python -m modules.agent_swarm.cli demo
 python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixtures/pre_pour_go.yaml
 ```
 
-Named workflows: `pre-pour-gate`, `pour-day-runbook`, `mid-pour-monitor`, `post-pour-closeout`, `crew-briefing`, `hold-abort`. Details in [`agents/concrete-crew/README.md`](agents/concrete-crew/README.md).
+Named workflows cover pour day, **post-tension stressing**, and **tilt-up** erect:
+`pre-pour-gate`, `pour-day-runbook`, `mid-pour-monitor`, `post-pour-closeout`, `crew-briefing`, `hold-abort`, `pt-pre-stress-gate`, `pt-stress-sequence`, `tilt-up-cast-gate`, `tilt-up-lift-day`, `tilt-up-brace-release`.
+Details in [`agents/concrete-crew/README.md`](agents/concrete-crew/README.md).
 
 ---
 

@@ -1,0 +1,54 @@
+pour_id: PT-DECK-L4
+deck_id: PT-DECK-L4
+area: Level 4 PT Deck
+pt_pre_stress_go: true
+pt:
+  concrete_strength_psi: 4200
+  min_stress_psi: 4000
+  gauge_calibrated: true
+  exclusion_zone_set: true
+  elongation_tolerance: 0.07
+  sequence: [T1, T2, T3]
+  cables:
+    - id: T1
+      spacing_in: 36
+      planned_stress_psi: 33000
+      inspected: true
+      certified: true
+      stress:
+        planned_psi: 33000
+        actual_psi: 32800
+        planned_elongation: 8.0
+        actual_elongation: 7.9
+    - id: T2
+      spacing_in: 36
+      planned_stress_psi: 33000
+      inspected: true
+      certified: true
+      stress:
+        planned_psi: 33000
+        actual_psi: 33100
+        planned_elongation: 8.0
+        actual_elongation: 8.1
+    - id: T3
+      spacing_in: 40
+      planned_stress_psi: 33000
+      inspected: true
+      certified: true
+      stress:
+        planned_psi: 33000
+        actual_psi: 32950
+        planned_elongation: 8.0
+        actual_elongation: 8.0
+crew:
+  roles: [pt_lead, jack_operator, qc_tech, safety_watch]
+  headcount: 4
+  briefing_complete: true
+  fatigued_workers: []
+curing:
+  started: true
+  owner: QC-PT
+finish_accepted: true
+site_conditions:
+  wind_speed: 8
+  evaporation_rate: 0.1
