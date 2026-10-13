@@ -13,19 +13,27 @@ from modules.cli.launch_menu import launch_cli_menu
 app = typer.Typer()
 config = load_config()
 
+
 @app.command()
 def start(mode: str = typer.Option("dev", help="Mode: dev | sim | field | prod")):
-    print(f"[bold cyan]🚧 ConcreteOps™[/bold cyan] starting in [bold yellow]{mode.upper()}[/bold yellow] mode...")
+    print(f"[bold cyan]ConcreteOps™[/bold cyan] starting in [bold yellow]{mode.upper()}[/bold yellow] mode...")
 
     # Store mode globally if needed
-    config['global']['mode'] = mode.lower()
+    config["global"]["mode"] = mode.lower()
 
     # CLI Mode
     launch_cli_menu(config)
 
+
 @app.command()
 def version():
     print("[green]ConcreteOps v1.0 — StructureWave Certified.[/green]")
+
+
+from modules.agent_swarm.cli import app as swarm_app
+
+app.add_typer(swarm_app, name="swarm", help="Crew swarm — repeatable pour workflows")
+
 
 if __name__ == "__main__":
     app()

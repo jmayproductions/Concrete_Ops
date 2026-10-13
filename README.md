@@ -17,6 +17,22 @@ ConcreteOps is split into smart, pluggable modules — built for speed, transpar
 - **Cost Engine** — budget modeling, ROI calc, VE suggestions
 - **BIM Layer** — IFC parsing, clash detection, layout validation
 - **AI/ML Systems** — PSI forecast, virtual pour sim, cost optimizer
+- **Crew Swarm** — multi-agent repeatable pour workflows (`agents/concrete-crew`)
+
+### Crew Swarm (repeatable workflows)
+
+Docker Agent team + deterministic Python gates for the same playbooks:
+
+```bash
+# LLM swarm (requires Docker Agent + provider keys)
+docker agent run ./agents/concrete-crew/agent.yaml
+
+# Deterministic swarm (CI / field sim)
+python -m modules.agent_swarm.cli demo
+python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixtures/pre_pour_go.yaml
+```
+
+Named workflows: `pre-pour-gate`, `pour-day-runbook`, `mid-pour-monitor`, `post-pour-closeout`, `crew-briefing`, `hold-abort`. Details in [`agents/concrete-crew/README.md`](agents/concrete-crew/README.md).
 
 ---
 
