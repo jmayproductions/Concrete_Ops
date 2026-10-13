@@ -161,3 +161,42 @@ def test_cip_wall_pour_go():
 def test_cip_wall_pressure_abort():
     result = CrewSwarm().run("cip-wall-pour", _load("cip_wall_pressure_abort.yaml"))
     assert result.decision == "ABORT"
+
+
+def test_elevated_deck_go():
+    result = CrewSwarm().run("elevated-deck-pre-pour-gate", _load("elevated_deck_go.yaml"))
+    assert result.decision == "GO"
+
+
+def test_strip_reshore_go():
+    result = CrewSwarm().run("strip-reshore-gate", _load("strip_reshore_go.yaml"))
+    assert result.decision == "GO"
+
+
+def test_mass_thermal_hold():
+    result = CrewSwarm().run("mass-pour-thermal-gate", _load("mass_thermal_hold.yaml"))
+    assert result.decision == "HOLD"
+
+
+def test_mass_monitor_abort():
+    result = CrewSwarm().run("mass-pour-monitor", _load("mass_monitor_abort.yaml"))
+    assert result.decision == "ABORT"
+
+
+def test_curing_strength_release_go():
+    result = CrewSwarm().run("curing-strength-release", _load("curing_release_go.yaml"))
+    assert result.decision == "GO"
+
+
+def test_adapter_enrich_thermal():
+    from modules.agent_swarm.adapters import enrich_context
+
+    ctx = enrich_context(
+        {
+            "pour_id": "X",
+            "live_evidence": {"thermal": {"core_temp_f": 140, "surface_temp_f": 110}},
+        }
+    )
+    assert ctx["mass"]["delta_t_f"] == 30
+    result = CrewSwarm().run("mass-pour-monitor", {**ctx, "mass": {**ctx["mass"], "mitigation_active": True}})
+    assert result.decision in ("GO", "HOLD")

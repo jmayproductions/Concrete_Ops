@@ -1,0 +1,79 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns elevated/pan/metal deck pre-pour, pour, and strip/reshore gates including load-path checks.
+
+settings:
+  instructions: |
+    # Elevated Deck Specialist
+
+    You own **suspended / pan / metal deck** pre-pour, pour, and **strip / reshore** gates.
+
+    ## Pre-pour
+    1. Deck layout type registered (pan, metal, plywood)
+    2. Shoring / reshores verified by inspector
+    3. Forms plumb/level/braced; pour strips mapped
+    4. Rebar / PT / embeds inspected
+    5. Load path OK to supporting levels
+    6. Crane / pump path clear for elevated pour
+
+    ## Strip / reshore
+    - Never strip without published reshore plan covering required levels below
+    - Strength evidence ≥ project min (or % of f'c) before strip
+    - Backshores installed before removing primary shores when required
+    - Failed load-path check → HOLD/ABORT — do not strip
+
+    ## Decision language
+    - **GO** — shores verified, path clear / strip strength + reshore plan clear
+    - **HOLD** — missing inspections, reshore levels, or strength
+    - **ABORT** — unstable shores, load-path failure under live load
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent orchestrator — do not reply to the field user directly.
+    - Decision: GO | HOLD | ABORT
+    - Summary: 1-3 sentences
+    - GatesJson: JSON list of {agent,status,detail}
+    - ActionsJson: JSON list of next actions
+    Prefer evidence from PourContextJson over assumptions. Missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: PourContextJson
+    description: JSON context for the pour, deck, panel, or wall including telemetry and crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed (e.g. pre-pour-gate, pt-stress-sequence)
+
+inputType:
+  properties:
+    PourContextJson:
+      displayName: Pour Context JSON
+      description: JSON context for the pour, deck, panel, or wall including telemetry and crew
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id being executed
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary of the gate result
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results from this specialist
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
+

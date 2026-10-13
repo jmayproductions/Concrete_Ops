@@ -12,14 +12,18 @@ from typing import Any
 from modules.agent_swarm.schemas import GateResult
 from shared.config import (
     CIP_WALL_LIMITS,
+    CURING_LIFECYCLE,
+    ELEVATED_DECK_LIMITS,
     FAILSAFE_RULES,
     GEO_RISK_THRESHOLDS,
+    MASS_POUR_LIMITS,
     MIX_REQUIREMENTS,
     SHOTCRETE_LIMITS,
     SLAB_TOLERANCES,
     SLUMP_RANGE,
     STRENGTH_THRESHOLD_PSI,
     TEMPERATURE_THRESHOLDS,
+    THERMAL_LIMITS,
 )
 
 
@@ -69,6 +73,21 @@ CIP_WALL_CREW_ROLES = (
     "pump_operator",
     "vibrator",
     "form_watch",
+    "qc_tech",
+    "safety_watch",
+)
+
+DECK_CREW_ROLES = (
+    "pour_lead",
+    "pump_operator",
+    "deck_hand",
+    "qc_tech",
+    "safety_watch",
+)
+
+STRIP_CREW_ROLES = (
+    "strip_lead",
+    "carpenter",
     "qc_tech",
     "safety_watch",
 )
@@ -881,4 +900,213 @@ class CIPWallAgent:
             "PASS",
             f"CIP pour clear lift={lift}ft rate={rate} pressure={pressure}",
             {"pour": pour},
+        )
+
+
+class ElevatedDeckAgent:
+    name = "elevated-deck"
+
+    def pre_pour_gate(self, ctx: dict[str, Any]) -> GateResult:
+        deck = ctx.get("deck") or {}
+        issues: list[str] = []
+        if not deck.get("layout_type"):
+            issues.append("deck layout_type missing (pan/metal/plywood)")
+        if not deck.get("supports_verified"):
+            issues.append("shoring/reshores not verified")
+        if not deck.get("pour_strips_mapped"):
+            issues.append("pour strips not mapped")
+        if not deck.get("forms_ready"):
+            issues.append("forms not ready")
+        if not deck.get("load_path_ok", True):
+            return GateResult(self.name, "FAIL", "load-path check failed — do not pour", {"deck": deck})
+        if issues:
+            return GateResult(self.name, "HOLD", "; ".join(issues), {"deck": deck})
+        return GateResult(
+            self.name,
+            "PASS",
+            f"Elevated deck clear layout={deck.get('layout_type')} shores verified",
+            {"deck": deck},
+        )
+
+    def pour_monitor(self, ctx: dict[str, Any]) -> GateResult:
+        deck = ctx.get("deck") or {}
+        if not deck.get("supports_verified"):
+            return GateResult(self.name, "FAIL", "shores lost verification under load", {"deck": deck})
+        if not deck.get("pour_strip_sequence"):
+            return GateResult(self.name, "HOLD", "pour strip sequence missing", {"deck": deck})
+        return GateResult(self.name, "PASS", "Elevated pour path clear", {"deck": deck})
+
+    def strip_reshore(self, ctx: dict[str, Any]) -> GateResult:
+        deck = ctx.get("deck") or {}
+        strip = deck.get("strip") or ctx.get("strip") or {}
+        issues: list[str] = []
+        abort: list[str] = []
+
+        strength = _num(strip.get("strength_psi"))
+        min_psi = _num(strip.get("min_strip_psi"), float(ELEVATED_DECK_LIMITS["min_strip_psi"])) or float(
+            ELEVATED_DECK_LIMITS["min_strip_psi"]
+        )
+        reshore_levels = int(strip.get("reshore_levels") or 0)
+        min_levels = int(strip.get("min_reshore_levels") or ELEVATED_DECK_LIMITS["min_reshore_levels"])
+
+        if strength is None or strength < min_psi:
+            issues.append(f"strip strength {strength} < {min_psi} psi")
+        if reshore_levels < min_levels:
+            issues.append(f"reshore levels {reshore_levels} < {min_levels}")
+        if not strip.get("reshore_plan_published"):
+            issues.append("reshore plan not published")
+        if strip.get("backshores_required") and not strip.get("backshores_installed"):
+            issues.append("backshores required but not installed")
+        if deck.get("load_path_ok") is False or strip.get("load_path_ok") is False:
+            abort.append("load-path failure — do not strip")
+
+        if abort:
+            return GateResult(self.name, "FAIL", "; ".join(abort), {"strip": strip})
+        if issues:
+            return GateResult(self.name, "HOLD", "; ".join(issues), {"strip": strip})
+        return GateResult(
+            self.name,
+            "PASS",
+            f"Strip/reshore clear strength={strength} psi levels={reshore_levels}",
+            {"strip": strip},
+        )
+
+
+class MassThermalAgent:
+    name = "mass-thermal"
+
+    def pre_pour_gate(self, ctx: dict[str, Any]) -> GateResult:
+        mass = ctx.get("mass") or {}
+        volume = _num(mass.get("volume_cy") or ctx.get("volume_cy"))
+        trigger = _num(mass.get("precool_required_above_cy"), MASS_POUR_LIMITS["precool_required_above_cy"]) or MASS_POUR_LIMITS[
+            "precool_required_above_cy"
+        ]
+        issues: list[str] = []
+        if volume is None:
+            issues.append("volume_cy missing for mass-pour trigger")
+        elif volume >= trigger and not mass.get("precool_method"):
+            issues.append(f"volume {volume} CY ≥ {trigger} — pre-cool method required")
+        if not mass.get("sensor_plan"):
+            issues.append("core/surface sensor plan missing")
+        if not mass.get("insulation_staged"):
+            issues.append("insulation/blankets not staged")
+        if not mass.get("limits_published"):
+            issues.append("max core / ΔT limits not published")
+        if issues:
+            return GateResult(self.name, "HOLD", "; ".join(issues), {"mass": mass})
+        return GateResult(
+            self.name,
+            "PASS",
+            f"Mass thermal plan clear volume={volume} CY precool={mass.get('precool_method', 'n/a')}",
+            {"mass": mass},
+        )
+
+    def monitor(self, ctx: dict[str, Any]) -> GateResult:
+        mass = ctx.get("mass") or {}
+        core = _num(mass.get("core_temp_f"))
+        surface = _num(mass.get("surface_temp_f"))
+        delta = _num(mass.get("delta_t_f"))
+        if delta is None and core is not None and surface is not None:
+            delta = abs(core - surface)
+        max_core = _num(mass.get("max_core_temp_f"), MASS_POUR_LIMITS["max_core_temp_f"]) or MASS_POUR_LIMITS[
+            "max_core_temp_f"
+        ]
+        max_delta = _num(
+            mass.get("max_delta_t_f"), THERMAL_LIMITS.get("max_diff", MASS_POUR_LIMITS["max_delta_t_f"])
+        ) or float(THERMAL_LIMITS.get("max_diff", MASS_POUR_LIMITS["max_delta_t_f"]))
+
+        if core is None or surface is None:
+            return GateResult(self.name, "HOLD", "Missing core/surface temperatures", {"mass": mass})
+
+        abort: list[str] = []
+        holds: list[str] = []
+        if core > max_core and not mass.get("mitigation_active"):
+            abort.append(f"core {core}°F > {max_core}°F without mitigation")
+        if delta is not None and delta > max_delta and not mass.get("mitigation_active"):
+            abort.append(f"ΔT {delta}°F > {max_delta}°F without mitigation")
+        elif delta is not None and delta > max_delta * 0.8:
+            holds.append(f"ΔT {delta}°F approaching limit {max_delta}°F — reinforce insulation")
+
+        if abort:
+            return GateResult(self.name, "FAIL", "; ".join(abort), {"mass": mass, "delta_t_f": delta})
+        if holds:
+            return GateResult(self.name, "HOLD", "; ".join(holds), {"mass": mass, "delta_t_f": delta})
+        return GateResult(
+            self.name,
+            "PASS",
+            f"Thermal clear core={core}°F surface={surface}°F ΔT={delta}",
+            {"mass": mass, "delta_t_f": delta},
+        )
+
+
+class CuringLifecycleAgent:
+    name = "curing-lifecycle"
+
+    def daily_check(self, ctx: dict[str, Any]) -> GateResult:
+        curing = ctx.get("curing") or {}
+        if not curing.get("started") and not curing.get("temperature_f"):
+            return GateResult(self.name, "HOLD", "Curing not started / no telemetry", {})
+
+        issues: list[str] = []
+        temp = _num(curing.get("temperature_f"))
+        moisture = _num(curing.get("moisture"))
+        min_temp = _num(curing.get("min_temp_f"), 50.0) or 50.0
+        max_temp = _num(curing.get("max_temp_f"), 95.0) or 95.0
+        min_moisture = _num(curing.get("min_moisture"), CURING_LIFECYCLE["min_moisture"]) or CURING_LIFECYCLE[
+            "min_moisture"
+        ]
+
+        if temp is not None and temp < min_temp:
+            issues.append(f"curing temp {temp}°F < {min_temp}°F")
+        if temp is not None and temp > max_temp:
+            issues.append(f"curing temp {temp}°F > {max_temp}°F")
+        if moisture is not None and moisture < min_moisture:
+            issues.append(f"moisture {moisture} < {min_moisture}")
+        if not curing.get("protection_ok", True):
+            issues.append("protection/blankets/membrane compromised")
+
+        if issues:
+            return GateResult(self.name, "HOLD", "; ".join(issues), {"curing": curing})
+        return GateResult(
+            self.name,
+            "PASS",
+            f"Curing OK temp={temp}°F moisture={moisture}",
+            {"curing": curing},
+        )
+
+    def strength_release(self, ctx: dict[str, Any]) -> GateResult:
+        curing = ctx.get("curing") or {}
+        release = curing.get("release") or ctx.get("release") or {}
+        activity = release.get("activity") or curing.get("release_activity") or "unspecified"
+        age_days = _num(release.get("age_days") or curing.get("age_days"))
+        min_days = _num(release.get("min_days"), float(CURING_LIFECYCLE["min_days_before_release"])) or float(
+            CURING_LIFECYCLE["min_days_before_release"]
+        )
+        strength = _num(release.get("strength_psi") or curing.get("strength_estimate_psi"))
+        min_psi = _num(release.get("min_release_psi"), float(CURING_LIFECYCLE["min_release_psi"])) or float(
+            CURING_LIFECYCLE["min_release_psi"]
+        )
+
+        issues: list[str] = []
+        if age_days is None or age_days < min_days:
+            issues.append(f"age {age_days} d < {min_days} d for {activity}")
+        if strength is None or strength < min_psi:
+            issues.append(f"strength {strength} < {min_psi} psi for {activity}")
+        # Still enforce curing band
+        band = self.daily_check(ctx)
+        if band.status == "HOLD":
+            issues.append(band.detail)
+
+        if issues:
+            return GateResult(
+                self.name,
+                "HOLD",
+                f"Release HOLD for {activity}: " + "; ".join(issues),
+                {"release": release, "activity": activity},
+            )
+        return GateResult(
+            self.name,
+            "PASS",
+            f"Release GO for {activity} age={age_days}d strength={strength} psi",
+            {"release": release, "activity": activity},
         )

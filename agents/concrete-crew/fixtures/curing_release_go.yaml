@@ -1,0 +1,18 @@
+pour_id: DECK-L5-A
+finish_accepted: true
+curing:
+  started: true
+  temperature_f: 70
+  moisture: 0.92
+  protection_ok: true
+  age_days: 7
+  strength_estimate_psi: 4200
+  release:
+    activity: strip
+    age_days: 7
+    strength_psi: 4200
+    min_days: 3
+    min_release_psi: 3000
+site_conditions:
+  wind_speed: 5
+  evaporation_rate: 0.08

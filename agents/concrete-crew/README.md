@@ -1,77 +1,19 @@
-# ConcreteOps™ Crew Swarm
+# ConcreteOps Crew Swarm (reference twin)
 
-Multi-agent swarm for **perfect, repeatable concrete crew workflows**.
+> **Primary runtime is Microsoft Copilot Studio.**  
+> See [`../../copilot-studio/concrete-crew/`](../../copilot-studio/concrete-crew/) and [`STUDIO-WORK-ENVIRONMENT.md`](../../copilot-studio/concrete-crew/STUDIO-WORK-ENVIRONMENT.md).
 
-## Agents
+This folder keeps:
 
-| Agent | Role |
-| --- | --- |
-| `root` | Coordinator — routes named workflows, returns GO / HOLD / ABORT |
-| `pour-lead` | Pour lifecycle + placement plan |
-| `crew-ops` | Manning, fatigue, briefing script |
-| `qc-inspector` | Pre / during / post QC gates |
-| `weather-gate` | Weather holds + hot/cold/rain/wind protocols |
-| `safety-failsafe` | Stop-work authority (FAIL → ABORT) |
-| `materials-mix` | Mix ticket + delivery cadence |
-| `pt-stress` | Post-tension strength gate, stressing sequence, elongation, cert |
-| `tilt-up` | Panel cast, cure-to-lift, erect day, brace & release |
-| `sog` | Slab-on-grade subgrade, vapor barrier, FF/FL |
-| `shotcrete` | Shotcrete pre-shoot + rebound/layer control |
-| `cip-wall` | CIP wall forms, lift rate, form pressure |
+- Docker Agent `agent.yaml` (optional local multi-agent reference)
+- Markdown playbooks + fixtures shared with Studio knowledge
+- Inputs for the deterministic Python twin (`modules/agent_swarm`)
 
-## Named workflows
-
-| Command | Workflow id | Purpose |
-| --- | --- | --- |
-| `/pre-pour` | `pre-pour-gate` | Mix → weather → QC → crew → failsafe → pour lead |
-| `/pour-day` | `pour-day-runbook` | Placement execution with watches |
-| `/mid-pour` | `mid-pour-monitor` | Fast health check while pouring |
-| `/closeout` | `post-pour-closeout` | Closeout packet + curing owner |
-| `/briefing` | `crew-briefing` | Six-item morning briefing |
-| `/hold-abort` | `hold-abort` | Standard HOLD/ABORT escalation |
-| `/pt-pre-stress` | `pt-pre-stress-gate` | Strength + tendon inventory before jacks |
-| `/pt-stress` | `pt-stress-sequence` | Stressing order, elongation, inspection/cert |
-| `/tilt-cast` | `tilt-up-cast-gate` | Panel bed cast readiness (embeds/plates) |
-| `/tilt-lift` | `tilt-up-lift-day` | Erect day — wind, crane, braces before release |
-| `/tilt-brace` | `tilt-up-brace-release` | Temporary brace removal gate |
-| `/sog-pre-pour` | `sog-pre-pour-gate` | Subgrade, vapor barrier, joints |
-| `/sog-finish` | `sog-finish-fffl` | FF/FL + saw-cut plan |
-| `/shot-pre` | `shotcrete-pre-shoot-gate` | Substrate, cover, nozzle crew |
-| `/shot-place` | `shotcrete-placement` | Rebound / layer thickness |
-| `/cip-pre-pour` | `cip-wall-pre-pour-gate` | Forms, ties, waterstops, rate plan |
-| `/cip-pour` | `cip-wall-pour` | Lift height + form pressure |
-
-Playbooks live in `workflows/`. Specialist prompts live in `instructions/`.
-
-## Run with Docker Agent
-
-```bash
-docker agent debug config ./agents/concrete-crew/agent.yaml
-docker agent debug toolsets ./agents/concrete-crew/agent.yaml
-docker agent doctor ./agents/concrete-crew/agent.yaml
-docker agent run ./agents/concrete-crew/agent.yaml
-# then invoke a named command, e.g. /pre-pour
-```
-
-Provider keys come from the environment (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`) or `docker agent setup`. Local fallback uses Docker Model Runner (`dmr`).
-
-## Run deterministically (no LLM)
-
-The same gate order ships as a Python swarm for CI and field sim:
+## Deterministic twin (Studio tool backend)
 
 ```bash
 python -m modules.agent_swarm.cli list
-python -m modules.agent_swarm.cli demo
-python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixtures/pre_pour_go.yaml
-python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixtures/pre_pour_weather_hold.yaml
-python -m modules.agent_swarm.cli run pour-day-runbook -c agents/concrete-crew/fixtures/failsafe_abort.yaml
-python -m modules.agent_swarm.cli run pt-pre-stress-gate -c agents/concrete-crew/fixtures/pt_pre_stress_go.yaml
-python -m modules.agent_swarm.cli run pt-stress-sequence -c agents/concrete-crew/fixtures/pt_elongation_hold.yaml
-python -m modules.agent_swarm.cli run tilt-up-cast-gate -c agents/concrete-crew/fixtures/tilt_cast_go.yaml
-python -m modules.agent_swarm.cli run tilt-up-lift-day -c agents/concrete-crew/fixtures/tilt_lift_wind_hold.yaml
-python -m modules.agent_swarm.cli run sog-pre-pour-gate -c agents/concrete-crew/fixtures/sog_pre_pour_go.yaml
-python -m modules.agent_swarm.cli run shotcrete-placement -c agents/concrete-crew/fixtures/shotcrete_rebound_hold.yaml
-python -m modules.agent_swarm.cli run cip-wall-pour -c agents/concrete-crew/fixtures/cip_wall_pressure_abort.yaml
+python -m modules.agent_swarm.api --port 8080
 ```
 
-Exit code `0` = GO, `2` = HOLD/ABORT.
+Copilot Studio / Power Automate should `POST /v1/workflows/{id}/run` with pour context JSON.

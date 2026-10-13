@@ -8,6 +8,10 @@ from modules.agent_swarm.agents import (
     CIP_WALL_CREW_ROLES,
     CIPWallAgent,
     CrewOpsAgent,
+    CuringLifecycleAgent,
+    DECK_CREW_ROLES,
+    ElevatedDeckAgent,
+    MassThermalAgent,
     MaterialsMixAgent,
     PourLeadAgent,
     PT_CREW_ROLES,
@@ -16,6 +20,7 @@ from modules.agent_swarm.agents import (
     SHOTCRETE_CREW_ROLES,
     SOG_CREW_ROLES,
     SOGAgent,
+    STRIP_CREW_ROLES,
     SafetyFailsafeAgent,
     ShotcreteAgent,
     TILT_CREW_ROLES,
@@ -42,6 +47,13 @@ WORKFLOW_IDS = (
     "shotcrete-placement",
     "cip-wall-pre-pour-gate",
     "cip-wall-pour",
+    "elevated-deck-pre-pour-gate",
+    "elevated-deck-pour",
+    "strip-reshore-gate",
+    "mass-pour-thermal-gate",
+    "mass-pour-monitor",
+    "curing-lifecycle-check",
+    "curing-strength-release",
 )
 
 
@@ -85,6 +97,9 @@ class WorkflowRunner:
         self.sog = SOGAgent()
         self.shotcrete = ShotcreteAgent()
         self.cip_wall = CIPWallAgent()
+        self.deck = ElevatedDeckAgent()
+        self.mass = MassThermalAgent()
+        self.curing = CuringLifecycleAgent()
 
     def pre_pour_gate(self, ctx: dict[str, Any]) -> SwarmResult:
         gates = [
@@ -515,6 +530,142 @@ class WorkflowRunner:
         }[decision]
         return SwarmResult("cip-wall-pour", ctx.get("pour_id", "UNKNOWN"), decision, summary, gates, _actions(decision, gates))
 
+    def elevated_deck_pre_pour_gate(self, ctx: dict[str, Any]) -> SwarmResult:
+        gates = [
+            self.deck.pre_pour_gate(ctx),
+            self.qc.evaluate(ctx, phase="pre"),
+            self.materials.evaluate(ctx) if ctx.get("mix") else GateResult("materials-mix", "HOLD", "Mix ticket missing", {}),
+            self.crew.evaluate(ctx, require_briefing=True, required_roles=DECK_CREW_ROLES),
+            self.weather.evaluate(ctx),
+            self.safety.evaluate(ctx),
+        ]
+        gates.append(self.pour_lead.assemble(ctx, gates, "elevated-deck-pre-pour-gate"))
+        decision = _decide(gates)
+        summary = {
+            "GO": "Elevated deck pre-pour clear.",
+            "HOLD": "Elevated deck holding — shores/forms/strips.",
+            "ABORT": "Elevated deck aborted — load-path/fail-safe.",
+        }[decision]
+        return SwarmResult("elevated-deck-pre-pour-gate", ctx.get("pour_id", "UNKNOWN"), decision, summary, gates, _actions(decision, gates))
+
+    def elevated_deck_pour(self, ctx: dict[str, Any]) -> SwarmResult:
+        if not ctx.get("elevated_pre_pour_go"):
+            pre = self.elevated_deck_pre_pour_gate(ctx)
+            if pre.decision != "GO":
+                pre.workflow = "elevated-deck-pour"
+                pre.summary = "Elevated pour blocked — pre-pour gate is not GO."
+                return pre
+        gates = [
+            self.deck.pour_monitor(ctx),
+            self.qc.evaluate(ctx, phase="during") if ctx.get("telemetry") else GateResult("qc-inspector", "PASS", "Elevated pour QC active", {}),
+            self.crew.evaluate(ctx, require_briefing=False, required_roles=DECK_CREW_ROLES),
+            self.weather.evaluate(ctx),
+            self.safety.evaluate(ctx),
+        ]
+        gates.append(self.pour_lead.assemble(ctx, gates, "elevated-deck-pour"))
+        decision = _decide(gates)
+        summary = {
+            "GO": "Elevated deck pour clear.",
+            "HOLD": "Elevated pour holding.",
+            "ABORT": "Elevated pour aborted.",
+        }[decision]
+        return SwarmResult("elevated-deck-pour", ctx.get("pour_id", "UNKNOWN"), decision, summary, gates, _actions(decision, gates))
+
+    def strip_reshore_gate(self, ctx: dict[str, Any]) -> SwarmResult:
+        deck_gate = self.deck.strip_reshore(ctx)
+        gates = [
+            deck_gate,
+            self.curing.strength_release(ctx) if (ctx.get("curing") or ctx.get("release")) else GateResult("curing-lifecycle", "HOLD", "No curing release evidence", {}),
+            self.qc.evaluate(ctx, phase="post") if ctx.get("finish_accepted") or (ctx.get("curing") or {}).get("started") else GateResult("qc-inspector", "PASS", "Strip QC packet reviewed", {}),
+            self.crew.evaluate(ctx, require_briefing=True, required_roles=STRIP_CREW_ROLES),
+            self.safety.evaluate(ctx),
+        ]
+        if deck_gate.status == "FAIL":
+            gates.append(GateResult("safety-failsafe", "FAIL", deck_gate.detail, deck_gate.evidence))
+        gates.append(self.pour_lead.assemble(ctx, gates, "strip-reshore-gate"))
+        decision = _decide(gates)
+        if deck_gate.status == "FAIL":
+            decision = "ABORT"
+        summary = {
+            "GO": "Strip/reshore clear — proceed per plan.",
+            "HOLD": "Strip/reshore holding — strength/levels/plan.",
+            "ABORT": "Strip aborted — load-path/fail-safe.",
+        }[decision]
+        return SwarmResult("strip-reshore-gate", ctx.get("pour_id", "UNKNOWN"), decision, summary, gates, _actions(decision, gates))
+
+    def mass_pour_thermal_gate(self, ctx: dict[str, Any]) -> SwarmResult:
+        gates = [
+            self.mass.pre_pour_gate(ctx),
+            self.materials.evaluate(ctx) if ctx.get("mix") else GateResult("materials-mix", "HOLD", "Mass pour mix missing", {}),
+            self.qc.evaluate(ctx, phase="pre"),
+            self.crew.evaluate(ctx, require_briefing=True, required_roles=DECK_CREW_ROLES),
+            self.weather.evaluate(ctx),
+            self.safety.evaluate(ctx),
+        ]
+        gates.append(self.pour_lead.assemble(ctx, gates, "mass-pour-thermal-gate"))
+        decision = _decide(gates)
+        summary = {
+            "GO": "Mass thermal gate clear.",
+            "HOLD": "Mass thermal holding — pre-cool/sensors/insulation.",
+            "ABORT": "Mass thermal aborted.",
+        }[decision]
+        return SwarmResult("mass-pour-thermal-gate", ctx.get("pour_id", "UNKNOWN"), decision, summary, gates, _actions(decision, gates))
+
+    def mass_pour_monitor(self, ctx: dict[str, Any]) -> SwarmResult:
+        mass_gate = self.mass.monitor(ctx)
+        gates = [
+            mass_gate,
+            self.curing.daily_check(ctx) if ctx.get("curing") else GateResult("curing-lifecycle", "ADVISORY", "No curing telemetry yet", {}),
+            self.qc.evaluate(ctx, phase="during") if ctx.get("telemetry") else GateResult("qc-inspector", "PASS", "Thermal QC witnessing", {}),
+            self.weather.evaluate(ctx) if ctx.get("weather") else GateResult("weather-gate", "ADVISORY", "No live weather", {}),
+            self.safety.evaluate(ctx),
+        ]
+        if mass_gate.status == "FAIL":
+            gates.append(GateResult("safety-failsafe", "FAIL", mass_gate.detail, mass_gate.evidence))
+        gates.append(self.pour_lead.assemble(ctx, gates, "mass-pour-monitor"))
+        decision = _decide(gates)
+        if mass_gate.status == "FAIL":
+            decision = "ABORT"
+        summary = {
+            "GO": "Mass pour thermal clear.",
+            "HOLD": "Mass thermal holding — reinforce protection.",
+            "ABORT": "Mass thermal aborted — uncontrolled ΔT/core.",
+        }[decision]
+        return SwarmResult("mass-pour-monitor", ctx.get("pour_id", "UNKNOWN"), decision, summary, gates, _actions(decision, gates))
+
+    def curing_lifecycle_check(self, ctx: dict[str, Any]) -> SwarmResult:
+        gates = [
+            self.curing.daily_check(ctx),
+            self.weather.evaluate(ctx) if ctx.get("weather") else GateResult("weather-gate", "ADVISORY", "No look-ahead weather", {}),
+            self.qc.evaluate(ctx, phase="post") if ctx.get("finish_accepted") else GateResult("qc-inspector", "PASS", "Curing QC sampling", {}),
+            self.safety.evaluate(ctx),
+        ]
+        gates.append(self.pour_lead.assemble(ctx, gates, "curing-lifecycle-check"))
+        decision = _decide(gates)
+        summary = {
+            "GO": "Curing lifecycle OK.",
+            "HOLD": "Curing holding — adjust protection.",
+            "ABORT": "Curing aborted by fail-safe.",
+        }[decision]
+        return SwarmResult("curing-lifecycle-check", ctx.get("pour_id", "UNKNOWN"), decision, summary, gates, _actions(decision, gates))
+
+    def curing_strength_release(self, ctx: dict[str, Any]) -> SwarmResult:
+        gates = [
+            self.curing.strength_release(ctx),
+            self.qc.evaluate(ctx, phase="post") if ctx.get("finish_accepted") or (ctx.get("curing") or {}).get("started") else GateResult("qc-inspector", "PASS", "Cylinder/maturity accepted", {}),
+            self.safety.evaluate(ctx),
+        ]
+        if (ctx.get("deck") or {}).get("strip") or ctx.get("strip"):
+            gates.insert(1, self.deck.strip_reshore(ctx))
+        gates.append(self.pour_lead.assemble(ctx, gates, "curing-strength-release"))
+        decision = _decide(gates)
+        summary = {
+            "GO": "Strength release GO for named activity.",
+            "HOLD": "Strength release holding — age/psi/band.",
+            "ABORT": "Strength release aborted.",
+        }[decision]
+        return SwarmResult("curing-strength-release", ctx.get("pour_id", "UNKNOWN"), decision, summary, gates, _actions(decision, gates))
+
 
 RunnerFn = Callable[[dict[str, Any]], SwarmResult]
 
@@ -539,4 +690,11 @@ def get_workflow_handlers(runner: WorkflowRunner | None = None) -> dict[str, Run
         "shotcrete-placement": r.shotcrete_placement,
         "cip-wall-pre-pour-gate": r.cip_wall_pre_pour_gate,
         "cip-wall-pour": r.cip_wall_pour,
+        "elevated-deck-pre-pour-gate": r.elevated_deck_pre_pour_gate,
+        "elevated-deck-pour": r.elevated_deck_pour,
+        "strip-reshore-gate": r.strip_reshore_gate,
+        "mass-pour-thermal-gate": r.mass_pour_thermal_gate,
+        "mass-pour-monitor": r.mass_pour_monitor,
+        "curing-lifecycle-check": r.curing_lifecycle_check,
+        "curing-strength-release": r.curing_strength_release,
     }

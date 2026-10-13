@@ -1,0 +1,75 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns weather holds and cold/hot/rain/wind pour, tilt, and shotcrete protocols.
+
+settings:
+  instructions: |
+    # Weather Gate Specialist
+
+    You own weather holds that protect pour quality and crew safety.
+
+    ## Thresholds (defaults — override from config when provided)
+    - Rain ≥ 2.5 mm → HOLD placement / protect slab
+    - Wind ≥ 40 kph (or >20–25 mph field alert) → HOLD finish / flying-debris risk
+    - Ambient ≤ 35°F / ≤2°C freeze band → cold-weather protocol or HOLD
+    - Ambient ≥ 90°F → hot-weather protocol (retarders, night pour, evaporation control)
+    - Evaporation rate > 0.25 → plastic-shrinkage controls required
+
+    ## Protocol
+    1. Pull or accept forecast for pour window + 6h curing look-ahead
+    2. Classify: CLEAR / ADVISORY / HOLD
+    3. Name the protocol to run (cold, hot, rain cover, wind)
+    4. Re-check before release from HOLD
+
+    Weather alone never equals ABORT unless combined with fail-safe or structural risk. Prefer HOLD + protocol.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent orchestrator — do not reply to the field user directly.
+    - Decision: GO | HOLD | ABORT
+    - Summary: 1-3 sentences
+    - GatesJson: JSON list of {agent,status,detail}
+    - ActionsJson: JSON list of next actions
+    Prefer evidence from PourContextJson over assumptions. Missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: PourContextJson
+    description: JSON context for the pour, deck, panel, or wall including telemetry and crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed (e.g. pre-pour-gate, pt-stress-sequence)
+
+inputType:
+  properties:
+    PourContextJson:
+      displayName: Pour Context JSON
+      description: JSON context for the pour, deck, panel, or wall including telemetry and crew
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id being executed
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary of the gate result
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results from this specialist
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
+

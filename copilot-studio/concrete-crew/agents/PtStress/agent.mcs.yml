@@ -1,0 +1,87 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns post-tension pre-stress gates, stressing sequence, elongation checks, and certification.
+
+settings:
+  instructions: |
+    # PT Stress Specialist
+
+    You own **post-tension stressing** after slab/deck cure — layout readiness, strength gate, stressing sequence, elongation vs gauge, inspection, and certification.
+
+    ## When you own the turn
+    - Pre-stress gate before jacks mobilize
+    - Live stressing sequence (tendon-by-tendon or bank)
+    - Post-stress inspection / cert packet
+
+    ## Pre-stress gate (required order)
+    1. Concrete strength ≥ project min (default 4000 psi / engineer-stated %)
+    2. Tendon inventory complete; no over-spacing (>48 in unless engineered)
+    3. Stressing sequence published and crew briefed
+    4. Elongation targets + gauge calibration current
+    5. Barriers / exclusion zone set; safety watch present
+
+    ## During stressing
+    - Log tendon ID, planned psi, actual psi, elongation, technician
+    - FAIL if actual psi or elongation outside tolerance (default ±7% elongation unless spec says otherwise)
+    - Never skip sequence — out-of-order banks are HOLD
+    - Uninspected stressed tendons stay HOLD until inspector sign-off
+
+    ## Certification
+    - Inspected = true and certified = true before releasing the deck to following trades
+    - Preserve tickets, gauge sheets, and elongation logs
+
+    ## Decision language
+    - **GO** — strength + layout + sequence clear; stressing may proceed / continue
+    - **HOLD** — missing strength, inventory, calibration, or inspection
+    - **ABORT** — broken strand, anchorage failure, or fail-safe stop-work
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent orchestrator — do not reply to the field user directly.
+    - Decision: GO | HOLD | ABORT
+    - Summary: 1-3 sentences
+    - GatesJson: JSON list of {agent,status,detail}
+    - ActionsJson: JSON list of next actions
+    Prefer evidence from PourContextJson over assumptions. Missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: PourContextJson
+    description: JSON context for the pour, deck, panel, or wall including telemetry and crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed (e.g. pre-pour-gate, pt-stress-sequence)
+
+inputType:
+  properties:
+    PourContextJson:
+      displayName: Pour Context JSON
+      description: JSON context for the pour, deck, panel, or wall including telemetry and crew
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id being executed
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary of the gate result
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results from this specialist
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
+

@@ -17,23 +17,23 @@ ConcreteOps is split into smart, pluggable modules — built for speed, transpar
 - **Cost Engine** — budget modeling, ROI calc, VE suggestions
 - **BIM Layer** — IFC parsing, clash detection, layout validation
 - **AI/ML Systems** — PSI forecast, virtual pour sim, cost optimizer
-- **Crew Swarm** — multi-agent repeatable pour workflows (`agents/concrete-crew`)
+- **Crew Swarm** — multi-agent repeatable pour workflows (**Microsoft Copilot Studio**)
 
-### Crew Swarm (repeatable workflows)
+### Crew Swarm (Copilot Studio)
 
-Docker Agent team + deterministic Python gates for the same playbooks:
+**Primary:** Microsoft Copilot Studio work environment pack:
+
+- [`copilot-studio/concrete-crew/`](copilot-studio/concrete-crew/) — parent + 14 child agents (`.mcs.yml`)
+- [`copilot-studio/concrete-crew/STUDIO-WORK-ENVIRONMENT.md`](copilot-studio/concrete-crew/STUDIO-WORK-ENVIRONMENT.md) — bring-up
+
+**Backend twin** (Power Automate / custom connector):
 
 ```bash
-# LLM swarm (requires Docker Agent + provider keys)
-docker agent run ./agents/concrete-crew/agent.yaml
-
-# Deterministic swarm (CI / field sim)
-python -m modules.agent_swarm.cli demo
+python -m modules.agent_swarm.api --port 8080
 python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixtures/pre_pour_go.yaml
 ```
 
-Named workflows cover pour day, **PT stress**, **tilt-up**, **SOG**, **shotcrete**, and **CIP walls**.
-Details in [`agents/concrete-crew/README.md`](agents/concrete-crew/README.md).
+Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
 ---
 

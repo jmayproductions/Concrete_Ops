@@ -89,3 +89,18 @@ CIP_WALL_LIMITS = {
     "max_form_pressure_psf": 1200.0,
     "min_vibrate_interval_ft": 2.0,
 }
+ELEVATED_DECK_LIMITS = {
+    "min_reshore_levels": 2,
+    "min_strip_strength_psi": 0.75,  # fraction of design f'c when absolute not given
+    "min_strip_psi": 3000,
+}
+MASS_POUR_LIMITS = {
+    "max_core_temp_f": 160.0,
+    "max_delta_t_f": 35.0,  # mirrors THERMAL_LIMITS
+    "precool_required_above_cy": 500,
+}
+CURING_LIFECYCLE = {
+    "min_days_before_release": 3,
+    "min_release_psi": 3000,
+    "min_moisture": 0.85,
+}

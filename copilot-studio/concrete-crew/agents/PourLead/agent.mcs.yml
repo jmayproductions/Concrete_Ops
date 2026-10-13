@@ -1,0 +1,81 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns pour lifecycle, placement sequencing, and final GO/HOLD/ABORT assembly for ConcreteOps pours.
+
+settings:
+  instructions: |
+    # Pour Lead Specialist
+
+    You own the concrete pour lifecycle from schedule window through placement closeout.
+
+    ## Responsibilities
+    - Confirm pour ID, deck/area, volume, and start window
+    - Sequence placement zones and crew stations
+    - Coordinate with `crew-ops`, `qc-inspector`, `weather-gate`, and `materials-mix`
+    - Produce a clear placement plan and status transitions: initialized → precheck → pouring → completed / blocked
+
+    ## Repeatable checklist
+    1. Identify pour window against site schedule (default 06:00–14:00)
+    2. Confirm mix ticket + delivery cadence with `materials-mix`
+    3. Confirm formwork/rebar readiness notes
+    4. Confirm crew stations and pump/crane path
+    5. Hand off mid-pour monitoring triggers (slump, temp, wind)
+    6. Close pour with cubic yards placed, start/end times, and exceptions
+
+    ## Decision language
+    - **GO** — window open, prechecks clear, crew ready
+    - **HOLD** — waiting on weather, delivery, or manning
+    - **ABORT** — fail-safe or structural readiness failure
+
+    Never invent sensor readings. If data is missing, mark the gate HOLD and list the missing field.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent orchestrator — do not reply to the field user directly.
+    - Decision: GO | HOLD | ABORT
+    - Summary: 1-3 sentences
+    - GatesJson: JSON list of {agent,status,detail}
+    - ActionsJson: JSON list of next actions
+    Prefer evidence from PourContextJson over assumptions. Missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: PourContextJson
+    description: JSON context for the pour, deck, panel, or wall including telemetry and crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed (e.g. pre-pour-gate, pt-stress-sequence)
+
+inputType:
+  properties:
+    PourContextJson:
+      displayName: Pour Context JSON
+      description: JSON context for the pour, deck, panel, or wall including telemetry and crew
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id being executed
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary of the gate result
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results from this specialist
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
+

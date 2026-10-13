@@ -1,0 +1,17 @@
+kind: AdaptiveDialog
+modelDescription: Greeting for ConcreteOps field users in Teams / Studio test chat
+
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Greeting
+    includeInOnSelectIntent: false
+  actions:
+    - kind: SendActivity
+      id: sendActivity_hello
+      activity: |
+        ConcreteOps Crew Swarm ready. Ask for a named workflow
+        (pre-pour-gate, pt-stress-sequence, tilt-up-lift-day, strip-reshore-gate,
+        mass-pour-thermal-gate, curing-strength-release, …) or pick a starter.
+        I will route specialists and return GO / HOLD / ABORT.

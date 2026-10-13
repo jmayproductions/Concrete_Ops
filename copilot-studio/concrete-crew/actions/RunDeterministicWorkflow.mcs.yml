@@ -1,0 +1,26 @@
+# Tool stub for Copilot Studio generative orchestration.
+# Wire this in the Studio work environment to a Power Automate flow or custom
+# connector that POSTs to the ConcreteOps deterministic swarm:
+#   POST /v1/workflows/{workflowId}/run
+#   body: { "context": { ... PourContextJson parsed ... } }
+# See ../STUDIO-WORK-ENVIRONMENT.md for connector setup.
+kind: TaskDialog
+
+modelDisplayName: RunDeterministicWorkflow
+modelDescription: >
+  Call the ConcreteOps deterministic Python swarm to execute a named workflow
+  (pre-pour-gate, pt-stress-sequence, strip-reshore-gate, etc.) and return the
+  same GO/HOLD/ABORT packet used in CI. Use when the user asks for the
+  deterministic twin, replay fixtures, or when generative confidence is low.
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id such as pre-pour-gate or strip-reshore-gate
+  - kind: AutomaticTaskInput
+    propertyName: PourContextJson
+    description: JSON string of pour/deck/panel context for the gate engines
+
+# After import into Copilot Studio, replace/bind this dialog to your
+# Power Automate HTTP action or custom connector operation named
+# RunDeterministicWorkflow. Keep the input property names identical.
