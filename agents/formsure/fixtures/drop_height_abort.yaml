@@ -1,0 +1,13 @@
+zone_id: DEMO-WALL-B2
+form:
+  system_type: plywood
+  design_approved: true
+mix:
+  type: normal
+drop:
+  free_fall_m: 1.8
+  chute_or_tremie: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

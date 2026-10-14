@@ -1,0 +1,69 @@
+zone_id: DEMO-WALL-B2
+element_id: Wall-B2
+form:
+  system_type: modular
+  design_approved: true
+alignment:
+  checked: true
+  plumb_ok: true
+  level_ok: true
+  square_ok: true
+release:
+  required: true
+  applied: true
+  coverage_ok: true
+ties:
+  spacing_ok: true
+  tension_ok: true
+  loose_or_missing: false
+bracing:
+  installed: true
+  torque_ok: true
+  incomplete: false
+leak:
+  seams_sealed: true
+  bleedout_path: false
+mix:
+  type: normal
+drop:
+  free_fall_m: 0.9
+  chute_or_tremie: false
+pressure:
+  pour_rate_m_per_hr: 1.5
+  design_rate_m_per_hr: 2.0
+  within_design: true
+  blowout_risk: false
+shores:
+  plumb_locked: true
+  bearing_ok: true
+  unstable: false
+strip:
+  required: false
+  strength_proof: true
+  strength_pct: 85
+  min_strength_pct: 70
+  reshore_required: false
+  reshore_ready: true
+load_transfer:
+  deflection_ok: true
+  sagging: false
+  reshore_missing: false
+panels:
+  damaged: false
+crew:
+  roles:
+    - form_lead
+    - carpenter_foreman
+    - form_setter
+    - pour_boss
+    - shore_tech
+    - qc_tech
+    - safety_watch
+  headcount: 10
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+  install_hold_points_clear: true
+  strip_docs_clear: true
+safety:
+  violations: []

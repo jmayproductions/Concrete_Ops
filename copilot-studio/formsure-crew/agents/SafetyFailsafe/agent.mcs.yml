@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Stop-work for blowout, collapse, premature strip.
+
+settings:
+  instructions: |
+    # SafetyFailsafe Specialist
+
+    You have stop-work authority. FAIL => swarm **ABORT**.
+
+    ## Fail conditions
+    - Blowout / form collapse in progress or imminent
+    - Pour continuing after loose ties / missing braces flagged critical
+    - Free-fall or pressure rate grossly exceeded with segregation/blowout risk
+    - Premature strip under load without strength proof
+    - Unstable shores with workers at risk
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer FormContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: FormContextJson
+    description: JSON context for formwork erect pour strip
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    FormContextJson:
+      displayName: Form Context JSON
+      description: JSON context for FormSure formwork
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
