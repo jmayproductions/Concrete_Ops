@@ -1,23 +1,13 @@
-# ConcreteOps Crew Swarm (Copilot Studio)
+# ConcreteOps Crew Swarm — Copilot Studio drop-in
 
-**Primary runtime:** Microsoft Copilot Studio work environment.
+**Open [`START_HERE.md`](START_HERE.md) first.**
 
-| Artifact | Role |
-| --- | --- |
-| `agent.mcs.yml` | Parent orchestrator |
-| `settings.mcs.yml` | Generative orchestration enabled |
-| `agents/*/agent.mcs.yml` | 14 child specialists (`AgentDialog`) |
-| `knowledge/` | SOP + gate-order playbooks (attach after push) |
-| `actions/RunDeterministicWorkflow.mcs.yml` | Hook for Python swarm twin |
-| `STUDIO-WORK-ENVIRONMENT.md` | Step-by-step bring-up |
+Ready-to-open Microsoft Copilot Studio agent workspace for VS Code.
 
-## Quick start
+- Parent: `agent.mcs.yml` (`GptComponentMetadata`)
+- Settings: generative orchestration ON
+- 14 child agents under `agents/`
+- Knowledge playbooks in `knowledge/files/`
+- Sample contexts in `samples/`
 
-1. Open this folder in VS Code with the Copilot Studio extension.
-2. Push parent, then child agents, then knowledge (see work-environment guide).
-3. Optional backend: `python -m modules.agent_swarm.api`
-
-## Related
-
-- Deterministic twin: `modules/agent_swarm/`
-- Legacy Docker Agent reference: `agents/concrete-crew/agent.yaml`
+Zip (same contents): `dist/ConcreteOps-CrewSwarm-CopilotStudio-DropIn.zip`

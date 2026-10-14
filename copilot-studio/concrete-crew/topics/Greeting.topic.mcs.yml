@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - ConcreteOps Crew Swarm ready. Ask for a named workflow (pre-pour-gate, pt-stress-sequence, tilt-up-lift-day, strip-reshore-gate, mass-pour-thermal-gate, curing-strength-release) or pick a starter. I will route specialists and return GO / HOLD / ABORT.
+          - Hi — ConcreteOps swarm online. Tell me the pour/deck context and which gate to run.

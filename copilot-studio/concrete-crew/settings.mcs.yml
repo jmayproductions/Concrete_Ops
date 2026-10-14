@@ -1,8 +1,12 @@
-# Copilot Studio agent settings — ConcreteOps Crew Swarm
-GenerativeActionsEnabled: true
-authenticationMode: Integrated
-authenticationTrigger: AsNeeded
+displayName: ConcreteOps Crew Swarm
+schemaName: concreteops_crewSwarm
 accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
 configuration:
-  aISettings:
-    useModelKnowledge: false
+  settings:
+    GenerativeActionsEnabled: true
+
+  recognizer:
+    kind: GenerativeAIRecognizer
+
+language: 1033
