@@ -1,0 +1,67 @@
+zone_id: DEMO-SI-PROGRAM
+hold_point: PROG-001
+sossi:
+  approved: true
+  frequency_matrix: true
+agency:
+  approved: true
+  certs_current: true
+schedule:
+  hold_points_staffed: true
+  notice_ok: true
+  unstaffed: []
+  critical_skipped: false
+soils_si:
+  required: true
+  inspector_present: true
+  accepted: true
+concrete_si:
+  required: true
+  inspector_present: true
+  rebar_signed: true
+steel_si:
+  required: true
+  inspector_present: true
+  bolting_welding_ok: true
+masonry_si:
+  required: true
+  inspector_present: true
+  pregrout_signed: true
+fire_si:
+  required: true
+  inspector_present: true
+  thickness_ok: true
+ndt:
+  required: true
+  complete: true
+  open_indications: []
+release:
+  signed: true
+  covering_without_si: false
+  open_critical_ncrs: []
+ncr:
+  open: []
+  dispositioned: true
+  rework_verified: true
+final:
+  compiled: true
+  agency_signed: true
+  outstanding: []
+crew:
+  roles:
+    - si_lead
+    - gc_coordinator
+    - soils_inspector
+    - concrete_inspector
+    - steel_inspector
+    - document_ctrl
+    - safety_watch
+  headcount: 9
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+  install_hold_points_clear: true
+access:
+  denied_unsafe: false
+safety:
+  violations: []

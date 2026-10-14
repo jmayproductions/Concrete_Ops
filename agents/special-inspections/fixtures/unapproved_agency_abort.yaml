@@ -1,0 +1,17 @@
+zone_id: DEMO-SI-PROGRAM
+sossi:
+  approved: true
+  frequency_matrix: true
+agency:
+  approved: false
+  certs_current: false
+schedule:
+  hold_points_staffed: true
+  notice_ok: true
+crew:
+  roles: [si_lead, gc_coordinator, soils_inspector, concrete_inspector, steel_inspector, document_ctrl, safety_watch]
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []

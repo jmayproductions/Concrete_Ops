@@ -1,0 +1,16 @@
+zone_id: DEMO-DECK-L4
+concrete_si:
+  required: true
+  inspector_present: false
+  rebar_signed: false
+agency:
+  approved: true
+  certs_current: true
+release:
+  signed: false
+  covering_without_si: false
+  open_critical_ncrs: []
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

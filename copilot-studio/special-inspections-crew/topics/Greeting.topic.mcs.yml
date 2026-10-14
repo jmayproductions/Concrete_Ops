@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Special Inspections Swarm ready. Ask for pre-si-program-gate, daily-si-dispatch, concrete-pour-si-gate, cover-before-si-gate, ncr-disposition-gate, or another named workflow. I return GO / HOLD / ABORT.
+          - SI online — share hold-point / trade context and the gate to run.

@@ -1,0 +1,10 @@
+displayName: Special Inspections Swarm
+schemaName: special_inspections_swarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+  recognizer:
+    kind: GenerativeAIRecognizer
+language: 1033

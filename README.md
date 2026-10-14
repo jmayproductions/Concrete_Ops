@@ -35,6 +35,19 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Special Inspections Swarm (Copilot Studio)
+
+Same pattern — cross-cutting GO/HOLD/ABORT for SI hold-point coordination:
+
+- [`copilot-studio/special-inspections-crew/`](copilot-studio/special-inspections-crew/) — parent + specialists; open `START_HERE.md`
+- Drop-in zip: [`packages/SpecialInspections-Swarm-CopilotStudio-DropIn.zip`](packages/SpecialInspections-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.special_inspections_swarm.api --port 8093
+python -m modules.special_inspections_swarm.cli run pre-si-program-gate -c agents/special-inspections/fixtures/pre_si_go.yaml
+```
+
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

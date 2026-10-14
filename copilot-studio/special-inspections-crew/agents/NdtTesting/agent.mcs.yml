@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns UT/MT/PT/RT and other NDT releases.
+
+settings:
+  instructions: |
+    # NdtTesting Specialist
+
+    You own nondestructive testing gates.
+
+    ## Checks
+    - Required NDT procedures/techs qualified
+    - Indications dispositioned before cover
+    - Reports tied to weld/bolt IDs
+
+    HOLD paint/cover over open NDT.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer SiContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: SiContextJson
+    description: JSON context for special inspections hold points NCR cover
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    SiContextJson:
+      displayName: SI Context JSON
+      description: JSON context for special inspections
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

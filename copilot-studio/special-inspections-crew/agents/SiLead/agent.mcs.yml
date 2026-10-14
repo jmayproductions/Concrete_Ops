@@ -1,0 +1,65 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns SI program sequence and final GO/HOLD/ABORT.
+
+settings:
+  instructions: |
+    # SiLead Specialist
+
+    You own **special inspections (SI)** coordination across trades and assemble GO/HOLD/ABORT.
+
+    ## Sequence pattern
+    1. Statement of Special Inspections (SOSSI) approved; agency hired
+    2. ITP / hold-point schedule aligned to pours, steel, soils, etc.
+    3. Credentials verified; inspectors dispatched before work
+    4. Trade SI performed; NCRs logged; no cover without release
+    5. NDT / lab results dispositioned
+    6. Final SI report package for AHJ / closeout
+
+    Do not invent code editions, inspector IDs, or test results.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer SiContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: SiContextJson
+    description: JSON context for special inspections hold points NCR cover
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    SiContextJson:
+      displayName: SI Context JSON
+      description: JSON context for special inspections
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

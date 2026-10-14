@@ -1,0 +1,16 @@
+zone_id: DEMO-STEEL-GRID-B
+ndt:
+  required: true
+  complete: false
+  open_indications: [Weld-B12-UT]
+steel_si:
+  required: true
+  inspector_present: true
+  bolting_welding_ok: false
+ncr:
+  open:
+    - {id: NCR-SI-22, critical: true}
+  dispositioned: false
+  rework_verified: false
+qa:
+  install_hold_points_clear: true
