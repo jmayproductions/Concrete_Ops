@@ -1,0 +1,58 @@
+name: Field failure cards
+id: structureops.pe.failure-cards
+studio_shape: custom_topics
+author_order: 12
+parent_or_sibling: 04-concrete-field-qa
+description_file: description.md
+instructions_file: instructions.md
+instruction_skills:
+  - skills/match-the-card.md
+  - skills/never-release.md
+  - skills/leave-the-issue-file.md
+knowledge:
+  - ../_shared/ironclad-law.md
+  - ../_shared/answer-contract.md
+  - knowledge/index.md
+  - knowledge/backsight-prism-tripod.md
+  - knowledge/controller-communications-sync-storage.md
+  - knowledge/elevation-delta-measurement.md
+  - knowledge/layout-pole-prism.md
+  - knowledge/layout-qaqc-asbuilt-verification.md
+  - knowledge/occupied-total-station-setup.md
+  - knowledge/resection-geometry.md
+  - knowledge/robotic-tracking-search-lock.md
+  - knowledge/site-control-setup.md
+  - knowledge/stakeout-software-delta-interpretation.md
+  - knowledge/total-station-calibration-environment.md
+  - knowledge/total-station-layout-problems.md
+  - knowledge/bim-to-field-ar-mr-layout.md
+  - knowledge/bim-vdc-model-coordination-clash-constructability.md
+  - knowledge/cad-bim-coordinate-transform.md
+  - knowledge/drone-uas-construction-mapping-progress.md
+  - knowledge/reality-capture-pointcloud-scantobim.md
+  - knowledge/cmu-masonry-layout-grout-bracing.md
+  - knowledge/concrete-geometry-tolerance-asbuilt.md
+  - knowledge/concrete-placement-curing-testing.md
+  - knowledge/concrete-pour-placement-curing-testing.md
+  - knowledge/concrete-scanning-slab-penetration.md
+  - knowledge/formwork-shoring-reshoring.md
+  - knowledge/mep-sleeve-embed-penetration-coordination.md
+  - knowledge/post-tensioning.md
+  - knowledge/precast-tiltup-erection-connection.md
+  - knowledge/reinforcing-steel-dowel-coupler.md
+  - knowledge/structural-steel-erection-connection.md
+  - knowledge/active-fire-protection-systems.md
+  - knowledge/exterior-envelope-fenestration-waterproofing.md
+  - knowledge/interior-framing-drywall-ceiling.md
+  - knowledge/passive-fire-protection-firestopping.md
+  - knowledge/roofing-drainage-flashing.md
+  - knowledge/underground-utility-locating-gpr-potholing.md
+topics:
+  - topics/layout-survey.md
+  - topics/model-capture.md
+  - topics/structure-concrete.md
+  - topics/envelope-site.md
+tools_file: tools.md
+workflows:
+  - workflows/symptom-to-card.md
+test_prompts: test-prompts.md

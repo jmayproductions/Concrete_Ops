@@ -1,0 +1,41 @@
+name: PE document drafter
+id: structureops.pe.drafter
+studio_shape: custom_topics
+author_order: 2
+parent_or_sibling: 01-daily-pe-copilot
+description_file: description.md
+instructions_file: instructions.md
+instruction_skills:
+  - skills/cite-or-refuse.md
+  - skills/draft-not-approve.md
+  - skills/unknown-impacts.md
+  - skills/read-submittal.md
+knowledge:
+  - ../_shared/ironclad-law.md
+  - ../_shared/answer-contract.md
+  - ../_shared/evidence-tiers.md
+  - ../_shared/confidence-rules.md
+  - knowledge/rfi-rules.md
+  - knowledge/submittal-rules.md
+  - knowledge/qaqc-rules.md
+  - knowledge/ncr-rules.md
+  - knowledge/submittal-statuses.md
+  - knowledge/common-draft-footer.md
+topics:
+  - topics/rfi-draft.md
+  - topics/submittal-review.md
+  - topics/qaqc-checklist.md
+  - topics/pre-install-agenda.md
+  - topics/daily-report-note.md
+  - topics/meeting-action-items.md
+  - topics/change-event.md
+  - topics/constraint-log.md
+  - topics/punch-item.md
+  - topics/closeout-checklist.md
+  - topics/ncr-draft.md
+tools_file: tools.md
+tool_contracts:
+  - tools/autodesk-submittal-read.md
+workflows:
+  - workflows/draft-then-review.md
+test_prompts: test-prompts.md

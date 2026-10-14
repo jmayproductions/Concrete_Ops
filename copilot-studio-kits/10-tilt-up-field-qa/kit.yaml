@@ -1,0 +1,34 @@
+name: Tilt-up field QA
+id: structureops.field.tilt-qa
+studio_shape: knowledge_plus_topics
+author_order: 10
+parent_or_sibling: 04-concrete-field-qa
+description_file: description.md
+instructions_file: instructions.md
+instruction_skills:
+  - skills/walk-phase.md
+  - skills/template-numbers.md
+  - skills/defect-record.md
+knowledge:
+  - ../_shared/ironclad-law.md
+  - ../_shared/answer-contract.md
+  - knowledge/phases.md
+  - knowledge/pre-pour.md
+  - knowledge/during-pour.md
+  - knowledge/post-pour.md
+  - knowledge/pre-strip.md
+  - knowledge/post-erection.md
+  - knowledge/final-acceptance.md
+  - knowledge/defect-types.md
+topics:
+  - topics/pre-pour.md
+  - topics/during-pour.md
+  - topics/post-pour.md
+  - topics/pre-strip.md
+  - topics/post-erection.md
+  - topics/final-acceptance.md
+tools_file: tools.md
+workflows:
+  - workflows/panel-gate.md
+test_prompts: test-prompts.md
+note: Numeric criteria in the checklists are StructureOps defaults. Project drawings and the approved mix control.

@@ -1,0 +1,26 @@
+name: AHJ permit tracker
+id: structureops.pe.permits
+studio_shape: custom_topics
+author_order: 7
+parent_or_sibling: 01-daily-pe-copilot
+description_file: description.md
+instructions_file: instructions.md
+instruction_skills:
+  - skills/log-only.md
+  - skills/correction-notice.md
+  - skills/no-code-ruling.md
+knowledge:
+  - ../_shared/ironclad-law.md
+  - ../_shared/answer-contract.md
+  - knowledge/permit-types-and-status.md
+  - knowledge/inspection-types.md
+  - knowledge/validity-templates.md
+topics:
+  - topics/permit-status.md
+  - topics/inspection-result.md
+  - topics/correction-notice.md
+  - topics/reinspection.md
+tools_file: tools.md
+workflows:
+  - workflows/failed-inspection.md
+test_prompts: test-prompts.md

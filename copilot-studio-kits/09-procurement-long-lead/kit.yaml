@@ -1,0 +1,24 @@
+name: Procurement and long-lead
+id: structureops.pe.procurement
+studio_shape: custom_topics
+author_order: 9
+parent_or_sibling: 01-daily-pe-copilot
+description_file: description.md
+instructions_file: instructions.md
+instruction_skills:
+  - skills/submittal-before-release.md
+  - skills/lead-time-unknown.md
+  - skills/delivery-condition.md
+knowledge:
+  - ../_shared/ironclad-law.md
+  - ../_shared/answer-contract.md
+  - knowledge/procurement-status.md
+  - knowledge/requisition-fields.md
+topics:
+  - topics/long-lead-check.md
+  - topics/requisition-draft.md
+  - topics/delivery-check.md
+tools_file: tools.md
+workflows:
+  - workflows/release-gate.md
+test_prompts: test-prompts.md

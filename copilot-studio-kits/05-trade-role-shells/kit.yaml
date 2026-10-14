@@ -1,0 +1,27 @@
+name: Trade and role shells
+id: structureops.v2.shells
+studio_shape: child_agents_or_topics
+author_order: 5
+status: instruction_shells_only
+description_file: description.md
+instructions_file: instructions.md
+instruction_skills:
+  - skills/handoff.md
+knowledge:
+  - ../_shared/ironclad-law.md
+  - knowledge/intent-map.md
+topics:
+  - topics/safety.md
+  - topics/qaqc.md
+  - topics/schedule.md
+  - topics/superintendent.md
+  - topics/concrete.md
+  - topics/electrical.md
+  - topics/steel.md
+  - topics/plumbing.md
+  - topics/weather.md
+tools_file: tools.md
+workflows:
+  - workflows/multi-agent-handoff.md
+test_prompts: test-prompts.md
+note: Do not copy v2 sample schedule rows, pour names, or mock yards into knowledge.

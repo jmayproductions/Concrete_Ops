@@ -1,0 +1,1 @@
+Instruction shells for trade and role copilots (concrete, electrical, steel, plumbing, superintendent, safety, schedule, weather, QA/QC). Use as child agents or topics after kits 01–04 are stable. No live orchestrator.

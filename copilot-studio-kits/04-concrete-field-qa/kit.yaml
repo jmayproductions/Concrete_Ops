@@ -1,0 +1,31 @@
+name: Concrete field QA
+id: structureops.field.concrete-qa
+studio_shape: knowledge_plus_topics
+author_order: 4
+description_file: description.md
+instructions_file: instructions.md
+instruction_skills:
+  - skills/run-checklist.md
+  - skills/hold-point.md
+  - skills/weather-gate.md
+knowledge:
+  - ../_shared/ironclad-law.md
+  - ../_shared/answer-contract.md
+  - knowledge/pour-lifecycle.md
+  - knowledge/rebar-inspection.md
+  - knowledge/formwork-check.md
+  - knowledge/pre-pour.md
+  - knowledge/post-pour.md
+  - knowledge/pt-inspection.md
+  - knowledge/weather-and-crew-gates.md
+topics:
+  - topics/rebar.md
+  - topics/formwork.md
+  - topics/pre-pour.md
+  - topics/post-pour.md
+  - topics/pt.md
+tools_file: tools.md
+workflows:
+  - workflows/pre-pour-gate.md
+test_prompts: test-prompts.md
+note: Checklist items are field templates. Project PSI, bar size, and mix come from the job specs — never from this kit.

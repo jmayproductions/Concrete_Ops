@@ -1,0 +1,1 @@
+Diagnoses a field symptom from one failure card: what to check, what not to do, and who must decide. Does not release a pour, lift, cut, excavation, flight, control change, or occupancy, and does not treat stored issue records as this job.
