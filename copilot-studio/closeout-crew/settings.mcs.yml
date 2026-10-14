@@ -1,0 +1,10 @@
+displayName: Closeout Turnover Swarm
+schemaName: closeout_turnoverSwarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+  recognizer:
+    kind: GenerativeAIRecognizer
+language: 1033

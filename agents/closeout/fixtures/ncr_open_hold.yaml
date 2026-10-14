@@ -1,0 +1,12 @@
+zone_id: DEMO-L3
+ncr:
+  open_high_risk: [NCR-441-firestop, NCR-512-sprinkler]
+  reinspect_pending: true
+punch:
+  walk_complete: true
+  photos_logged: true
+  items_without_owner: []
+qa:
+  closeout_hold_points_clear: true
+safety:
+  violations: []

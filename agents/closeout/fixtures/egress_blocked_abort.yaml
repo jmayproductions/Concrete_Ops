@@ -1,0 +1,18 @@
+zone_id: DEMO-L3
+life_safety:
+  egress_clear: false
+  exit_signs_ok: true
+  egress_blocked: true
+  emergency_lighting_failed: false
+doors:
+  function_tested: true
+  schedule_mismatches: []
+  missing_fire_labels: []
+fire_protection:
+  required: true
+  tests_complete: true
+  tests_failed: []
+qa:
+  closeout_hold_points_clear: true
+safety:
+  violations: []

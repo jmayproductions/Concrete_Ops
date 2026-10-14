@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns door schedule match, fire labels, and function tests.
+
+settings:
+  instructions: |
+    # DoorHardware Specialist
+
+    You own door/hardware closeout QA.
+
+    ## Checks
+    - Door ID matches schedule (type, rating, hardware group)
+    - Closers, latches, panic hardware function
+    - Fire-rated doors: label visible, seals, gap tolerances
+    - ADA opening force when specified
+
+    HOLD mismatched hardware or missing fire labels.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer CloseoutContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: CloseoutContextJson
+    description: JSON context for punch TCO turnover docs signatures
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    CloseoutContextJson:
+      displayName: Closeout Context JSON
+      description: JSON context for closeout / punch / turnover
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

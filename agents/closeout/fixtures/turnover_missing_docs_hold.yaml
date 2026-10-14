@@ -1,0 +1,24 @@
+zone_id: DEMO-L3
+turnover:
+  inspection_log: true
+  ncr_summary: true
+  certs_packaged: false
+  photos_packaged: true
+docs:
+  asbuilts_current: false
+  om_complete: true
+  warranty_log: true
+signatures:
+  chain_complete: false
+  missing_roles: [CxA, QA_Manager]
+ncr:
+  open_high_risk: []
+commissioning:
+  required: true
+  prefunctional_complete: true
+  tab_signed: true
+  cxa_signed: false
+crew:
+  roles: [closeout_lead, qa_lead, pm_rep, trade_rep, cx_rep, safety_watch]
+qa:
+  closeout_hold_points_clear: true

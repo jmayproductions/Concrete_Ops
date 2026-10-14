@@ -1,0 +1,68 @@
+zone_id: DEMO-L3
+area: Level 3
+rooms:
+  walkable: true
+  ceilings_complete: true
+  systems_operating: true
+  safe_access: true
+  blocked_rooms: []
+punch:
+  walk_complete: true
+  photos_logged: true
+  items_without_owner: []
+  open_critical: []
+life_safety:
+  egress_clear: true
+  exit_signs_ok: true
+  emergency_lighting_failed: false
+  egress_blocked: false
+doors:
+  function_tested: true
+  schedule_mismatches: []
+  missing_fire_labels: []
+finishes:
+  walk_complete: true
+  systemic_failures: false
+fire_protection:
+  required: true
+  tests_complete: true
+  tests_failed: []
+commissioning:
+  required: true
+  prefunctional_complete: true
+  tab_signed: true
+  cxa_signed: true
+ncr:
+  open_high_risk: []
+  reinspect_pending: false
+docs:
+  asbuilts_current: true
+  om_complete: true
+  warranty_log: true
+turnover:
+  inspection_log: true
+  ncr_summary: true
+  certs_packaged: true
+  photos_packaged: true
+signatures:
+  chain_complete: true
+  missing_roles: []
+tco:
+  mock_walk_complete: true
+  binder_ready: true
+  open_occupancy_rfis: []
+crew:
+  roles:
+    - closeout_lead
+    - qa_lead
+    - pm_rep
+    - trade_rep
+    - cx_rep
+    - safety_watch
+  headcount: 6
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+  closeout_hold_points_clear: true
+safety:
+  violations: []

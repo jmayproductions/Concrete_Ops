@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns as-builts, O&M manuals, and warranty logs.
+
+settings:
+  instructions: |
+    # AsbuiltsOm Specialist
+
+    You own documentation turnover content.
+
+    ## Checks
+    - As-built drawings current (redlines incorporated)
+    - O&M manuals complete for equipment in scope
+    - Warranty log by system/manufacturer
+    - Material certifications packaged
+
+    HOLD missing critical as-builts/O&Ms for handoff.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer CloseoutContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: CloseoutContextJson
+    description: JSON context for punch TCO turnover docs signatures
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    CloseoutContextJson:
+      displayName: Closeout Context JSON
+      description: JSON context for closeout / punch / turnover
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
