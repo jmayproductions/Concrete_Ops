@@ -35,6 +35,19 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Commissioning Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for Cx plan, TAB, witnessed functional tests, and closeout:
+
+- [`copilot-studio/commissioning-crew/`](copilot-studio/commissioning-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/Commissioning-Swarm-CopilotStudio-DropIn.zip`](packages/Commissioning-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.commissioning_swarm.api --port 8102
+python -m modules.commissioning_swarm.cli run pre-cx-gate -c agents/commissioning/fixtures/pre_cx_go.yaml
+```
+
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

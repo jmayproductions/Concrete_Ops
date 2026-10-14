@@ -1,0 +1,17 @@
+zone_id: DEMO-AHU-01
+plan:
+  systems: []
+  approved: false
+  targets_defined: false
+prefunctional:
+  install_complete: false
+  checklist_signed: false
+crew:
+  roles:
+    - cx_lead
+  headcount: 1
+  briefing_complete: false
+qa:
+  pre_hold_points_clear: false
+safety:
+  violations: []

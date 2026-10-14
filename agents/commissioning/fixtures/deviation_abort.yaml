@@ -1,0 +1,16 @@
+zone_id: DEMO-CHW-01
+performance:
+  measured: true
+  deviation_pct: 14
+  limit_pct: 10
+  retest_locked: false
+  retest_passed: false
+calibration:
+  current: true
+tab:
+  within_tolerance: true
+  report_attached: true
+qa:
+  logs_clear: true
+safety:
+  violations: []
