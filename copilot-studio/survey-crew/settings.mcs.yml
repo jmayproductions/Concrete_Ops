@@ -1,0 +1,10 @@
+displayName: Survey Layout Swarm
+schemaName: survey_layout_swarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+  recognizer:
+    kind: GenerativeAIRecognizer
+language: 1033

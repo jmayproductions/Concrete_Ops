@@ -1,0 +1,14 @@
+zone_id: DEMO-L2-GRIDS
+bim:
+  required: true
+  revision_locked: false
+  superseded_model: true
+stakeout:
+  from_approved_rev: false
+  stakes_missing: [A-3, B-3]
+  cut_sheets_issued: false
+equipment:
+  calibration_current: true
+  field_check_ok: true
+qa:
+  install_hold_points_clear: true

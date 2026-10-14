@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Survey Layout Swarm ready. Ask for pre-survey-gate, stakeout-runbook, embed-layout-gate, grade-check-gate, as-built-capture, or another named workflow. I return GO / HOLD / ABORT.
+          - Survey online — share area/control context and the gate to run.

@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns visibility and atmospheric survey holds.
+
+settings:
+  instructions: |
+    # WeatherProtect Specialist
+
+    You own weather holds for survey.
+
+    ## Holds
+    - Fog/rain/heat shimmer preventing reliable observations
+    - High wind affecting prism/rod stability when critical
+    - Lightning for outdoor instrument work
+
+    HOLD critical layout in unusable conditions.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer SurveyContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: SurveyContextJson
+    description: JSON context for survey control stakeout as-built tolerances
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    SurveyContextJson:
+      displayName: Survey Context JSON
+      description: JSON context for survey / layout / control
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

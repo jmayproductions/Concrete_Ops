@@ -1,0 +1,20 @@
+zone_id: DEMO-SITE-CONTROL
+equipment:
+  calibration_current: false
+  field_check_ok: false
+control:
+  verified: true
+  closure_ok: true
+  destroyed: false
+benchmarks:
+  datum_tied: true
+  disturbed: false
+weather:
+  poor_visibility: false
+crew:
+  roles: [survey_lead, instrument_op, rod_person, cad_tech, qc_tech, safety_watch, gc_coordinator]
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []
