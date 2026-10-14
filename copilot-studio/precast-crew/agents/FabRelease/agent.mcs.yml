@@ -1,0 +1,64 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns panel fabrication, curing strength, and plant release.
+
+settings:
+  instructions: |
+    # FabRelease Specialist
+
+    You own panel fabrication / cast-bed release.
+
+    ## Checks
+    - Reinforcement / embeds per shops (sensor/photo verify embeds)
+    - Concrete tests / curing tracker
+    - Early release blocked if strength < project threshold (e.g. 75% design class)
+    - Panel tag, camber, finish accepted
+    - Shipping damage inspection on arrival
+
+    HOLD early lift without strength evidence.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer PrecastContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: PrecastContextJson
+    description: JSON context for panel tags lifts braces crew weather
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    PrecastContextJson:
+      displayName: Precast Context JSON
+      description: JSON context for precast / panelized erection
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

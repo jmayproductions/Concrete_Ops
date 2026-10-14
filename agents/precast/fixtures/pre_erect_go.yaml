@@ -1,0 +1,69 @@
+erect_id: DEMO-WALL-A
+area: Wall Line A
+fab:
+  shops_approved: true
+  embeds_verified: true
+  strength_released: true
+  strength_pct_design: 90
+  min_strength_pct: 75
+  shipping_damage: false
+supply:
+  sequence_published: true
+  truck:
+    expected_panel_tags: [P-12, P-13, P-14]
+    onboard_panel_tags: [P-12, P-13, P-14]
+survey:
+  within_tolerance: true
+  haunches_verified: true
+  grid_control: true
+  embed_clash: false
+crane:
+  chart_ok: true
+  lift_plan_verified: true
+  exclusion_zone_set: true
+  inserts_verified: true
+  camber_mismatch: false
+bracing:
+  plan_issued: true
+  braces_installed: true
+panels:
+  seated: true
+  force_fit: false
+  within_plumb: true
+connections:
+  hardware_matched: true
+  incomplete_patterns: []
+grout:
+  materials_approved: true
+  complete: true
+hybrid:
+  interface_released: true
+  bearing_details_ok: true
+finish:
+  architectural: true
+  protection_plan: true
+  padded_rigging: true
+brace_release:
+  permanent_connections_complete: true
+  criteria_met: true
+  unstable: false
+weather:
+  wind_kph: 18
+  lightning: false
+crew:
+  roles:
+    - precast_lead
+    - crane_operator
+    - rigger
+    - connector
+    - brace_crew
+    - qc_tech
+    - safety_watch
+  headcount: 11
+  briefing_complete: true
+  fatigued_workers: []
+qa:
+  pre_hold_points_clear: true
+  lift_hold_points_clear: true
+safety:
+  violations: []

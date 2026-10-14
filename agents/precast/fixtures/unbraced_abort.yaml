@@ -1,0 +1,12 @@
+erect_id: DEMO-WALL-A
+bracing:
+  plan_issued: true
+  braces_installed: false
+  unstable_without_brace: true
+panels:
+  seated: true
+  within_plumb: true
+qa:
+  lift_hold_points_clear: true
+safety:
+  violations: []

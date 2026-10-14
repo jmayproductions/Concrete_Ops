@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns foundation/haunch survey and embed clash checks.
+
+settings:
+  instructions: |
+    # SurveyEmbeds Specialist
+
+    You own survey / embeds for panel set.
+
+    ## Checks
+    - Foundations/haunches within panel tolerance
+    - Embed clash check clear (redesign gate if clash)
+    - Anchor/dowel layout verified
+    - Grid control established
+
+    FAIL/HOLD out-of-tolerance supports before first lift.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer PrecastContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: PrecastContextJson
+    description: JSON context for panel tags lifts braces crew weather
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    PrecastContextJson:
+      displayName: Precast Context JSON
+      description: JSON context for precast / panelized erection
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

@@ -1,0 +1,11 @@
+erect_id: DEMO-WALL-A
+fab:
+  shops_approved: true
+  embeds_verified: true
+  strength_released: false
+  strength_pct_design: 60
+  min_strength_pct: 75
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []
