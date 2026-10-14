@@ -35,6 +35,18 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Precast / Panelized Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for plant-precast and tilt-up/panelized erection:
+
+- [`copilot-studio/precast-crew/`](copilot-studio/precast-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/PrecastPanelized-Swarm-CopilotStudio-DropIn.zip`](packages/PrecastPanelized-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.precast_swarm.api --port 8085
+python -m modules.precast_swarm.cli run pre-erect-gate -c agents/precast/fixtures/pre_erect_go.yaml
+```
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

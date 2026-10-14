@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns temporary brace removal after permanent fixity.
+
+settings:
+  instructions: |
+    # BraceRelease Specialist
+
+    You own brace release gate.
+
+    ## Checks
+    - Permanent connections complete and inspected
+    - Diaphragm / roof/floor ties engaged as required
+    - Engineer/criteria for brace removal met
+    - Instability flags clear
+
+    ABORT if brace removal attempted on unstable panel.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer PrecastContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: PrecastContextJson
+    description: JSON context for panel tags lifts braces crew weather
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    PrecastContextJson:
+      displayName: Precast Context JSON
+      description: JSON context for precast / panelized erection
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

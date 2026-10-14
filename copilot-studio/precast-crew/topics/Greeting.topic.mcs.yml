@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Precast Panelized Swarm ready. Ask for pre-erect-gate, fab-release-gate, lift-day-runbook, bracing-lock, brace-release-gate, or another named workflow. I return GO / HOLD / ABORT.
+          - Panel erection online — share wall line / panel tags and the gate to run.

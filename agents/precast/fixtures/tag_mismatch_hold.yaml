@@ -1,0 +1,17 @@
+erect_id: DEMO-WALL-A
+supply:
+  sequence_published: true
+  truck:
+    expected_panel_tags: [P-12, P-13]
+    onboard_panel_tags: [P-12, P-15]
+crane:
+  chart_ok: true
+  lift_plan_verified: true
+  exclusion_zone_set: true
+  inserts_verified: true
+finish:
+  padded_rigging: true
+weather:
+  wind_kph: 12
+safety:
+  violations: []

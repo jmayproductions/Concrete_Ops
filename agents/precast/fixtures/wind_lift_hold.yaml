@@ -1,0 +1,11 @@
+erect_id: DEMO-WALL-A
+weather:
+  wind_kph: 48
+  wind_hold_kph: 40
+crane:
+  chart_ok: true
+  lift_plan_verified: true
+  exclusion_zone_set: true
+  inserts_verified: true
+safety:
+  violations: []

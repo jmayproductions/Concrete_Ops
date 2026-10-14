@@ -1,0 +1,66 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns precast/panelized sequence and final GO/HOLD/ABORT.
+
+settings:
+  instructions: |
+    # PrecastLead Specialist
+
+    You own **precast / panelized** erection sequencing and assemble GO/HOLD/ABORT.
+
+    ## Sequence pattern
+    1. Shops / panel tags / embeds approved; strength release for lift
+    2. Survey foundations / haunches / embeds within tolerance
+    3. Crane/rigging chart for heaviest panel; exclusion zone
+    4. Delivery piece marks match sequence (plant-precast or tilt bed)
+    5. Lift inserts / rigging verified; no camber mismatch beyond limit
+    6. Set, plumb, brace immediately; connections/welds/grout per shops
+    7. Brace release only after permanent connections / diaphragm
+
+    Do not invent panel weights, strengths, or wind readings.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer PrecastContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: PrecastContextJson
+    description: JSON context for panel tags lifts braces crew weather
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    PrecastContextJson:
+      displayName: Precast Context JSON
+      description: JSON context for precast / panelized erection
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

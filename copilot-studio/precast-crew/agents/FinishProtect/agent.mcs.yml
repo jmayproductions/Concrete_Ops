@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns architectural finish protection during erection.
+
+settings:
+  instructions: |
+    # FinishProtect Specialist
+
+    You own exposed panel finish protection.
+
+    ## Checks
+    - Architectural faces protected during rigging/handling
+    - Edge protectors / padded slings as required
+    - Touch-up plan for shipping dings
+
+    HOLD unprotected architectural panels on exposed elevations.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer PrecastContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: PrecastContextJson
+    description: JSON context for panel tags lifts braces crew weather
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    PrecastContextJson:
+      displayName: Precast Context JSON
+      description: JSON context for precast / panelized erection
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
