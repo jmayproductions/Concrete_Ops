@@ -1,0 +1,25 @@
+zone_id: DEMO-L2-ZONE-C
+clash:
+  resolved: true
+  sleeve_map_published: true
+sleeves:
+  placed_per_map: true
+firestop:
+  ul_matched: true
+  photos_before_cover: false
+  log_signed: false
+  covered_without_inspection: true
+hvac:
+  seams_sealed: true
+  hangers_ok: true
+electrical:
+  conduit_ok: true
+  fill_ok: true
+  panels_ok: true
+plumbing:
+  layout_ok: true
+  slope_ok: true
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

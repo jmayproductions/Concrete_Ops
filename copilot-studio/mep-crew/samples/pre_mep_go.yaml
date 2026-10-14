@@ -1,0 +1,69 @@
+zone_id: DEMO-L2-ZONE-C
+area: Level 2 Zone C
+clash:
+  resolved: true
+  unresolved: []
+  sleeve_map_published: true
+sleeves:
+  placed_per_map: true
+  gross_offset: false
+  missing_on_rated: []
+hvac:
+  seams_sealed: true
+  hangers_ok: true
+  dampers_incomplete: false
+electrical:
+  conduit_ok: true
+  fill_ok: true
+  panels_ok: true
+  grounding_fail: false
+  ir_fail: false
+plumbing:
+  layout_ok: true
+  slope_ok: true
+firestop:
+  ul_matched: true
+  photos_before_cover: true
+  log_signed: true
+  wrong_ul_system: false
+  covered_without_inspection: false
+dampers:
+  installed: true
+  accessible: true
+  tagged: true
+  actuation_required: true
+  actuation_passed: true
+shaft:
+  trade_sequence_ok: true
+  missing_access_hatch: false
+  clearance_conflict: false
+pressure_test:
+  required: true
+  performed: true
+  passed: true
+insulation:
+  hangers_ok: true
+  insulation_complete: true
+labeling:
+  critical_unlabeled: []
+  redlines_current: true
+weather:
+  lightning: false
+  wind_kph: 12
+crew:
+  roles:
+    - mep_lead
+    - hvac_tech
+    - electrician
+    - plumber
+    - firestop_tech
+    - qc_tech
+    - safety_watch
+  headcount: 10
+  briefing_complete: true
+  fatigued_workers: []
+qa:
+  pre_hold_points_clear: true
+  install_hold_points_clear: true
+safety:
+  violations: []

@@ -1,0 +1,14 @@
+zone_id: DEMO-L2-ZONE-C
+clash:
+  resolved: false
+  unresolved: [duct-vs-beam-B12, pipe-vs-conduit-C3]
+  sleeve_map_published: true
+sleeves:
+  placed_per_map: true
+crew:
+  roles: [mep_lead, hvac_tech, electrician, plumber, firestop_tech, qc_tech, safety_watch]
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []

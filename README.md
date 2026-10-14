@@ -35,6 +35,18 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### MEP Rough-In + Firestop Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for HVAC/electrical/plumbing rough-in, sleeves, UL firestop, dampers, shafts:
+
+- [`copilot-studio/mep-crew/`](copilot-studio/mep-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/MepFirestop-Swarm-CopilotStudio-DropIn.zip`](packages/MepFirestop-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.mep_swarm.api --port 8084
+python -m modules.mep_swarm.cli run pre-mep-gate -c agents/mep/fixtures/pre_mep_go.yaml
+```
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

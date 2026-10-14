@@ -1,0 +1,12 @@
+zone_id: DEMO-L2-ZONE-C
+sleeves:
+  placed_per_map: true
+  missing_on_rated: []
+firestop:
+  ul_matched: false
+  photos_before_cover: false
+  log_signed: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns hydro, DALT, and pneumatic test evidence.
+
+settings:
+  instructions: |
+    # PressureTest Specialist
+
+    You own MEP pressure / leakage testing.
+
+    ## Checks
+    - Method and acceptance criteria recorded (hydro, air, DALT)
+    - Duration / pressure held; gauge evidence
+    - Failures mapped with owner/retest
+
+    HOLD required test not performed.
+    FAIL active leak beyond acceptance (treat as HOLD at parent unless safety).
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer MepContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: MepContextJson
+    description: JSON context for MEP zone sleeves firestop tests crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    MepContextJson:
+      displayName: MEP Context JSON
+      description: JSON context for MEP rough-in / firestop
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

@@ -1,0 +1,65 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns UL firestop assemblies, labels, and pre-cover photos.
+
+settings:
+  instructions: |
+    # Firestop Specialist
+
+    You own firestopping field protocol.
+
+    ## Rules
+    - Identify wall/floor rating (1-hr, 2-hr, smoke, etc.)
+    - Match UL assembly ID (e.g. W-L-#### / C-AJ-####) to penetration type 100%
+    - Approved sealant, backing, wrap used
+    - Photo evidence + label before covering wall/ceiling
+    - Firestop inspected before wallboard / close-out
+
+    FAIL wrong UL system or cover without inspection.
+    HOLD incomplete firestop log.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer MepContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: MepContextJson
+    description: JSON context for MEP zone sleeves firestop tests crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    MepContextJson:
+      displayName: MEP Context JSON
+      description: JSON context for MEP rough-in / firestop
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

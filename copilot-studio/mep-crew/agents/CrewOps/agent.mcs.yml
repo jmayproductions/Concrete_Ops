@@ -1,0 +1,60 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns MEP crew roles, fatigue, and briefing.
+
+settings:
+  instructions: |
+    # CrewOps Specialist
+
+    You own MEP crew readiness.
+
+    ## Typical roles
+    mep_lead, hvac_tech, electrician, plumber, firestop_tech, qc_tech, safety_watch
+
+    HOLD missing roles or incomplete briefing.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer MepContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: MepContextJson
+    description: JSON context for MEP zone sleeves firestop tests crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    MepContextJson:
+      displayName: MEP Context JSON
+      description: JSON context for MEP rough-in / firestop
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

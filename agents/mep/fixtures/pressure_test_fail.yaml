@@ -1,0 +1,14 @@
+zone_id: DEMO-L2-ZONE-C
+pressure_test:
+  required: true
+  performed: true
+  passed: false
+  notes: 8 psi drop in 2 hours
+plumbing:
+  layout_ok: true
+  slope_ok: true
+hvac:
+  seams_sealed: true
+  hangers_ok: true
+qa:
+  install_hold_points_clear: true
