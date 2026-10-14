@@ -1,0 +1,14 @@
+zone_id: DEMO-D101
+door_schedule:
+  mismatch: true
+  swing_wrong: false
+hardware:
+  closer_ok: false
+  strike_misaligned: true
+  wrong_function: false
+fire_door:
+  required: false
+qa:
+  logs_clear: false
+safety:
+  violations: []

@@ -1,0 +1,13 @@
+zone_id: DEMO-L3-EGRESS
+egress:
+  clear: false
+  clear_width_in: 28
+  blocked: true
+  discharge_blocked: false
+exit_signs:
+  illuminated: true
+  battery_backup: true
+qa:
+  logs_clear: true
+safety:
+  violations: []

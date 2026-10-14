@@ -1,0 +1,11 @@
+zone_id: DEMO-L3-EGRESS
+egress_lighting:
+  tested: true
+  emergency_power_fail: true
+exit_signs:
+  illuminated: true
+  battery_backup: true
+qa:
+  logs_clear: true
+safety:
+  violations: []

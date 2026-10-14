@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Life Safety Swarm ready. Ask for pre-ls-gate, fire-door-gate, sprinkler-hydro-gate, fire-alarm-gate, tco-readiness, or another named workflow. I return GO / HOLD / ABORT.
+          - LS online — share floor/zone context and the gate to run.
