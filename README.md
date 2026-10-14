@@ -35,6 +35,19 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Heavy-Lift / Crane Day Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for lift plans, load charts, and exclusion:
+
+- [`copilot-studio/heavy-lift-crew/`](copilot-studio/heavy-lift-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/HeavyLiftCrane-Swarm-CopilotStudio-DropIn.zip`](packages/HeavyLiftCrane-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.heavy_lift_swarm.api --port 8096
+python -m modules.heavy_lift_swarm.cli run pre-lift-gate -c agents/heavy-lift/fixtures/pre_lift_go.yaml
+```
+
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

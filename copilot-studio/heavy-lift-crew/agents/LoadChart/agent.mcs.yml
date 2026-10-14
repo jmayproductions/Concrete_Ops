@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns capacity vs radius/config verification.
+
+settings:
+  instructions: |
+    # LoadChart Specialist
+
+    You own load chart compliance.
+
+    ## Checks
+    - Gross load (including rigging) ≤ chart capacity at radius
+    - Crane config matches chart (boom, counterweight, jib)
+    - Unknown weight => HOLD until verified
+
+    FAIL intentional overload / unknown critical weight.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer LiftContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: LiftContextJson
+    description: JSON context for crane lift plan load chart wind exclusion
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    LiftContextJson:
+      displayName: Lift Context JSON
+      description: JSON context for heavy-lift / crane day
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

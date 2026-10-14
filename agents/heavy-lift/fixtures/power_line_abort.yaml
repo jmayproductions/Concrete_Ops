@@ -1,0 +1,12 @@
+zone_id: DEMO-EAST-LOT
+power_lines:
+  present: true
+  clearance_ok: false
+  spotter_plan: false
+  encroachment: true
+path:
+  obstructed: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

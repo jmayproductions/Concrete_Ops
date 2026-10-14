@@ -1,0 +1,7 @@
+zone_id: DEMO-PICK-P12
+weather:
+  wind_mph: 28
+  wind_limit_mph: 20
+  lightning: false
+safety:
+  violations: []

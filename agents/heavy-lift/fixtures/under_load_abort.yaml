@@ -1,0 +1,16 @@
+zone_id: DEMO-PICK-P12
+exclusion:
+  marked: true
+  under_load: true
+  breached: true
+comms:
+  signal_person: true
+  channel_confirmed: true
+taglines:
+  required: true
+  uncontrolled_spin: false
+  riding_load: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

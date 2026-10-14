@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Heavy Lift Crane Swarm ready. Ask for pre-lift-gate, critical-lift-runbook, ground-bearing-gate, power-line-clearance, weather-wind-gate, or another named workflow. I return GO / HOLD / ABORT.
+          - Crane day online — share pick/crane context and the gate to run.

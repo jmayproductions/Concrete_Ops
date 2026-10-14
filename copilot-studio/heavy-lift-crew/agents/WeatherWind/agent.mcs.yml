@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns wind, lightning, and visibility holds.
+
+settings:
+  instructions: |
+    # WeatherWind Specialist
+
+    You own weather holds for lifting.
+
+    ## Holds
+    - Wind above crane/manufacturer or site limit
+    - Lightning / severe storm
+    - Visibility too poor for safe signaling
+
+    HOLD or ABORT per severity.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer LiftContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: LiftContextJson
+    description: JSON context for crane lift plan load chart wind exclusion
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    LiftContextJson:
+      displayName: Lift Context JSON
+      description: JSON context for heavy-lift / crane day
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

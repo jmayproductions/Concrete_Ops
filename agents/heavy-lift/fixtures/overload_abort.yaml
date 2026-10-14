@@ -1,0 +1,16 @@
+zone_id: DEMO-PICK-P12
+plan:
+  critical: true
+  approved: true
+  weight_known: false
+  radius_known: true
+  roles_named: true
+chart:
+  within_chart: false
+  config_match: true
+  unknown_weight: true
+  critical: true
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

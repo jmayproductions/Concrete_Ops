@@ -1,0 +1,13 @@
+zone_id: DEMO-PICK-P12
+ground:
+  outriggers_set: false
+  mats_ok: false
+  soft_ground: true
+certs:
+  crane_inspection_current: true
+  operator_certified: true
+  rigger_qualified: true
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []
