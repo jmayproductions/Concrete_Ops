@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns moisture/temp holds for board and finish.
+
+settings:
+  instructions: |
+    # WeatherProtect Specialist
+
+    You own environmental holds for drywall.
+
+    ## Holds
+    - High humidity / wet building without dry-in
+    - Freeze risk for mud/compound
+    - Board stored wet or warped
+
+    HOLD wet conditions before hang/tape.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer InteriorsContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: InteriorsContextJson
+    description: JSON context for interiors framing drywall shafts fire STC
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    InteriorsContextJson:
+      displayName: Interiors Context JSON
+      description: JSON context for interiors / drywall
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

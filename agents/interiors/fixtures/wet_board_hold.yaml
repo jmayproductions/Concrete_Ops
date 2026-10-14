@@ -1,0 +1,20 @@
+zone_id: DEMO-L3-OFFICES
+materials:
+  studs_approved: true
+  board_approved: true
+  assemblies_approved: true
+layout:
+  control_lines: true
+  openings_set: true
+weather:
+  high_humidity: true
+  building_dry: false
+  wet_board_storage: true
+  freezing: false
+crew:
+  roles: [interiors_lead, framer, hanger, taper, shaft_tech, qc_tech, safety_watch]
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []

@@ -1,0 +1,13 @@
+zone_id: DEMO-L3-OFFICES
+acoustics:
+  required: true
+  assembly_match: true
+  seals_ok: false
+  flanking: true
+framing:
+  spacing_ok: true
+  gauge_ok: true
+  plumb_ok: true
+  bracing_ok: true
+qa:
+  install_hold_points_clear: true
