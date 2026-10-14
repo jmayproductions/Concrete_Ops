@@ -35,6 +35,18 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Earthwork / Site Civil Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for grading, trench, compaction, and paving prep:
+
+- [`copilot-studio/earthwork-crew/`](copilot-studio/earthwork-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/EarthworkSiteCivil-Swarm-CopilotStudio-DropIn.zip`](packages/EarthworkSiteCivil-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.earthwork_swarm.api --port 8088
+python -m modules.earthwork_swarm.cli run pre-earthwork-gate -c agents/earthwork/fixtures/pre_earthwork_go.yaml
+```
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

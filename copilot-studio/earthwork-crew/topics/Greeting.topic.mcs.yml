@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Earthwork Swarm ready. Ask for pre-earthwork-gate, utilities-locate-gate, compaction-lift-runbook, subgrade-accept-gate, paving-prep-gate, or another named workflow. I return GO / HOLD / ABORT.
+          - Earthwork online — share pad/trench context and the gate to run.

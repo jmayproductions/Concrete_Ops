@@ -1,0 +1,84 @@
+zone_id: DEMO-PAD-A
+area: Pad A mass grade
+materials:
+  import_approved: true
+  organics_ok: true
+  aggregate_ok: true
+  contaminated: false
+  frozen_load: false
+survey:
+  benchmarks_ok: true
+  stakes_current: true
+  grade_out_of_tolerance: false
+utilities:
+  ticket_valid: true
+  marks_visible: true
+  conflict_unresolved: false
+  dig_without_locate: false
+  utility_strike: false
+excavation:
+  to_plan: true
+  overcut_unapproved: false
+  spoil_at_crest: false
+  unprotected_deep: false
+  depth_ft: 4
+subgrade:
+  proof_roll_done: true
+  pumping: false
+  soft_spots_open: false
+  accepted: true
+compaction:
+  lift_in: 8
+  max_lift_in: 12
+  density_ok: true
+  moisture_ok: true
+  tests_logged: true
+trench:
+  bedding_ok: true
+  haunching_ok: true
+  compacted: true
+  rocks_on_pipe: false
+drainage:
+  temp_drainage_ok: true
+  permanent_ok: true
+  ponding: false
+  grade_reversed: false
+erosion:
+  perimeter_bmps: true
+  inlet_protection: true
+  entrance_stabilized: true
+paving:
+  final_grade_ok: true
+  base_thickness_ok: true
+  base_compacted: true
+  soft_spots: false
+weather:
+  frozen_subgrade: false
+  saturated: false
+  dry_workable: true
+  active_storm: false
+  slopes_protected: true
+  freeze_procedures: true
+geotech:
+  recommendations_followed: true
+  si_density_required: true
+  si_density_complete: true
+  accepted: true
+crew:
+  roles:
+    - earthwork_lead
+    - excavator_op
+    - grader_op
+    - roller_op
+    - laborer
+    - qc_tech
+    - safety_watch
+  headcount: 10
+  briefing_complete: true
+  fatigued_workers: []
+qa:
+  pre_hold_points_clear: true
+  install_hold_points_clear: true
+safety:
+  violations: []
+  no_competent_person: false
