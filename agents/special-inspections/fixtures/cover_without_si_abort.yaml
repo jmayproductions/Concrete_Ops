@@ -1,0 +1,14 @@
+zone_id: DEMO-DECK-L4
+release:
+  signed: false
+  covering_without_si: true
+  open_critical_ncrs: [NCR-SI-12]
+ncr:
+  open:
+    - {id: NCR-SI-12, critical: true}
+  dispositioned: false
+  rework_verified: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []
