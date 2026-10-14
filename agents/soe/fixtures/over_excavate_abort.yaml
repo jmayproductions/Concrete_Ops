@@ -1,0 +1,25 @@
+zone_id: DEMO-BASEMENT-NORTH
+excavation:
+  current_depth_ft: 18
+  allowed_depth_ft: 14
+  prior_braces_incomplete: true
+bracing:
+  required: true
+  missing_for_stage: true
+  connections_ok: false
+tiebacks:
+  required: true
+  required_for_stage: true
+  locked_off: false
+monitoring:
+  baseline_set: true
+  readings_current: true
+  alarm_exceeded: false
+dewatering:
+  required: true
+  system_running: true
+  drawdown_ok: true
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

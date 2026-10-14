@@ -1,0 +1,17 @@
+zone_id: DEMO-BASEMENT-NORTH
+design:
+  pe_stamped_approved: false
+  products_approved: false
+  monitoring_plan_approved: false
+monitoring:
+  baseline_set: false
+  readings_current: false
+weather:
+  storm_flood_risk: false
+crew:
+  roles: [soe_lead, pile_op, excavator_op, welder_fitter, anchor_crew, qc_tech, safety_watch]
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []

@@ -1,0 +1,14 @@
+zone_id: DEMO-BASEMENT-NORTH
+tiebacks:
+  required: true
+  proof_test_pass: false
+  grout_records_ok: true
+  locked_off: false
+loads:
+  required: true
+  cells_active: true
+  overload: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

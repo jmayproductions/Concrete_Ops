@@ -35,6 +35,19 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### SOE / Shoring Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for support of excavation:
+
+- [`copilot-studio/soe-crew/`](copilot-studio/soe-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/SoeShoring-Swarm-CopilotStudio-DropIn.zip`](packages/SoeShoring-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.soe_swarm.api --port 8090
+python -m modules.soe_swarm.cli run pre-soe-gate -c agents/soe/fixtures/pre_soe_go.yaml
+```
+
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

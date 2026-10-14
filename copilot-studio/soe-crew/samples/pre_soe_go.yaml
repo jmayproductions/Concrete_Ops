@@ -1,0 +1,82 @@
+zone_id: DEMO-BASEMENT-NORTH
+area: Basement SOE Wall North
+design:
+  pe_stamped_approved: true
+  products_approved: true
+  monitoring_plan_approved: true
+monitoring:
+  baseline_set: true
+  readings_current: true
+  alarm_exceeded: false
+  alert_exceeded: false
+soldier_piles:
+  required: true
+  tip_ok: true
+  plumb_ok: true
+lagging:
+  required: true
+  installed_ok: true
+  exposed_face_over_limit: false
+  gaps_unpacked: false
+sheet_pile:
+  required: false
+bracing:
+  required: true
+  missing_for_stage: false
+  connections_ok: true
+  preload_ok: true
+tiebacks:
+  required: true
+  required_for_stage: true
+  locked_off: true
+  proof_test_pass: true
+  grout_records_ok: true
+excavation:
+  current_depth_ft: 12
+  allowed_depth_ft: 14
+  prior_braces_incomplete: false
+  spoil_at_crest: false
+  continuing_after_alarm: false
+dewatering:
+  required: true
+  system_running: true
+  uncontrolled_inflow: false
+  drawdown_ok: true
+loads:
+  required: true
+  cells_active: true
+  overload: false
+release:
+  required: true
+  permanent_structure_ready: true
+  sequence_ok: true
+  monitoring_during: true
+weather:
+  storm_flood_risk: false
+  sumps_protected: true
+  freeze_thaw: false
+  face_protected: true
+  crest_surcharge: false
+crew:
+  roles:
+    - soe_lead
+    - pile_op
+    - excavator_op
+    - welder_fitter
+    - anchor_crew
+    - qc_tech
+    - safety_watch
+  headcount: 10
+  briefing_complete: true
+  fatigued_workers: []
+qa:
+  pre_hold_points_clear: true
+  install_hold_points_clear: true
+edge:
+  unprotected: false
+face:
+  collapse_indicators: false
+utilities:
+  utility_strike: false
+safety:
+  violations: []

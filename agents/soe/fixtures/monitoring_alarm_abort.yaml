@@ -1,0 +1,16 @@
+zone_id: DEMO-BASEMENT-NORTH
+monitoring:
+  baseline_set: true
+  readings_current: true
+  alarm_exceeded: true
+  alert_exceeded: true
+loads:
+  required: true
+  cells_active: true
+  overload: true
+excavation:
+  continuing_after_alarm: true
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []
