@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns ACI 305R evaporation risk.
+
+settings:
+  instructions: |
+    # EvaporationRate Specialist
+
+    You own evaporation rate QA.
+
+    ## Risk bands (g/m²/hr)
+    - <0.5 Low — standard cure
+    - 0.5–1.0 Medium — cover/mist
+    - >1.0 High — delay pour or aggressive cure
+
+    FAIL/HOLD when rate critical without controls.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer CureContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: CureContextJson
+    description: JSON context for curing thermal evap maturity
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    CureContextJson:
+      displayName: Cure Context JSON
+      description: JSON context for CureLogic curing
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

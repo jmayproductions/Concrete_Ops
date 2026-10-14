@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns wind, RH, solar, and temp holds for curing.
+
+settings:
+  instructions: |
+    # AmbientWeather Specialist
+
+    You own ambient curing weather.
+
+    ## Holds
+    - Wind making fog ineffective (e.g. >25 km/h) without method switch
+    - RH very low for extended period without aggressive moist cure
+    - Extreme cold/hot without protection plan
+
+    HOLD or ABORT per severity.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer CureContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: CureContextJson
+    description: JSON context for curing thermal evap maturity
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    CureContextJson:
+      displayName: Cure Context JSON
+      description: JSON context for CureLogic curing
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

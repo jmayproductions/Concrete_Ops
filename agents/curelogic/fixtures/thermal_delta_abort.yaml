@@ -1,0 +1,23 @@
+zone_id: DEMO-MASS-M1
+cover:
+  required: true
+  edges_sealed: true
+  lifted: false
+  cold_rated: true
+thermal:
+  monitored: true
+  core_c: 62
+  surface_c: 38
+  delta_limit_c: 20
+  peak_limit_c: 75
+  insulation_active: false
+  mitigated: false
+weather:
+  temp_c: 18
+cold:
+  required: false
+  protection_active: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

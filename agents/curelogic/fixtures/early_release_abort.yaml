@@ -1,0 +1,20 @@
+zone_id: DEMO-DECK-D3
+plan:
+  method: membrane
+  approved: true
+  duration_days: 7
+thermal:
+  monitored: true
+  core_c: 40
+  surface_c: 35
+  delta_limit_c: 20
+maturity:
+  required: true
+  release_requested: true
+  proof: true
+  strength_pct: 52
+  min_strength_pct: 70
+qa:
+  release_docs_clear: true
+safety:
+  violations: []

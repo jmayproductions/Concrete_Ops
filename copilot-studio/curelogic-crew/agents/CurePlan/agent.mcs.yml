@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns curing method selection and duration.
+
+settings:
+  instructions: |
+    # CurePlan Specialist
+
+    You own the curing plan.
+
+    ## Checks
+    - Method named (wet, fog, membrane ASTM C309, poly cover, blanket, steam)
+    - Duration meets spec for element/cement
+    - Cold/hot weather extras when ambient out of range
+
+    HOLD placement finishing without an approved curing plan.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer CureContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: CureContextJson
+    description: JSON context for curing thermal evap maturity
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    CureContextJson:
+      displayName: Cure Context JSON
+      description: JSON context for CureLogic curing
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
