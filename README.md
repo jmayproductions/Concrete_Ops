@@ -35,6 +35,19 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### CoreProof / Lab Verification Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for cylinders, cores, and strength acceptance:
+
+- [`copilot-studio/coreproof-crew/`](copilot-studio/coreproof-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/CoreProofLab-Swarm-CopilotStudio-DropIn.zip`](packages/CoreProofLab-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.coreproof_swarm.api --port 8099
+python -m modules.coreproof_swarm.cli run pre-sample-gate -c agents/coreproof/fixtures/pre_sample_go.yaml
+```
+
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

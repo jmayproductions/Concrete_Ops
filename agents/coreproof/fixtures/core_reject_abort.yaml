@@ -1,0 +1,21 @@
+zone_id: DEMO-WALL-B2
+spec:
+  fc_mpa: 35.0
+strength:
+  fc_mpa: 35.0
+  avg_mpa: 34.0
+  lowest_mpa: 32.0
+  consecutive_below: 0
+core:
+  required: true
+  tested: true
+  strength_mpa: 28.0
+  fc_mpa: 35.0
+  ld_ratio: 1.8
+  adjustment_factor: 0.95
+  moist_post_drill_48h: true
+  ends_prepped: true
+qa:
+  break_reports_clear: true
+safety:
+  violations: []

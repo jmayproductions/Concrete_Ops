@@ -1,0 +1,64 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns ACI 318 acceptance vs f'c.
+
+settings:
+  instructions: |
+    # StrengthCompliance Specialist
+
+    You own strength compliance.
+
+    ## Logic
+    - All ≥ f'c → Pass
+    - One < f'c but avg ≥ f'c → Pass
+    - Two consecutive < f'c → Warning / cores
+    - Avg < f'c by >3.5 MPa → Engineer review
+    - Core <85% f'c adjusted → Reject
+
+    ABORT/HOLD per severity.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer LabContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: LabContextJson
+    description: JSON context for cylinder core strength lab
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    LabContextJson:
+      displayName: Lab Context JSON
+      description: JSON context for CoreProof lab verification
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

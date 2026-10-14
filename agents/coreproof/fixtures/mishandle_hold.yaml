@@ -1,0 +1,20 @@
+zone_id: DEMO-WALL-B2
+sample:
+  sample_id: CYL-B2-99
+  pour_zone: Wall-B2
+  cast_time_known: true
+  traceable: true
+cast:
+  method_ok: true
+  cracked_green: false
+transport:
+  rigid_box: false
+  shock_damage: true
+  unprotected: true
+handling:
+  deviation_score: 9
+  invalid_as_sole_evidence: false
+qa:
+  coc_clear: true
+safety:
+  violations: []

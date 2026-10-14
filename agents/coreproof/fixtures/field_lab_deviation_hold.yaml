@@ -1,0 +1,22 @@
+zone_id: DEMO-WALL-B2
+spec:
+  fc_mpa: 35.0
+strength:
+  fc_mpa: 35.0
+  avg_mpa: 36.0
+  lowest_mpa: 35.2
+  consecutive_below: 0
+cylinder:
+  required: true
+  ends_prepped: true
+  set_complete: true
+  avg_mpa: 36.0
+  lowest_mpa: 35.2
+field_lab:
+  required: true
+  field_to_lab_ratio: 0.62
+  lab_suspiciously_high: false
+qa:
+  break_reports_clear: true
+safety:
+  violations: []

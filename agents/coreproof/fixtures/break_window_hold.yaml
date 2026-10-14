@@ -1,0 +1,13 @@
+zone_id: DEMO-WALL-B2
+sample:
+  sample_id: CYL-B2-45
+  pour_zone: Wall-B2
+  cast_time_known: true
+  traceable: true
+break:
+  age_days: 28
+  within_tolerance: false
+qa:
+  coc_clear: true
+safety:
+  violations: []
