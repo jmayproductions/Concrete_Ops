@@ -1,0 +1,10 @@
+zone_id: DEMO-SPK-L3
+sprinkler:
+  required: true
+  tested: true
+  hydro_pass: false
+  uncapped_dry: false
+qa:
+  logs_clear: true
+safety:
+  violations: []

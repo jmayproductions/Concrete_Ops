@@ -1,0 +1,13 @@
+zone_id: DEMO-FA-L3
+fire_alarm:
+  required: true
+  tested: true
+  function_pass: true
+  audible_dba: 68
+egress_lighting:
+  tested: true
+  emergency_power_fail: false
+qa:
+  logs_clear: true
+safety:
+  violations: []

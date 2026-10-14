@@ -1,0 +1,76 @@
+zone_id: DEMO-L3-EGRESS
+floor_id: L3
+egress:
+  clear: true
+  clear_width_in: 44
+  blocked: false
+  discharge_blocked: false
+exit_signs:
+  illuminated: true
+  battery_backup: true
+  missing: false
+  covered: false
+  wrong_arrow: false
+egress_lighting:
+  tested: true
+  emergency_power_fail: false
+stairs:
+  required: true
+  riser_variance_in: 0.1
+  guard_height_in: 42
+  ok: true
+door_schedule:
+  mismatch: false
+  swing_wrong: false
+hardware:
+  closer_ok: true
+  strike_misaligned: false
+  wrong_function: false
+  electrified_untested: false
+fire_door:
+  required: true
+  label_missing: false
+  seals_missing: false
+  gap_side_in: 0.1
+  gap_bottom_in: 0.5
+  failed: false
+  zone_reinspect: false
+sprinkler:
+  required: true
+  tested: true
+  hydro_pass: true
+  uncapped_dry: false
+fire_alarm:
+  required: true
+  tested: true
+  function_pass: true
+  audible_dba: 82
+smoke_damper:
+  required: true
+  tested: true
+  actuation_pass: true
+  close_seconds: 6
+punch:
+  walk_complete: true
+  open_critical: false
+  reopen_pct: 2
+tco:
+  binder_ready: true
+  ls_signoffs: true
+crew:
+  roles:
+    - ls_lead
+    - door_tech
+    - sprinkler_tech
+    - alarm_tech
+    - egress_inspector
+    - qc_tech
+    - safety_watch
+  headcount: 8
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+  logs_clear: true
+  tco_binder_clear: true
+safety:
+  violations: []

@@ -35,6 +35,19 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Life Safety Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for egress, fire doors, sprinklers/alarm, and TCO prep:
+
+- [`copilot-studio/life-safety-crew/`](copilot-studio/life-safety-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/LifeSafety-DoorHardware-Swarm-CopilotStudio-DropIn.zip`](packages/LifeSafety-DoorHardware-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.life_safety_swarm.api --port 8103
+python -m modules.life_safety_swarm.cli run pre-ls-gate -c agents/life-safety/fixtures/pre_ls_go.yaml
+```
+
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

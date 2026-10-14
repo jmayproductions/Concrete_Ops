@@ -1,0 +1,11 @@
+zone_id: DEMO-L3
+punch:
+  walk_complete: true
+  open_critical: false
+  reopen_pct: 14
+hardware:
+  closer_ok: true
+qa:
+  logs_clear: true
+safety:
+  violations: []

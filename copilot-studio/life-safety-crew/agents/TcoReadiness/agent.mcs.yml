@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns TCO binder and AHJ prep.
+
+settings:
+  instructions: |
+    # TcoReadiness Specialist
+
+    You own TCO readiness.
+
+    ## Checks
+    - Life-safety signoffs filed
+    - Fire alarm / sprinkler / elevator certs attached
+    - Egress lighting emergency-power tested
+    - Physical binder for AHJ when required
+
+    HOLD TCO claim without binder / failed egress lighting.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer LifeSafetyContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: LifeSafetyContextJson
+    description: JSON context for egress doors sprinklers alarm TCO
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    LifeSafetyContextJson:
+      displayName: Life Safety Context JSON
+      description: JSON context for Life Safety + Door Hardware
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

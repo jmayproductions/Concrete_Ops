@@ -1,0 +1,10 @@
+displayName: Life Safety Door Hardware Swarm
+schemaName: life_safety_door_hardware_swarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+  recognizer:
+    kind: GenerativeAIRecognizer
+language: 1033

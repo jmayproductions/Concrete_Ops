@@ -1,0 +1,15 @@
+zone_id: DEMO-D112
+fire_door:
+  required: true
+  label_missing: true
+  seals_missing: true
+  gap_side_in: 0.25
+  gap_bottom_in: 0.5
+  failed: true
+  zone_reinspect: false
+hardware:
+  closer_ok: true
+qa:
+  logs_clear: true
+safety:
+  violations: []

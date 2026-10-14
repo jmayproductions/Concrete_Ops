@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns clear path of travel and exit discharge.
+
+settings:
+  instructions: |
+    # EgressPath Specialist
+
+    You own egress paths.
+
+    ## Checks
+    - Min 36" clear width (IBC Ch. 10)
+    - Exit discharge unobstructed to public way
+    - No storage/temp work blocking path
+
+    FAIL blocked egress; HOLD width below minimum.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer LifeSafetyContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: LifeSafetyContextJson
+    description: JSON context for egress doors sprinklers alarm TCO
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    LifeSafetyContextJson:
+      displayName: Life Safety Context JSON
+      description: JSON context for Life Safety + Door Hardware
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

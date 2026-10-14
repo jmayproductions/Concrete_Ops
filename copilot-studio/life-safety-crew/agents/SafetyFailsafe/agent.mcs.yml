@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Stop-work for blocked egress and failed life-safety tests.
+
+settings:
+  instructions: |
+    # SafetyFailsafe Specialist
+
+    You have stop-work authority. FAIL => swarm **ABORT**.
+
+    ## Fail conditions
+    - Blocked exit path / discharge
+    - Failed fire door accepted without zone reinspect
+    - Sprinkler hydro or fire alarm function fail
+    - Egress lighting fails emergency-power test
+    - Smoke damper fails close-time test
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer LifeSafetyContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: LifeSafetyContextJson
+    description: JSON context for egress doors sprinklers alarm TCO
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    LifeSafetyContextJson:
+      displayName: Life Safety Context JSON
+      description: JSON context for Life Safety + Door Hardware
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
