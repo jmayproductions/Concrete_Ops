@@ -1,0 +1,18 @@
+zone_id: DEMO-DECK-EDGE
+edge:
+  unprotected: true
+control:
+  verified: true
+  closure_ok: true
+  destroyed: false
+stakeout:
+  from_approved_rev: true
+  cut_sheets_issued: true
+bim:
+  required: false
+utilities:
+  required: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

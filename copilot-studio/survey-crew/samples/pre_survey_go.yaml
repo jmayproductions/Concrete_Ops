@@ -1,0 +1,64 @@
+zone_id: DEMO-SITE-CONTROL
+area: Site primary control
+control:
+  verified: true
+  closure_ok: true
+  destroyed: false
+  reestablished: true
+benchmarks:
+  datum_tied: true
+  disturbed: false
+stakeout:
+  from_approved_rev: true
+  stakes_missing: []
+  cut_sheets_issued: true
+asbuilt:
+  required: true
+  captured: true
+  format_ok: true
+tolerance:
+  checked: true
+  within_tolerance: true
+bim:
+  required: true
+  revision_locked: true
+  superseded_model: false
+embeds:
+  required: true
+  missing: []
+  conflicts: []
+grade:
+  verified: true
+  reverse_slope: false
+equipment:
+  calibration_current: true
+  field_check_ok: true
+utilities:
+  required: true
+  ticket_known: true
+  dig_without_locate: false
+weather:
+  poor_visibility: false
+  high_wind_critical: false
+  lightning: false
+crew:
+  roles:
+    - survey_lead
+    - instrument_op
+    - rod_person
+    - cad_tech
+    - qc_tech
+    - safety_watch
+    - gc_coordinator
+  headcount: 7
+  briefing_complete: true
+  fatigued_workers: []
+qa:
+  pre_hold_points_clear: true
+  install_hold_points_clear: true
+edge:
+  unprotected: false
+traffic:
+  uncontrolled: false
+safety:
+  violations: []

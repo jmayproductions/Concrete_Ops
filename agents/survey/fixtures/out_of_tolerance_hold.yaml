@@ -1,0 +1,13 @@
+zone_id: DEMO-GRID-A
+tolerance:
+  checked: true
+  within_tolerance: false
+  notes: column line 0.75in off
+asbuilt:
+  required: true
+  captured: true
+  format_ok: true
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

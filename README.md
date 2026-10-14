@@ -35,6 +35,19 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Survey / Layout / Control Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for control, stake-out, embeds, and as-builts:
+
+- [`copilot-studio/survey-crew/`](copilot-studio/survey-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/SurveyLayout-Swarm-CopilotStudio-DropIn.zip`](packages/SurveyLayout-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.survey_swarm.api --port 8094
+python -m modules.survey_swarm.cli run pre-survey-gate -c agents/survey/fixtures/pre_survey_go.yaml
+```
+
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)
