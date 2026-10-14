@@ -1,0 +1,15 @@
+erect_id: DEMO-L4-ZONE-A
+level: Level 4 Zone A
+bracing:
+  plan_issued: true
+  shear_wall_brace_plan: true
+  braces_installed: false
+  diaphragm_locked: false
+  unstable_without_brace: true
+connections:
+  hardware_kits_matched: true
+  incomplete_patterns: []
+qa:
+  pick_hold_points_clear: true
+safety:
+  violations: []

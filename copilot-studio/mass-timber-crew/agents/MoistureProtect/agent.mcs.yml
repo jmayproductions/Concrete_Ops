@@ -1,0 +1,71 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns moisture management plan, MC thresholds, joint sealing, and wetting remediation.
+
+settings:
+  instructions: |
+    # Moisture Protection Specialist
+
+    Moisture is a **first-class erection risk** for engineered wood.
+
+    ## Plan
+    - Moisture Management Plan (MMP) exists with supplier input
+    - Acceptable MC thresholds before acoustic mat / topping / membranes
+    - Passive protection: tarps, tenting, edge seals, joint details
+    - Sequence walls with floors to shrink exposure window
+
+    ## Field gates
+    - Just-in-time delivery to cut storage wetting
+    - Protect immediately after placement (faces + edge grain / splines / penetrations)
+    - No standing / trapped water; prime steel that can rust-stain timber
+    - HOLD covering or topping if MC above project max (commonly ~16% unless spec differs)
+    - Temp roofing / seal joints when forecast demands
+
+    ABORT only with SafetyFailsafe for structural wetting / unsafe conditions; otherwise HOLD with remediation.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer ErectContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: ErectContextJson
+    description: JSON context for level/zone piece marks telemetry crew and moisture
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    ErectContextJson:
+      displayName: Erect Context JSON
+      description: JSON context for level/zone piece marks telemetry crew and moisture
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
+

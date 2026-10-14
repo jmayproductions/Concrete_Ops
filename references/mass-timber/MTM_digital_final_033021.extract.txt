@@ -1,0 +1,2253 @@
+
+--- PAGE 1 ---
+2021
+Mass 
+Timber 
+Design 
+Manual
+Andy Quattlebaum Outdoor Education Center, Cooper Carry
+Clemson University | Seneca, N.C.
+Photo credit: Jonathan Hillyer
+
+--- PAGE 2 ---
+© 2021 WoodWorks and Think Wood. All rights reserved. 
+The U.S. Edition of the Mass Timber Design Manual can be electronically downloaded without charge from the website info.thinkwood.
+com/masstimberdesignmanual. Additional information can be obtained by visiting the websites of WoodWorks and Think Wood. Hard 
+copies can be obtained through Think Wood (www.thinkwood.com). No part of this published Work may be reproduced, published, or 
+transmitted for commercial purposes, in any form or by any means, electronic, mechanical, photocopying, recording or otherwise, 
+whether or not in translated form, without the prior written permission of WoodWorks and Think Wood. 
+The information in this publication, including, without limitation, references to information contained in other publications or made 
+available by other sources (collectively “information”) should not be used or relied upon for any application without competent 
+professional examination and verification of its accuracy, suitability, code compliance and applicability by a licensed engineer, architect 
+or other professional. Neither the Wood Products Council nor its employees, consultants, nor any other individuals or entities who 
+contributed to the information make any warranty, representative or guarantee, expressed or implied, that the information is suitable 
+for any general or particular use, that it is compliant with applicable law, codes or ordinances, or that it is free from infringement of any 
+patent(s), nor do they assume any legal liability or responsibility for the use, application of and/or reference to the information. Anyone 
+making use of the information in any manner assumes all liability arising from such use.
+Published by:
+Funding for The Mass Timber Design Manual was provided by the Softwood Lumber Board.
+
+
+--- PAGE 3 ---
+
+
+--- PAGE 4 ---
+FOREWORD 5
+INTRODUCTION 8
+MASS TIMBER PRODUCTS 10
+TIMBER DESIGN APPLICATIONS 30
+SOLUTIONS FOR BUILDING TALLER 56
+MASS TIMBER AND SUSTAINABILITY 74
+CONCLUSION 96
+4
+Table Of Contents
+
+--- PAGE 5 ---
+My engineering career began in typical fashion. Head down, building my technical 
+expertise, staying in my lane. I designed steel and concrete buildings which I was, and 
+still am, immensely proud of: museums, schools, hospitals. About ten years ago, I worked 
+on my first mass timber project. It is only with the benefit of hindsight that I understand 
+how drastically it changed the course of my career. It drew me into a world that was trying 
+to challenge the status quo: to find meaningful ways to address climate change, to make 
+better use of technology in both the design and fabrication processes, to create healthier 
+spaces by using natural materials. Armed with the awareness of how urgently change is 
+needed and how resistant our industry is to that change, the sidelines no longer seemed 
+like the right place to be.
+Steel and concrete will always have their place, but we have much to gain by increasing the 
+use of mass timber in our built environment. It’s green. It’s beautiful. It’s fast. And it’s safe. 
+While there are legitimate differences of opinion about the finer details of carbon accounting 
+and life cycle analyses, any honest sustainability debate must acknowledge that we are 
+better off using timber, a carbon-sequestering and renewable material, than materials 
+which rely on permanent extraction and massive amounts of energy in production. We 
+owe much to those in the forestry industry who are committed to maintaining the health 
+and stock of our forestlands; without sustainable forestry practices, the case for mass 
+timber would be just another gimmick.
+Structural engineers are not necessarily the world’s experts on beauty, but the evidence 
+of our innate human attraction to natural materials is easy to observe. Next time you are 
+in a public space with an exposed timber column, stand for a few moments and count how 
+many people touch it. You rarely see people drawn in the same way to concrete or steel (or 
+drywall, for that matter). 
+To those who are more concerned with balance sheets than beauty, the highly prefabricated 
+nature of modern mass timber can translate into significant schedule savings. Small, 
+efficient crews work quietly and quickly, with almost no waste on the job site. One can only 
+imagine how the comparison to steel and concrete would pencil out if we paid the true cost 
+of embodied carbon.
+And finally, to return to the structural engineer’s typical domain, large-scale and tall mass 
+timber structures can be designed safely, including in the event of fire. Our understanding 
+of the char behavior of large-scale timber elements has a long history, and more recent 
+research has given us better insight into how we can ensure burnout occurs in buildings 
+with exposed combustible structure.
+To all those who see the value and the potential of mass timber, I hope this compilation of 
+resources aids you in your journey.
+Tanya Luthi, PE
+Vice President, Entuitive
+Board of Directors, WoodWorks
+5
+Foreword
+
+--- PAGE 6 ---
+We live in fast-changing and uncertain times. The effects of climate change are 
+becoming ever more evident with the increased frequency and intensity of catastrophic 
+weather events like California’s wildfires and storms that ravage our eastern shores. The 
+digital revolution of the 21st century led by Silicon Valley changed how we communicate, 
+shop and relate to each other. Yet, despite the technological advancements of the past 
+quarter century, the global pandemic has proven one thing: that we still value what is most 
+fundamental to our lives—our common humanity, the ability to gather face-to-face, and to 
+share our lives with friends and family.
+What do all these globally significant events have to do with mass timber you may ask? 
+Well, everything. It is the single critical building material that can help solve the building 
+industry’s continuing contribution to carbon emissions and climate change. Trees are the 
+lone renewable source of structural material, and our forests function as the lungs of our 
+earth sequestering carbon and producing oxygen.
+The same digital revolution behind our computers and smartphones makes possible our 
+ability to build any type of building, however complex, big or tall, using one of the oldest 
+building materials, wood. And to do so with incredible precision, with vast potential to 
+transform construction to be quiet, fast, affordable and clean instead of noisy, slow, 
+expensive and full of waste.
+What we build with wood can enhance how we work and live and share physical spaces in 
+our communities. With warmth of touch, richness of texture and fresh wood scent, these 
+buildings are naturally biophilic, enhancing well-being and increasing the quality of our 
+lives together.1 
+How do we as architects, engineers, contractors and developers take advantage of mass 
+timber as we build our cities and towns? That’s easy, provided there is willingness to 
+challenge the status quo, to learn and research, and to aspire to a better future. And that’s 
+where resources like this Mass Timber Design Manual come in.  It represents years of 
+research and collaboration among the WoodWorks staff and its industry collaborators. 
+It is the blueprint to understanding the basics of mass timber -- from product research, 
+engineering and design, system assemblies, code implications, construction, and life 
+cycle evaluation. 
+6
+Foreword
+
+--- PAGE 7 ---
+Conceived as a living document to be continuously updated as the world of mass timber 
+grows and matures, this manual can serve us well into the future. Is it the secret to 
+becoming an expert and knowing how to design and build with these products? No, that 
+secret is in each of us as we apply the knowledge within these pages to real projects that 
+require aspiration, dedication and teamwork. Like everyone else, that was my experience 
+when I set foot on this path nearly a decade ago. The reward for imagining, tackling the 
+challenges, and pushing past obstacles has been exponential. Seeing light bulbs go on for 
+the students of architecture and building construction technology working on the Olver 
+Design Building, while seeing the same architecture give a sense of wonder to visitors as 
+they experience the space is more than I could have imagined. 
+Like a tree nurtured by streams of water, with the spirit of collaboration and sharing of 
+knowledge in resources like this manual, the world of mass timber will grow strong, with 
+deep roots that will steady us during trials and produce fruits of our labor. This will benefit 
+our environment by keeping our forests healthy and removing carbon from our atmosphere, 
+benefit our economy by adding value to our rural regions and shape sustainable cities and 
+towns where we can gather, celebrate and help each other, like a healthy forest.
+Tom S. Chung FAIA, LEED BD+C
+Principal, Leers Weinzapfel Associates 
+Board of Directors, WoodWorks
+7
+Foreword
+
+--- PAGE 8 ---
+More and more, design and construction professionals are turning to mass timber 
+to build everything from multifamily projects and commercial offices to signature public 
+buildings and tall wood towers. Mass timber inspires innovation. 
+It is a new category of wood product that can transform how America builds. Mass timber 
+products consist of multiple solid wood panels nailed or glued together, which provide 
+exceptional strength and stability. Conveying warmth and sophistication, it can be used as 
+a load-bearing structure and interior finish material. 
+Nimble and lightweight, prefabricated mass timber building systems can be assembled 
+by fewer workers in tight, more difficult-to-reach construction sites. Often modular, these 
+mass timber building systems can be easily put together like a kit-of-parts. Precisely 
+manufactured assemblies, such as prefabricated mass timber panels, also provide thermal 
+benefits and can help make building envelopes more energy-efficient and airtight. This 
+makes mass timber buildings well-suited to energy-efficient construction and the rigorous 
+standards of Passive House and net-zero-ready design. 
+It’s a strong, low-carbon alternative to concrete and steel. When considered over their 
+lifetime—from the harvest of raw materials through manufacturing, transportation, 
+construction, disposal or recycling—mass timber products have less embodied energy, 
+reduce air and water pollution and have a smaller environmental footprint. 
+For all these reasons, mass timber construction is on the rise. Since 2013, more than 
+1000 multifamily, commercial, or institutional projects using mass timber or heavy timber 
+have either been constructed or are in the process of design in the U.S., according to 
+WoodWorks.2 Mass timber is quickly becoming a movement--as a building system it is a 
+must-know for architects, engineering and construction professionals.
+Introduction
+8
+Introduction
+
+--- PAGE 9 ---
+HOW TO USE THIS MANUAL:
+This manual is helpful for experts and novices alike. Whether you’re new to mass timber 
+or an early adopter you’ll benefit from its comprehensive summary of the most up to date 
+resources on topics from mass timber products and applications to tall wood construction 
+and sustainability. 
+The manual’s content includes WoodWorks technical papers, Think Wood continuing 
+education articles, case studies, expert Q&As, technical guides and other helpful tools. 
+Click through to view each individual resource or download the master resource folder for 
+all files in one handy location. For your convenience, this book will be updated annually as 
+mass timber product development and the market are quickly evolving.
+LOOKING FOR SUPPORT?
+For support on a project, contact help@woodworks.com or join WIN  
+www.woodworksinnovationnetwork.org. Visit www.thinkwood.com for more information.
+9
+Introduction
+
+--- PAGE 10 ---
+Mass Timber 
+Products
+Mass timber is a category of wood product that can revolutionize how America builds, 
+propelled in part by the International Code Council (ICC) move to include taller mass 
+timber buildings as part of the 2021 International Building Code (IBC). Made by fastening or 
+bonding smaller wood components with nails, dowels or adhesives, mass timber products 
+are making a new generation of high-performance buildings possible.
+10
+Mass Timber Products
+
+--- PAGE 11 ---
+SAFE, PROVEN PERFORMANCE 
+Mass timber construction meets the same performance demands as other structural 
+materials, as set out in the International Building Code (IBC). In the event of a fire, mass 
+timber products char on the outside, forming a protective layer while retaining strength. 
+Mass timber hybrid structures meet, and in some cases exceed, the seismic performance 
+of comparable steel and concrete buildings. Mass timber buildings can achieve sufficient 
+stiffness, strength, and ductility to resist strong winds and earthquakes.
+LIGHT-WEIGHT LOW EMBODIED  
+CARBON MATERIAL
+Mass timber products have a lighter environmental footprint than energy intensive 
+materials, contributing to low-and-zero-carbon construction. Wood products are 50% 
+carbon by dry weight meaning mass timber can sequester carbon well into the future, 
+reducing the global warming potential of a building. Mass timber’s lower weight gives it an 
+advantage over steel and concrete assemblies. Light and strong prefabricated assemblies, 
+using mass timber products, can help curb emissions due to reduction of transport and 
+can decrease a building’s overall foundation costs. 
+EFFICIENT, COST-SAVING CONSTRUCTION
+Mass timber construction is faster than other structural assemblies, and speed correlates 
+to savings and revenue, whether the project is an office, school, student residence, 
+condominium, or hotel. Well suited to prefabrication, mass timber can be factory-built to 
+take advantage of modular and panelized construction. They can be assembled by fewer 
+workers in tight, difficult-to-reach project sites.   
+THERMAL AND HEALTH BENEFITS
+Mass timber products can contribute to improved occupant comfort. They have lower 
+thermal conductivity compared to concrete, steel-frame, and masonry construction 
+and are well-suited to energy-efficient design. Prefabricated factory-built mass timber 
+solutions can improve thermal performance by delivering a precise fit that is tested and 
+airtight. In addition, an increasing number of studies focused on wood’s biophilic qualities 
+have linked the use of exposed wood in buildings with improved occupant well-being.3
+11
+Mass Timber Products
+
+--- PAGE 12 ---
+PROJECT NAME: The Discovery Center
+LOCATION: Philadelphia, PA
+OWNER/DEVELOPER: East Park Leadership and Conservation Center
+ARCHITECT: DIGSAU
+STRUCTURAL ENGINEER: CVM
+CONTRACTOR: INTECH Construction, Inc.
+PHOTOS: Halkin Mason Photography LLC
+12
+
+--- PAGE 13 ---
+“Wood, as a building 
+material, is the most 
+versatile and expressive 
+of its origins. You can 
+see, smell, and feel the 
+tree in a piece of wood.”
+JOE CELENTANO
+PRINCIPAL
+VMDO ARCHITECTS
+13
+Mass Timber Products
+
+--- PAGE 14 ---
+A diversity of mass timber products gives design teams flexibility and versatility, and 
+are often combined to form customized structural assemblies. As large solid wood panels, 
+mass timber products can be used for load-bearing wall, floor, and roof construction. They 
+can be designed to curve, cantilever, and achieve expressive long-spanning designs. Mass 
+timber panels made from these products can be topped with concrete to form timber 
+concrete composite (TCC) panels, a hybrid system used to reduce cross sections, increase 
+spans and lessen noise transfer and vibrations. As a complement to other building 
+systems, mass timber can be used in conjunction with light-frame wood construction or 
+in hybrid structures.
+Products Overview
+Learn More
+14
+Mass Timber Products
+
+--- PAGE 15 ---
+PROJECT NAME: Timber Lofts
+LOCATION: Milwaukee, WI
+OWNER/DEVELOPER: Pieper Properties
+ARCHITECT: Engberg Anderson Architects
+STRUCTURAL ENGINEER: Pierce Engineers
+CONTRACTOR: Catalyst Construction
+PHOTOS: ADX Creative
+15
+
+--- PAGE 16 ---
+Cross-laminated timber (CLT) is a wood panel system that has 
+gained popularity in the U.S. after being widely adopted in Europe. 
+It consists of layered lumber boards (usually three, five, or seven) 
+stacked and glued crosswise at 90-degree angles, delivering 
+excellent structural rigidity in both directions. Alternating grains 
+improve CLT panels’ dimensional stability. Finger joints and 
+structural adhesive connect the boards. Board thickness varies 
+between 5/8 inch to 2 inches, with board width most commonly 
+ranging from 2.5 to 5.5 inches. The panels can be manufactured 
+at custom dimensions, though transportation restrictions dictate 
+their overall size.
+Common applications include floors, walls, and roofing. Other 
+applications include cantilevered floors and balconies, load-bearing 
+elevator shafts, and stairs. The panels’ ability to resist high racking 
+and compressive forces makes them especially cost-effective for 
+multistory and long-span diaphragm applications. In structural 
+systems, such as walls, floors, and roofs, CLT panels serve as load-
+bearing elements and are well suited to taller timber construction. 
+As with other mass timber products, CLT can be left exposed 
+in building interiors—up to 8 stories in the 2021 IBC, offering 
+additional aesthetic attributes.
+Cross-Laminated 
+Timber
+16
+Mass Timber Products
+
+--- PAGE 17 ---
+Dowel-laminated timber (DLT) panels are a mass timber product 
+commonly used in Europe and gaining popularity in North America. 
+The panels are made from softwood lumber boards (2-by-4, 2-by-6, 
+2-by-8, etc.) stacked on end and friction-fit together with dowels, 
+typically made from hardwood lumber. 
+Similar to nail-laminated timber, DLT panels can be used for walls, 
+floors and roofs, stairs and elevator shafts as well as bent and 
+assembled to create curved structures. DLT’s all-timber design,  
+with no metal connectors, means it can be easily processed and cut 
+using computerized numerical control (CNC) machinery. Alternating 
+patterns of lumber can be used to create various aesthetic 
+appearances. DLT panels can also accommodate mechanical 
+services and sound absorbing insulation, tucked away as part of its 
+cut and design. 
+DLT panels can be topped with concrete to form timber concrete 
+composite (TCC) panels, a hybrid system used to reduce cross 
+sections, increase spans and lessen noise transfer and vibrations.
+Dowel-Laminated 
+Timber
+17
+Mass Timber Products
+
+--- PAGE 18 ---
+A century-old building construction material, nail-laminated timber 
+(NLT) is made of dimensional lumber stacked together on its edge 
+and fastened together with nails or sometimes screws to form 
+a solid structural element. The boards are nominal 2x, 3x, and 4x 
+thickness. Width is typically 4-12 inches. NLT gets its strength and 
+durability from the nails/screws that fasten individual pieces of 
+dimensional lumber into a single structural element. 
+Applications for NLT include flooring, decking, roofing, and walls, as 
+well as elevator and stair shafts. Adding plywood or oriented strand 
+board sheathing on one face of the panel provides load-bearing 
+capacity, allowing NLT to be used as a shear wall or structural 
+diaphragm. NLT offers a consistent appearance for decorative 
+or exposed-to-view applications and can include curves and 
+cantilevers. 
+Historically, industrial buildings often used NLT construction to 
+span between solid timber posts and beams to form sturdy solid 
+floors. Many of these buildings are sought after for their historic 
+appeal and continue to serve today as refurbished office and 
+residential spaces. NLT’s revival is due in large part to domestic 
+availability. The mass timber product does not require a dedicated 
+manufacturing facility—compared with other building materials 
+like cross-laminated timber (CLT)—and it can be fabricated with 
+readily available dimensional lumber.
+Nail-Laminated 
+Timber
+18
+Mass Timber Products
+
+--- PAGE 19 ---
+Glulam is composed of individual wood laminations (dimension 
+lumber), selected and positioned based on their performance 
+characteristics, and then bonded together with durable, moisture-
+resistant adhesives. The grain of all laminations runs parallel with 
+the length of the members, which can be customized as straight, 
+curved, arched, and tapered.
+As one of the oldest and widely used mass timber products, 
+glulam’s application is broad and includes virtually all building 
+types. Beyond buildings, it can serve as the primary material for 
+major load-bearing structures such as bridges, canopies, and 
+pavilions. It can be used as columns, straight or curved beams and 
+affixed side-by-side to form panels. It is particularly well suited to 
+long-spanning structures, custom curvilinear shapes and combines 
+well with hybrid assemblies and building systems. While typically 
+used as beams and columns, designers can use glulam in the plank 
+orientation for floor or roof decking. With careful specification 
+and design that considers the flatwise structural properties, deep 
+glulam sections can be placed flatwise as decking, similar to NLT.
+Glued-Laminated 
+Timber (Glulam)
+19
+Mass Timber Products
+
+--- PAGE 20 ---
+PROJECT NAME: Brentwood Public Library
+LOCATION: Brentwood, CA
+OWNER/DEVELOPER: City of Brentwood
+ARCHITECT: Fog Studio
+STRUCTURAL ENGINEER: Holmes Structures 
+CONTRACTOR: Lathrop Construction Associates Inc.
+PHOTOS: Blake Marvin Photography
+20
+
+--- PAGE 21 ---
+Mass timber has been embraced in the U.S. at a pace rarely seen for new building 
+systems. This has been made possible by an unprecedented amount of research and 
+product testing, standard development and building code changes, growth in manufacturing 
+capacity, and education and support for individuals involved in mass timber projects. 
+However, with relatively few built projects compared to traditional building systems—and 
+almost none that have undergone an extreme event resulting in a loss claim—insurance 
+has been a challenge.
+This paper is intended for developers and building owners seeking coverage for mass 
+timber buildings, for project teams looking to make their designs and installation processes 
+more insurable, and for insurance industry professionals looking to alleviate their concerns 
+about safety and performance. It examines two types of insurance: builder’s risk (or course 
+of construction) and fixed property (after the building is complete and occupied).
+For developers and design/construction teams, it provides an overview of the insurance 
+industry, including factors that affect premiums, how risks are analyzed, and important 
+considerations for mass timber projects. For insurance brokers, underwriters and others 
+in the industry, it provides an introduction to mass timber, including its growing use, code 
+recognition and common project typologies. It also covers available information on fire 
+performance and post-fire remediation, moisture impacts on building longevity, and items 
+to watch for when assessing projects.
+As with any unfamiliar material or building type, insurance challenges are anticipated. 
+However, there is a great deal of information available to help evaluate the relative risks of 
+mass timber construction, and successfully insured projects that can serve as examples 
+for others in the design and construction industry.
+Insurance for Mass 
+Timber Construction
+ASSESSING RISK AND PROVIDING ANSWERS
+Learn More
+21
+Mass Timber Products
+
+--- PAGE 22 ---
+Across the country, designers are increasingly turning to mass timber products to 
+construct everything from multifamily housing and mixed-use commercial office buildings 
+to schools, healthcare, and civic facilities. The 2015 IBC was first to incorporate CLT as a 
+structural building product when it was recognized for use in Type IV (heavy timber, HT) 
+construction. In response to the increasing use of CLT and other mass timber building 
+components in Types III, IV, and V construction, the 2018 IBC added more detail to clarify 
+the requirements of heavy timber construction. Most recently, the height of mass timber 
+buildings are also on the rise supported by changes to the 2021 International Building 
+Code (IBC). 
+The 2021 IBC includes three new construction types:
+1. Type IV-A – Maximum 18 stories, with noncombustible protection on 
+all mass timber elements.
+2. Type IV-B – Maximum 12 stories, limited area of exposed mass timber 
+walls and ceilings allowed.
+3. Type IV-C3 – Maximum 9 stories, all mass timber permitted to be 
+exposed (with a few exceptions e.g. shafts) and designed for  2-hour 
+fire resistance.
+Construction Types  
+for Mass Timber  
+and 2021 Codes
+22
+Mass Timber Products
+
+--- PAGE 23 ---
+These new types are based on the existing Heavy Timber construction type (renamed Type 
+IV-HT) but with specified hourly fire resistance ratings for building elements and added 
+levels of noncombustible protection. The code includes provisions for up to 18 stories of 
+Type IV-A construction for Business and Residential Occupancies.
+Along with their exceptional structural performance, design teams are leveraging mass 
+timber products for their versatility, value, and climate-combatting benefits.
+Such is the case for Boston-based Placetailor and Generate, teaming up to design a CLT 
+Passive Demonstration Project in the city’s Lower Roxbury neighbourhood. The project 
+will showcase the innovative potential of CLT as a low carbon building material.
+Over 400 miles north in Toronto, Canada, the Next Property Group and BNKC Architecture 
++ Urban Design are demonstrating how century-old NLT construction can be reimagined 
+as a thoroughly modern, high-tech commercial office building.
+23
+Mass Timber Products
+
+--- PAGE 24 ---
+A thoroughly modern take on the 100-year-old, tried-and-
+tested construction technology of nail-laminated timber (NLT), 
+77 Wade is set to surround a new generation of knowledge 
+workers with the warmth and beauty of wood. This contemporary 
+approach to timber warehouses of the past consists of concrete-
+filled steel beams, glulam columns and prefabricated wood 
+decking overhead. High-impact renderings of this state-of-
+the-art office envision a mass timber building that is sleek and 
+futuristic.
+The lightness, transparency, and levity of 77 Wade’s design, 
+according to BNKC Architecture + Urban Design partner 
+Jonathan King, is achieved using a hybrid concrete-steel and 
+timber structural system that plays to the strengths of each 
+building material.
+ 
+ 
+“In this particular project, we’re incorporating a composite 
+timber deck system that brings together the qualities of wood 
+with the qualities of concrete and steel and combines them to 
+get the best attributes out of each material,” says King. By doing 
+so, this hybrid approach achieves spans equal to a traditional 
+concrete and steel design and affords all the amenities expected 
+of a modern office building, while retaining the warmth and 
+charm of exposed wood. 
+The building’s open concept plan will provide 20,000 ft2 per 
+floor and accommodate upwards of 175 workstations, nearly 
+double that of a traditional office layout. Its efficient design will 
+accommodate over 1,000 office workers, while ample glazing, 
+exposed mass timber, and 12-foot ceilings provide a pleasing 
+occupant experience. Building amenities will include electric 
+vehicle charging, bike storage, showers and changing facilities. 
+The first floor will accommodate nearly 2,500 ft2 of retail space.
+77 Wade
+MASS TIMBER GOES HIGH-TECH
+PROJECT DETAILS
+ARCHITECT: BNKC Architecture + Urban Design
+SIZE: Approx. 150,000 ft2 (14,000 m2)
+OWNER/DEVELOPER: Next Property Group
+LOCATION: Toronto, ON
+STRUCTURAL ENGINEER: Blackwell Structural Engineers
+MECHANICAL / ELECTRICAL / PLUMBING ENGINEER: Integral Group
+PROJECT MANAGER: Alliance 7 Construction Inc
+MASS TIMBER FABRICATOR: Structure Fusion
+LIFE SAFETY: Vortex Fire
+DATE COMPLETED: Under Construction
+Image credit: Next Property Group
+24
+Mass Timber Products
+
+--- PAGE 25 ---
+It will be the tallest mass timber office building in Canada targeting 
+LEED Gold certification. The Toronto-based developer has 
+embraced the benefits of mass timber as central to its promotion, 
+including the fact that timber can be locally sourced and offers 
+a smaller carbon footprint than other structural materials. The 
+developer confirms mass timber’s warmth and aesthetic is a draw 
+for tenants and their employees, a big reason they left nearly 80% 
+of mass timber exposed. The project is expected to be completed 
+in 2021.
+Image credit: Next Property Group
+Image credit: Next Property Group
+Learn More
+25
+Mass Timber Products
+
+--- PAGE 26 ---
+Aptly named for its goal of inspiring new ways to build, 
+Catalyst is the first CLT office building constructed in Washington 
+state and the first to use panels produced at Katerra’s new CLT 
+production facility. It is also designed to meet Passive House 
+principles and zero-carbon/zero-energy certification from the 
+International Living Future Institute (ILFI). The five-story building 
+also contains classroom and lab space for approximately 1,000 
+Eastern Washington University students studying engineering 
+and applied sciences. 
+Catalyst was constructed using an all-wood structural system, 
+including glulam columns and beams, CLT shear wall panels and  
+ 
+glulam/CLT composite floor and roof ribbed panels. Most of the 
+timber structure and the exterior CLT wall panels are left exposed 
+to the interior. It is one of the first projects in North America to 
+achieve a long span using true wood-to-wood composite action in 
+these rib panels according to Katerra’s Design Project Manager, 
+Drew Kleman. Such composite action is typically achieved using 
+concrete.  
+End-to-end design, manufacturing and assembly made for a 
+faster, more efficient construction. For example, the design 
+team collaborated closely with the CLT manufacturing team to 
+optimize the fit between the desired 30x30 grid spacing and the 
+CLT plant’s capabilities. 
+PROJECT DETAILS
+LOCATION: Spokane, W A
+SIZE: 164,000 ft2 
+CLIENT / OWNER: Avista Development, Mckinstry, South Landing Investors LLC
+ARCHITECT: Katerra (Architect Of Record) + Michael Green Architecture (Design Architect)
+STRUCTURAL ENGINEER: KPFF
+CONTRACTOR: Katerra Construction
+CLT SUPPLIERS: Katerra, Structurlam
+GLULAM SUPPLIER: Western Archrib
+COMPLETED: 2020
+Catalyst
+MASS TIMBER SERVES AS AN AGENT OF CHANGE
+Photo credit: Ben Benschneider
+26
+Mass Timber Products
+
+--- PAGE 27 ---
+Safety was another benefit of the CLT rib panel system since all 350 
+panels could be quickly lifted into place, reducing the time workers 
+spent under a crane. Katerra ran four crews—shear walls, columns 
+and beams, floor panels and hardware—and each had four to five 
+people working at any one time. The entire structure took 11 weeks 
+to erect. 
+Efficiency also translates to energy savings over the life of the 
+building, according to Jim Nicolow, Director of Sustainability for 
+Katerra. The use of large factory-built mass timber panels translates 
+to improved airtightness of the envelope and better performance 
+over time.
+Along with efficient construction and interior beauty, mass timber 
+makes the building a zero-carbon, climate-saving solution. “The  
+global warming potential for Catalyst was about half what you 
+might expect for a project like this; the median reported value in the  
+Carbon  Leadership  Forum’s  Embodied Carbon Benchmark Study  
+for  commercial  projects  is  396  kg  CO2e/m2,”  Nicolow said.  “You  
+not  only  have  a  low-embodied  carbon  building,  but  you  have a 
+carbon-sequestering material that essentially makes up for  some  
+of  the  emissions  associated  with  the  conventional  materials that 
+went into the building.”
+Learn More
+Photo credit: Ben BenschneiderPhoto credit: Ben Benschneider
+27
+Mass Timber Products
+
+--- PAGE 28 ---
+The Model-C demonstration project is a mass timber, mid-
+rise, multifamily, and certified Passive House building that shows 
+how CLT systems can be leveraged to meet complex design and 
+sustainability goals.  
+A collaboration between MIT start-up Generate and Boston-
+based design-build firm Placetailor, the five-story mixed-use 
+project is the city’s first full CLT building. It will include fourteen 
+residential units and a ground floor co-working space open to its 
+Lower Roxbury neighborhood.
+The project demonstrates the “Model-C” building system – a kit-
+of-parts assembly constructed from prefabricated CLT building 
+panels. This pairs mass timber products with high performance 
+assemblies, including insulation and air-sealing that qualify  
+buildings for high-performance, zero carbon, and Passive House 
+certification.The project will operate at net-zero carbon, which is 
+achieved by calculating both the building’s embodied energy and 
+its operational energy, and offsetting any annual excess energy 
+use through carbon offset purchases. 
+While Model-C was originally developed as an optimal system 
+for mid-rise multifamily buildings, its kit-of-parts assembly is 
+intended to easily adapt to diverse site parameters and taller 
+building applications. “We were looking at manufacturers, 
+species, grades of product, ensuring the spans that you’re 
+looking at as a system can accommodate the program, but also 
+give you a high performing building,” said John Klein of Generate.
+Generate and Placetailor have carefully documented the 
+development of the Model-C demonstration project, and they 
+PROJECT DETAILS
+ARCHITECT: Placetailor, Generate
+SIZE: 19,000 ft2
+DEVELOPER / GENERAL CONTRACTOR: Placetailor
+LOCATION: Lower Roxbury, Boston, MA
+STRUCTURAL ENGINEER: Buro Happold Engineering
+MECHANICAL / ELECTRICAL / PLUMBING ENGINEER: Ripcord Engineering
+MASS TIMBER FABRICATOR: Nordic (supplier), Bensonwood (fabricator/installer)
+CODE CONSULTANTS: Code Red
+DIGITAL IMAGERY: Forbes Massie Studio
+DATE COMPLETED: Construction Begins Spring 2021
+Model-C
+CROSS-LAMINATED TIMBER TAKES CENTER STAGE
+Image credit: Generate/Placetailor
+28
+Mass Timber Products
+
+--- PAGE 29 ---
+are committed to releasing project calculations and performance 
+data to the public. “If we want to get to a zero-carbon world in the 
+next decade, we have to show people how to do it in detail,” said 
+Colin Booth, Placetailor’s Director of Strategy. “We want to share as 
+much of this project as possible and as transparently as possible. 
+We have cost information to share, performance and system specs, 
+large batch energy modeling, all of this information to help people 
+understand how we’re doing what we’re doing.”
+Image credit: Generate/Placetailor
+Image credit: Generate/Placetailor
+Image credit: Generate/Placetailor
+Learn More
+29
+Mass Timber Products
+
+--- PAGE 30 ---
+Timber Design 
+Applications
+Unlike existing structural assemblies, mass timber calls for a holistic and innovative 
+approach to its design applications. Successful design teams have learned new ways 
+to manage optimizing costs, acoustic design, vibration and noise control, and fire 
+performance.  Timber span capabilities, construction type, fire-resistance ratings and 
+connections will drive a mass timber building’s optimal layout and structural grid. 
+Mass timber is engineered for high strength ratings like concrete and steel but is 
+significantly lighter in weight.4 Combining mass timber and concrete or steel in hybrid 
+construction can provide a cost-effective and sustainable solution5 for many occupancy 
+types as well as improving building performance and design. Overbuilds are a technique 
+to add additional stories on top of an existing building, maximizing development area per 
+square foot.6
+Just-in-time prefabricated mass timber construction, while requiring more upfront 
+planning, can deliver schedule and time savings and reduced labor costs. 7 This can be 
+particularly useful for repeatable building types such as hotels, multifamily residential, and 
+student dorms. Mass timber can be applied to virtually all building types and is particularly 
+sought after for office design—its open flexible design and exposed wood is well-suited to 
+the needs of today’s modern workplace.
+In this section several Case Studies demonstrate mass timber’s applications. Technical 
+mass timber Resources span essential topics such as code compliance for fire design, 
+acoustics and noise control, designing for floor vibration, choosing structural connections, 
+and best practices related to grid configurations, durability, moisture, and enclosures.
+30
+Timber Design Applications
+
+--- PAGE 31 ---
+PROJECT NAME: Latitude Dining Commons, UC Davis
+LOCATION: Davis, California
+OWNER/DEVELOPER: UC Davis Design and Construction Management
+ARCHITECT: HED
+STRUCTURAL ENGINEER: Rutherford Chekene
+CONTRACTOR: Otto Construction
+PHOTOS: Flank Development
+31
+
+--- PAGE 32 ---
+The first hotel built in the U.S. using CLT is part of the 
+Privatization of Army Lodging (PAL) program, a 50-year public-
+private partnership between the U.S. Army and developer 
+Lendlease. The 92-room facility is designed to provide quality 
+private-sector hotel lodging for soldiers and guests on U.S. Army 
+installations and joint bases. 
+The four-story, rectangular slab-on-grade hotel used CLT for all 
+exterior walls, parapet walls, interior walls, elevated floor slabs, 
+and roof deck. The structure also used glulam columns and 
+beams. While thicker CLT can span up to 25 feet without beams 
+or columns, the 3-1/8-inch-thick roof panels of the Candlewood 
+Suites spanned 16-1/2 feet. In a CLT structure, floors can rest 
+directly on columns without intermediate beams at panel 
+edges because of the bi-directional capacity afforded by CLT’s 
+crosslamination.
+The design team also had to consider the differential movement 
+between CLT and other materials. The project featured a full-
+height, four-story concrete brick veneer with a continuous 
+drainage plane behind the cladding. To overcome the prescriptive 
+limits for the height of the brick veneer, they used an engineered 
+concrete brick product that is self-supporting up to 85 feet. This 
+means they didn’t have to support the brick at each floor, which 
+would have complicated the building envelope design.
+Sound control is also critically important in hotels. The CLT 
+floor assembly achieved a Field Impact Insulation Class (FIIC) 
+rating of 74, which was also substantially higher than the Impact 
+Insulation Class rating of 50 required by code. The high FSTC 
+rating demonstrates that this CLT assembly has better sound 
+absorption qualities than originally determined by theoretical 
+analysis.
+PROJECT DETAILS
+ARCHITECT: Benham (formerly Leidos)
+SIZE: 62,688 ft2
+DEVELOPER / GENERAL CONTRACTOR: Lendlease
+LOCATION: Redstone Arsenal, AL
+STRUCTURAL ENGINEER: Schaefer Structural Engineers
+MASS TIMBER FABRICATOR: Nordic Structures
+DATE COMPLETED: 2015
+Candlewood Suites at  
+Redstone Arsenal
+CONSTRUCTION ADVANTAGES SELL HOTEL DEVELOPER ON CLT
+Photo credit: Lendlease
+32
+Timber Design Applications
+
+--- PAGE 33 ---
+When it comes to energy efficiency and airtight construction, CLT 
+panels for the hotel were manufactured to a tolerance of less than 
+1/16 inch, which is far tighter than anything that can be achieved in 
+the field using conventional construction and materials.
+According to the project team, CLT’s advantages added up. 
+Even with the additional requirements of blast protection, the 
+Candlewood Suites at Redstone Arsenal demonstrate that CLT is 
+an effective option for non-military hotels and other mid-rise
+projects.
+Photo credit: LendleasePhoto credit: Lendlease
+Learn More
+33
+Timber Design Applications
+
+--- PAGE 34 ---
+While historically concrete and steel have been the default structure for office design, 
+mass timber is rising in popularity and is equally capable of accommodating the needs of 
+a modern workplace. Exposed mass timber construction lends itself well to open office 
+layouts while offering aesthetic warmth and biophilic benefits.
+The following projects highlight common considerations for office design, such as layout 
+flexibility and market classification, in the context of mass timber hybrid solutions. Key 
+project considerations for this building type include code opportunities related to fire and 
+life safety, structural design and layout, acoustics, vibration, and cost. The projects make 
+use of a wide range of mass timber products including solid wood, glued-laminated timber 
+(glulam), cross-laminated timber (CLT), and nail-laminated timber (NLT).
+Mass Timber  
+Office Design
+BREAKING CONVENTION WITH WOOD OFFICES
+Learn More
+34
+Timber Design Applications
+
+--- PAGE 35 ---
+“When you use steel 
+and concrete, it requires 
+more material to be both 
+structurally sound and 
+have a clean finish. With 
+mass timber, we can 
+put up the structure and 
+wood itself is the finish.”
+EDWIN LIANG 
+PROJECT MANAGER
+MCN BUILD
+35
+Timber Design Applications
+
+--- PAGE 36 ---
+Clay Creative
+PROJECT DETAILS
+LOCATION: Portland, OR
+ARCHITECT: Mackenzie
+STRUCTURAL ENGINEER: Kramer Gehlen & Associates
+CONTRACTOR: Turner Construction Company
+PHOTOS: Christian Columbres
+Clay Creative, a mixed-use project in the heart of Portland’s 
+Central Eastside Industrial District, is the result of a design 
+approach in tune with both the neighborhood’s historical 
+context and its ongoing evolution into a creative area. Integral 
+to the building’s design and appeal is its heavy timber structural 
+system. Five-stories of Type IIIA post-and-beam construction 
+sit over a one-story, Type IA deck. The structure consists of 
+dimension wood floor framing with plywood sheathing over  
+ 
+ 
+vertical nail-laminated timber (NLT) decking; the decking spans 
+between glulam beams and girders supported by glulam columns. 
+Designers used an exterior steel moment frame to keep the core 
+area open. Inside, they used a typical structural grid of 25x30 
+feet, with mid-bay beams in the long spans and girders in the 
+short spans. Concealed steel bearing and knife plate connections 
+attach to the exposed glulam beams with countersunk bolts for 
+added fire protection. Sustainable design was a goal, so wood 
+for the 90,000-sf building was locally sourced. The estimated 
+construction cost came in at $300 per square foot.
+36
+Timber Design Applications
+
+--- PAGE 37 ---
+Hudson Office Building
+PROJECT DETAILS
+LOCATION: Vancouver, W A
+ARCHITECT: Mackenzie
+CLIENT: Killian Pacific
+DATE COMPLETED: 2016
+PHOTOS: Christian Columbres
+Across the river from Clay Creative in Vancouver, Washington 
+the 45,000 square-foot Hudson Office Building is designed to 
+evoke a contemporary industrial feel, with a three-story, Type 
+VB structure that features a structural brick exterior, expansive 
+glass entrances and exposed wood columns, beams and ceilings.  
+ 
+ Columns and beams are designed on a grid of 25 x 25 feet. The 
+floor and roof system includes NLT decking, offering a modern 
+interpretation of traditional wood construction. In addition to 
+aesthetics, the texture in the exposed wood ceilings reduces noise 
+reflection and helps with acoustics—an important consideration 
+for Class A buildings.
+37
+Timber Design Applications
+
+--- PAGE 38 ---
+Diamond Foods Innovation Center
+PROJECT DETAILS
+LOCATION: Salem, OR
+ARCHITECT: ZGF Architects
+STRUCTURAL ENGINEER: KPFF Consulting Engineers
+CONTRACTOR: Lcg Pence
+PHOTOS: Pete Eckert
+Salem Oregon-based Diamond Foods Innovation Center 
+was built to house a team of specialists who drive new product 
+offerings, from R&D through manufacturing and delivery. With 
+the need for expensive interior components such as state-of-
+the-art kitchens and labs, the two-story structure itself had to 
+be relatively low cost. Multiple value engineering exercises led 
+to a Type V A wood-frame system with dimension lumber walls, 
+I-joists and glulam floors, and a light-frame truss and glulam roof.
+The design team used a solar shading analysis tool to position 
+vertical fins and a moderate roof cantilever to offset heat gain. 
+Because the project is adjacent to a restored wetland and creek, 
+the team was careful to choose environmentally safe materials, 
+such as wood from sustainably managed forests that resists 
+weather, mold, rot, and insects thanks to a chemical-free steam 
+and pressure treatment. The two-story Type V project, including 
+site improvements, was completed in 2015 for a cost of $2.1 
+million.
+38
+Timber Design Applications
+
+--- PAGE 39 ---
+One North  
+Karuna East And West Buildings
+PROJECT DETAILS
+LOCATION: Portland, OR
+ARCHITECT: Holst Architecture
+STRUCTURAL ENGINEER: Froelich Engineers
+CONTRACTOR: R&H Construction Co.
+PHOTOS: Andrew Pogue
+Fifty miles north of the Diamond Foods Innovation Center is 
+the Portland-based Karuna at One North. This 85,540-square-
+foot project includes a five-story Type IIIB building and separate 
+four-story Type V A building, both with offices above ground-level 
+retail. Both feature heavy timber post-and-beam construction  
+ 
+ 
+over a concrete podium. Fire retardant-treated wood (FRTW) 
+shear walls were used as part of the lateral-resisting system, and 
+sprinklers were added on the exterior to allow the structure to 
+exceed the 40-foot combustible exterior finish limit. Costs were 
+estimated at between $175 and $225 per square foot, and the 
+developer said rental rates surpass those of offices in downtown 
+Portland. 
+39
+Timber Design Applications
+
+--- PAGE 40 ---
+“We could build with 
+other materials, but we 
+have comfort in knowing 
+that we’re sequestering 
+carbon and mass timber 
+is a natural material.”
+BEN WALTER 
+PRESIDENT  
+CWS ARCHITECTS
+40
+Timber Design Applications
+
+--- PAGE 41 ---
+Proper planning is key to realizing savings on a mass timber project. These design 
+optimization checklists, developed by WoodWorks, provide a breakdown of critical items 
+to consider when completing a mass timber building -- from pre-design and schematic 
+through to design development. 
+They are intended for building designers (architects and engineers), but many of the topics 
+should also be discussed with the fabricators and builders. The cost optimization checklists 
+will help guide coordination between designers and builders (general contractors, 
+construction managers, estimators, fabricators, installers, etc.) as they are estimating and 
+making cost-related decisions on a mass timber project.
+Mass Timber Cost  
+and Design 
+Optimization Checklist
+Learn More
+41
+Timber Design Applications
+
+--- PAGE 42 ---
+Achieving the highest level of cost efficiency possible with mass timber requires an 
+understanding of both material properties and manufacturer capabilities. When it comes 
+to laying out a structural grid, the square peg/round hole analogy is pertinent. Trying to 
+force a mass timber solution on a grid laid out for steel or concrete can result in member 
+size inefficiencies and the inability to leverage manufacturer capabilities. 
+Knowing how to best lay out the structural grid—without sacrificing space functionality—
+allows the designer to optimize member sizes, but cost efficiency for a mass timber 
+building goes beyond column spacing. The structural engineer’s role in optimizing a mass 
+timber structural layout involves taking a system vs. product approach. 
+This paper describes that approach, along with other considerations, such as design 
+parameters and challenges, connections, grid spacings, and lessons learned from built 
+structures in the U.S. that can help engineers optimize their mass timber projects.
+Efficient Structural Grid 
+Designs for Mass Timber 
+Buildings
+Learn More
+42
+Timber Design Applications
+
+--- PAGE 43 ---
+PROJECT NAME: Carbon12
+LOCATION: Portland, OR
+OWNER/DEVELOPER: Kaiser Group
+ARCHITECT: PATH Architecture
+STRUCTURAL ENGINEER: Munzing
+FABRICATOR: Structurlam
+PHOTOS: Andrew Pogue
+43
+
+--- PAGE 44 ---
+Fire design is an important consideration for any mass timber project, along with an 
+understanding of fire-resistant testing as it relates to specific mass timber assemblies and 
+penetrations. Because mass timber products char at a predictable rate like heavy timber, 
+they have inherent fire resistance that allows them to be left exposed and still achieve a 
+fire-resistance rating.
+Mass Timber Fire Design
+This technical paper delves into how to meet fire-resistance requirements in the 2018 
+International Building Code (IBC) as it relates to mass timber, including calculation and 
+testing-based methods. It includes fire resistance rating requirements and helpful charts 
+based on building type and element. Along with fire-resistance ratings of exposed mass 
+timber elements, the document breaks down the specific circumstances wherein the code 
+allows for the use of mass timber in commercial and multi-family construction. 
+A building’s assigned construction type is the main indicator of where and when all wood 
+systems can be used.
+• Type III (IBC 602.3) – Timber elements can be used in floors, roofs, 
+and interior walls. Fire-retardant-treated wood (FRTW) framing is 
+permitted in exterior walls required to have a fire-resistance rating 
+of 2 hours or less.
+• Type V (IBC 602.5) – Timber elements can be used throughout the 
+structure, including floors, roofs, and both interior and exterior walls.
+• Type IV (IBC 602.4) – Commonly referred to as ‘Heavy Timber’ 
+construction, this option has been in the building code for over a 
+hundred years in one form or another, but its use has increased along 
+with renewed interest in exposed wood buildings.
+FIRE DESIGN OF MASS TIMBER MEMBERS
+44
+Timber Design Applications
+
+--- PAGE 45 ---
+This comprehensive list of mass timber assemblies and penetration fire stopping 
+systems includes helpful information and data related to fire resistance tests of mass 
+timber floor and roof assemblies; CLT wall assemblies; penetrations and fire stops in CLT 
+assemblies; and tests of connections.
+INVENTORY OF FIRE RESISTANCE-TESTED 
+MASS TIMBER ASSEMBLIES & PENETRATIONS
+Learn More
+For most building elements other than heavy timber, passive fire-resistive requirements 
+are in the form of a required fire-resistance rating (FRR). The IBC defines FRR as the period 
+of time a building element, component, or assembly maintains the ability to confine a fire, 
+continues to perform a given structural function, or both, as determined by the tests, or the 
+methods based on tests, prescribed in Section 703. The construction type of a building 
+determines many of the minimum required fire-resistance ratings for different building 
+components.
+In addition to requirements related to construction type, there are other requirements 
+for fire-resistance ratings in the IBC. For multi-unit residential buildings, walls and floors 
+between dwelling or sleeping units are required to have a fire-resistance rating of 1/2 hour 
+in Type II-B, III-B and V-B construction when sprinklered throughout with an NFPA 13 
+system, and 1 hour for all other construction types (IBC 420, 708 and 711).
+Mass timber elements can be designed so a sufficient cross-section of wood remains to 
+sustain the design loads for the required duration of fire exposure. This sets mass timber 
+apart as a unique building material—one that is able to achieve structural performance 
+and passive fire-resistance objectives for larger and taller wood buildings than ever before, 
+while offering enhanced aesthetic value and environmental responsibility.
+Learn More
+45
+Timber Design Applications
+
+--- PAGE 46 ---
+The use of mass timber buildings presents unique acoustic challenges. With 
+careful design and detailing, mass timber buildings can meet the acoustic performance 
+expectations of most building types. This resource delves into important acoustic 
+considerations for mass timber construction and design, with an emphasis on controlling 
+room-to-room noise.
+When it comes to the fundamentals of acoustics and code, Section 1206 of the 2018 
+International Building Code (IBC) lists requirements for acoustical performance of walls, 
+partitions and floor/ceiling assemblies in multi-family buildings. These assemblies, 
+which separate one dwelling unit from another or from public areas, must have a sound 
+transmission class (STC) rating of 50 and, in the case of floor/ceiling assemblies, an impact 
+insulation class (IIC) rating of 50.
+Acoustics and  
+Mass Timber
+ROOM-TO-ROOM NOISE CONTROL
+EXAMPLES OF ACOUSTICALL Y-TESTED MASS TIMBER PANELS
+Mass Timber Panel Thickness STC Rating IIC Rating
+3-ply CLT wall 3.07" 33 N/A
+5-ply CLT wall 6.875" 38 N/A
+5-ply CLT floor 5.1875" 39 22
+5-ply CLT floor 6.875" 41 25
+7-ply CLT floor 9.65" 44 3O
+2x4 NLT wall 3-1/2" bare NLT4-1/4" with 3/4" plywood 24 bare NLT29 with 3/4" plywood N/A
+2x6 NLT wall 5-1/2" bare NLT6-1/4" with 3/4" plywood 22 bare NLT31 with 3/4" plywood N/A
+2x6 NLT floor + 1/2" plywood 6" with 1/2" plywood 34 33
+Source: Inventory of Acoutstically-Tested Mass Timber Assemblies, WoodWorks
+46
+Timber Design Applications
+
+--- PAGE 47 ---
+Exposed mass timber calls for some unique acoustic considerations. Bare mass timber 
+floor/ceiling or wall assemblies are seldom used, in large part due to inadequate acoustical 
+performance. For example, a 5-ply CLT floor with a thickness of 6.875” has an STC rating 
+of 41 and an IIC rating of 25.4 As such, components are typically added to mass timber 
+assemblies to improve their acoustics. 
+For example, if leaving mass timber exposed in floor/ceiling application, acoustical 
+components should be installed on top of the assembly. Adding mass to timber using a 
+poured concrete or gypsum-based topping layer, usually in the range of 1-3” thick, is a 
+common way to improve acoustical performance.
+Decouplers can be used to mitigate acoustic challenges. These products decouple, or 
+break direct connections between finishes on one side of an assembly and the other. This 
+reduces the amount of noise that can directly travel through finish to structure to finish. 
+Common examples in light wood-frame construction include resilient channels and air 
+spaces. In mass timber floor/ceiling systems, the most common decoupling products are 
+underlayments and mats placed between the mass timber panel and concrete or gypsum-
+based topping.
+Designing a building for noise control has a significant impact on the overall occupant 
+satisfaction. Laboratory and field tests have already shown that mass timber assemblies
+can provide satisfactory sound insulation and this is contributing to the use of mass timber 
+for more projects. 
+Learn More
+ACOUSTICALL Y-TESTED  
+MASS TIMBER ASSEMBLIES
+This inventory of acoustically-tested mass timber assemblies includes CLT floor 
+assemblies with and without concrete/gypsum topping with wood sleepers; NLT, GLT, 
+MPP & T&G decking floor assemblies, and other mass timber floor and wall assemblies.
+Learn More
+47
+Timber Design Applications
+
+--- PAGE 48 ---
+In many floor applications, the size of the mass timber panels and supporting framing, 
+which significantly influences construction cost, is largely determined by limiting the floor 
+vibrations perceived by occupants or sensitive equipment to acceptable levels. While 
+vibration design is a primary driver of the framing system cost of floors, little information 
+has been available to U.S. designers on how to design mass timber floors for vibration.
+This design guide bridges the information and experience gap by synthesizing current 
+design procedures and recommendations for mass timber floors, presenting the results 
+in a format that is both approachable and useful to the engineering design community. 
+It covers the entire range of currently available mass timber panels, including cross-
+laminated timber (CLT) manufactured from either solid sawn or structural composite 
+lumber laminations, nail-laminated timber (NLT), and dowel-laminated timber (DLT), and 
+the support of such panels on a framework of timber beams.
+As with any lightweight, long-span floor system, vibration performance may control a 
+mass timber floor’s design up to and including panel selection (grade and thickness) and/
+or supporting member sizes and arrangement. To help designers assess the vibration 
+performance of these types of floors, this document provides recommended analysis 
+approaches and performance target ranges. It focuses on the design of mass timber 
+floor systems to limit human-induced vibration. The primary performance goal is to help 
+designers achieve a “low probability of adverse comment” regarding floor vibrations in a 
+manner consistent with the vibration design guides for steel and concrete systems.
+Mass Timber Floor 
+Vibration Design
+Learn More
+48
+Timber Design Applications
+
+--- PAGE 49 ---
+PROJECT NAME: Catalyst
+LOCATION: Spokane, Washington
+OWNER/DEVELOPER: McKinstry
+ARCHITECT: MGA | Michael Green Architecture
+STRUCTURAL ENGINEER: KPFF
+CONTRACTOR: Katerra
+PHOTOS: Andrew Giammarco
+49
+
+--- PAGE 50 ---
+With the rise in mass timber construction throughout the U.S. there is increasing 
+interest from design teams to better understand cost drivers related to this building type. 
+Connections in a mass timber structure can significantly affect the overall project cost. 
+However, because mass timber connection design must consider not only structural 
+design but also aesthetics, fire rating requirements, constructability, accommodations 
+for shrinkage and swelling, and moisture protection, finding the optimal solution takes 
+research and planning. 
+To aid designers in this effort, WoodWorks created an index  highlighting the spectrum 
+of available structural and architectural mass timber connections. It groups structural 
+connections into three categories or ‘Connection Classes’ that share some common 
+attributes regarding cost, constructability, and fire rating. 
+The accompanying paper defines these “classes” (or groupings). Class 1 connections 
+require only mass timber elements and structural fasteners. Class 2 connections are 
+custom steel fabricated elements, made up of components such as plates and angles, and 
+include structural fasteners. Class 3 connections are prefabricated proprietary connectors 
+available from suppliers such as Simpson Strong-Tie, Rothoblaas, MiTek, and others. 
+Class 3 connections are often backed by supporting tests for strength and fire rating.
+Mass Timber 
+Connections 
+CONNECTION CLASSES
+Connection Class Class 1 Class 2 Class 3
+Class Description Requires only mass timber elements and fasteners
+Utilizes steel fabricated 
+elements, with components 
+such as angles and plates, and 
+includes fasteners
+Prefabricated proprietary 
+connectors
+Connection Example
+Beam Bears on Girder* Beam Bears on Steel Bearing Seat with Knife Plate* Beam Connected to Girder with Proprietary Concealed Connector*
+*Table 8 in the WoodWorks Index of Mass Timber Connections
+50
+Timber Design Applications
+
+--- PAGE 51 ---
+Like any other, mass timber connections should be based on well-established principles 
+of structural mechanics. Minimum requirements and guidelines are standardized in 
+a variety of sources, including but not limited to: International Building Code (IBC); 
+American Society of Civil Engineers (ASCE/SEI 7) Minimum Design Loads and Associated 
+Criteria for Buildings and Other Structures; American Wood Council National Design 
+Specification® for Wood Construction; APA - The Engineered Wood Association (EWS) 
+T300 Glulam Connection Details Construction Guide (APA T300); and American Institute 
+of Steel Construction (AISC) Manual of Steel Construction.
+Learn More
+CONNECTION CLASSES IN RELATION TO FIRE RATING
+Connection Class Class 1 Class 2 Class 3 Class 3
+Fire Resistance
+May be inherently fire 
+resistant according to 
+NDS calculations
+Requires additional 
+protection to meet fire-
+rating requirements
+Tested fire-resistance 
+rating (as specified by 
+manufacturer)
+Requires additional 
+protection to meet fire-
+rating requirements
+Connection Example
+Beam Bears on Girder*
+Beam Connected 
+to Girder with Steel 
+Angles*
+Beam Connected to 
+Girder with Proprietary 
+Concealed Face-
+Mounted Knife Plate 
+Connector* 
+Beam Connected to 
+Girder with Proprietary 
+Hanger*
+*Table 8 in the WoodWorks Index of Mass Timber Connections
+51
+Timber Design Applications
+
+--- PAGE 52 ---
+As the demand for mass timber projects increases, so too does the need to expand the 
+industry’s capacity to build them. WoodWorks initiatives, alongside this overview of best 
+practices, increases construction industry proficiency in the estimation, procurement, and 
+management of mass timber projects. The technical guide covers project management 
+and installation training. It also includes an introduction to the upcoming WoodWorks 
+Mass Timber Construction Manual.
+Mass Timber 
+Construction 
+Management
+Learn More
+52
+Timber Design Applications
+
+--- PAGE 53 ---
+Thoughtfully designed building enclosures consider all environmental and structural 
+loads imposed on it over its expected service life. Building enclosures should be designed 
+with a project’s regional climate and weather conditions in mind, as well as building use. 
+Mass timber enclosures should be dry and ideally near-room temperature conditions to 
+perform their best. In most cases, this means incorporating most or all of the required 
+thermal insulation on the exterior of the mass timber element. 
+This guide, authored by RDH Building Science, explores these topics along with enclosure 
+control layers, design applications, enclosure detailing, and best practices for mass timber 
+buildings.
+Building Enclosure 
+Design Best Practices
+Learn More
+53
+Timber Design Applications
+
+--- PAGE 54 ---
+PROJECT NAME: WBWCD Water Efficiency Research Center
+LOCATION: Layton, Utah
+OWNER/DEVELOPER: Weber Basin Water Conservancy District
+ARCHITECT: GSBS Architects
+STRUCTURAL ENGINEER: ARW Engineers
+CONTRACTOR: Sirq Construction
+PHOTOS: Paul Richer
+54
+
+--- PAGE 55 ---
+For durability and moisture management, mass timber components should remain 
+warm and dry throughout the building’s construction and occupancy. This is achieved 
+by effectively managing moisture exposure during construction, by ensuring the building 
+enclosure is designed with the necessary layers to control the loads on the enclosure, and 
+by providing the mass timber elements an opportunity to dry out if wetted unexpectedly. 
+This RDH Building Science guide covers best practices for moisture control starting in the 
+design phase through to construction and operation. It describes strategies to mitigate 
+any risks when exposing the mass timber enclosure and other elements, including floors, 
+to moisture during construction and occupancy. 
+Durability and Moisture 
+Management
+Learn More
+55
+Timber Design Applications
+
+--- PAGE 56 ---
+Solutions for 
+Building Taller
+The rising demands placed on the built environment are significant in the face of rapid 
+population growth.8 Design teams are being asked to deliver sustainable and affordable solutions 
+that accommodate more density, provide much needed housing, combat climate change and boost 
+health and well-being.
+Mass timber products are facilitating new opportunities to build taller wood buildings, a design 
+typology that can play an important role in meeting this diverse list of needs. Internationally and 
+here at home, the height of wood buildings is on the rise thanks to advancing technologies and a 
+growing body of research demonstrating their safety and strength. The 2021 International Building 
+Code Includes 14 code changes that allow mass timber structures of up to 18 stories. This mounting 
+interest in mass timber is further energized by its smaller environmental footprint and its ability to 
+store carbon.
+As a safe, eco-friendly alternative to steel and concrete, some jurisdictions are taking steps to 
+encourage taller wood and mass timber construction. Several states, including Oregon, Washington, 
+and California, adopted taller wood construction ahead of the 2021 code change. 
+In this section, two Case Studies demonstrate how tall wood construction can meet both residential 
+and mixed-use commercial needs. Resources include summaries and links to four technical papers 
+focused on taller wood mass timber buildings -- emerging code changes, shaft wall requirements, 
+fire resistance ratings and considerations related to concealed spaces. Learn More highlights two 
+useful publications. The first is Tall with Timber: A Seattle Mass Timber Tower Case Study. This 
+report provides a cost comparison between a mass timber and cast-in-place post-tension concrete 
+framing system for a hypothetical 12-story, mixed-use building in Seattle, Washington. The second, 
+Mass Timber Buildings and the IBC (jointly developed by ICC and A WC), provides an invaluable 
+overview of requirements for mass timber construction as found in the 2021 International Building 
+Code.
+56
+Solutions for Building Taller
+
+--- PAGE 57 ---
+PROJECT NAME: INTRO
+LOCATION: Cleveland, OH
+OWNER/DEVELOPER: Harbor Bay Real Estate
+ARCHITECT: HPA | Hartshorne Plunkard Architecture
+STRUCTURAL ENGINEER: Fast+Epp
+CONTRACTOR: Panzica Construction Company
+RENDERINGS: Harbor Bay
+57
+
+--- PAGE 58 ---
+Origine
+MASS TIMBER CAN DELIVER EFFICIENT, COST EFFECTIVE,  
+AND SAFE TALLER CONSTRUCTION
+Photo credit: Stéphane Groleau
+PROJECT DETAILS
+ARCHITECT: Yvan Blouin Architect
+CONTRACTOR: EBC
+CODE: Technorm, GHL Consultants
+DATE COMPLETED: October 2017
+DEVELOPER: NEB group
+ENGINEER: Groupe conseil SID inc
+LOCATION: Quebec City
+MASS TIMBER SOURCE: Nordic Structures
+SIZE: 9,600 ft2
+As a 13-story, 92-unit condominium tall wood building 
+constructed prior to the building heights allowed in the 2021 
+codes, Origine showed how mass timber can deliver efficient, cost 
+effective, and safe residential construction. As the tallest timber 
+building in eastern North America at the time of its construction it
+ 
+was instrumental in advancing industry knowledge of this building 
+type, from new architectural, engineering, and construction 
+methods to product, code, and fire protection expertise. 
+To construct the tall wood building, the designers had to first 
+demonstrate the project would meet Quebec Construction 
+58
+Solutions for Building Taller
+
+--- PAGE 59 ---
+Code requirements. When the project began in 2014, the Code 
+stipulated that buildings of more than four stories had to be of non-
+combustible material. An alternative solution—known as equivalent 
+measures—was required to show that the Code’s performance 
+goals and functional statements were being respected. After two 
+years of research and development, the project team successfully 
+demonstrated that Origine would be equally safe built out of wood 
+as it it would be if it were built from non-combustible construction. 
+Wood is used from the first floor all the way up to the thirteenth. 
+Load-bearing walls, shear walls, floors, and the roof are all made 
+from CLT, with glulam timber posts and beams rounding out the 
+structural system. CLT was encapsulated for added fire protection, 
+and left exposed in some common areas. The project benefited 
+from the rapid ease and assembly of mass timber construction, 
+taking four months to erect the building. The use of mass timber 
+not only meant that the building could go up as a kit of parts with 
+fewer workers, but could also proceed during cold winter months 
+between December and April.
+Units range from studio apartments to three-bedroom units, each 
+with its own layout and furnishings. In addition to the carbon-
+locking benefits of a wood-frame and mass timber construction, 
+the building features a number of environmentally-friendly features. 
+The roof is covered with a white waterproofing membrane to better 
+reflect the sun and reduce the heat island effect. The building has 
+a gas central heating system that provides domestic hot water 
+and feeds the network of pipes for the radiant floors. In addition to 
+providing comfort, the gas-heated floors will result in savings of up 
+to 30% over regular electric heating.
+Photo credit: Stéphane GroleauPhoto credit: Stéphane Groleau
+59
+Solutions for Building Taller
+
+--- PAGE 60 ---
+“We believe mass 
+timber is much more 
+than a structural 
+building material; it is 
+an opportunity to guide 
+building design and 
+construction towards 
+a future of sustainable 
+building on an entirely 
+new scale.”
+CRAIG CURTIS
+FORMER CHIEF ARCHITECT
+KATERRA
+60
+Solutions for Building Taller
+
+--- PAGE 61 ---
+PROJECT NAME: T3 Minneapolis
+LOCATION: Minneapolis, MN
+OWNER/DEVELOPER: Hines
+ARCHITECT: MGA | Michael Green Architecture + DLR Group
+STRUCTURAL ENGINEER: StructureCraft
+CONTRACTOR: Kraus Anderson Construction
+PHOTOS: Corey Gaffer, courtesy Perkins&Will
+61
+
+--- PAGE 62 ---
+2150 Keith Drive
+A MODERN MASS TIMBER OFFICE BUILDING
+PROJECT DETAILS
+ARCHITECT: DIALOG
+SIZE: 162,491 ft2 (15,096m2)
+DATE COMPLETED: Anticipated completion 2022
+LOCATION: Vancouver, BC
+CLIENT: BentallGreenOak
+IMAGE CREDIT: DIALOG
+This 10-story commercial office, to be located in Vancouver’s 
+False Creek Flats--a burgeoning sustainable green enterprise 
+zone--takes advantage of the growing interest in workplaces that 
+feature exposed mass timber and flexible open floor plans. Given 
+an enthusiastic thumbs up by the city’s Development Permit 
+Board, the 10-story mass timber structure will accommodate 
+more than 500 staff members for a range of potential tenants.
+ 
+Mass timber was selected as the structural system for the building 
+because of its sustainability, aesthetic, and functional qualities. 
+A distinctive honeycomb design sets this mass timber office 
+building apart, while offering the practical benefit of reducing 
+thermal breaks through the building envelope. To be assembled 
+as a prefabricated kit of parts and built on a concrete podium, this 
+project will use a number of engineered wood products to achieve 
+its design goals, including CLT and glulam.
+62
+Solutions for Building Taller
+
+--- PAGE 63 ---
+The building’s design uses a perimeter braced structural system 
+that creates a striking expression of the building from the exterior 
+and eliminates the need for conventional cast-in-place concrete 
+cores. Instead, an innovative mass timber structure is proposed for 
+all floors above level 2: a series of timber shear walls in the interior 
+and a series of structural braces on the exterior resist the wind and 
+seismic load that the building must withstand.
+The distinctive structural seismic and lateral design of diagonal 
+glulam buckling-restrained braces creates a cellular expression 
+on the façade that wraps around the building and is continuous 
+at all elevations. This signature design is a direct reflection of the 
+structural system. The balconies are connected by a diagonal strut 
+visually aligned with the timber braced frames, creating a self-
+supported balcony structure that does not rely on cantilevers from 
+the primary building structure. This allows the balcony elements to 
+be pinned back to the primary structure.
+The exterior cellular structure works at multiple scales. At the 
+neighborhood scale, it creates a strong identity with an exoskeleton 
+that references nature. At the street scale, the two-story cells 
+reduce the mass of the building and create a finer grain texture. At 
+the human scale, the cellular alcoves provide refuge, and protection 
+from the elements. Anticipated completion date is 2022.
+63
+Solutions for Building Taller
+
+--- PAGE 64 ---
+Tall Wood Buildings in 
+2021 IBC
+In 2019 the ICC approved a set of proposals to allow tall wood buildings as part of the 
+2021 International Building Code (IBC) opening up new opportunities for mass timber. 
+Based on these proposals, the 2021 IBC includes three new construction types—Type IV-
+A, IV-B and IV-C—allowing the use of mass timber or noncombustible materials. These 
+new types are based on the previous Heavy Timber construction type (renamed Type IV-
+HT) but with additional fire-resistance ratings (FRR) and levels of required noncombustible 
+protection. This technical paper provides an overview of these changes accommodating 
+up to 18 stories of Type IV-A construction for Business and Residential Occupancies.
+To meet specific fire performance standards set out by the IBC these new construction 
+types in some cases require noncombustible protection. All mass timber in Type IV-A 
+construction requires noncombustible protection. Most of the mass timber in Type 
+IV-B requires noncombustible protection with limited exposed mass timber elements. 
+This noncombustible protection increases the fire-resistance rating of the mass timber 
+element.
+REQUIRED NONCOMBUSTIBLE PROTECTION ON MASS TIMBER 
+ELEMENTS BY CONSTRUCTION TYPE
+IV-A IV-B IV-C IV-HT
+Interior Surface of 
+Building Elements
+Always required.
+2/3 of FFR, 80 minutes 
+minimum
+Required with 
+exceptions. 2/3 of FRR, 
+80 minutes minimum
+Not required* Not required*
+Exterior Side of Exterior 
+Walls 40 minutes 40 minutes 40 minutes
+15/32" FRT sheathing 
+or 1/2" gypsum board 
+or noncombustible 
+material
+Top of Floor 
+(above Mass Timber) 1" minimum 1" minimum Not required* Not required*
+Shafts
+2/3 of FRR, 80 minutes 
+minimum, inside and 
+outside
+2/3 of FRR, 80 minutes 
+minimum, inside and 
+outside
+40 minutes minimum, 
+inside and outside Not required*
+*Not required by construction type. Other code requirements may apply.
+5/8" Type X gypsum = 40 minutes
+Source: Tall Wood Buildings in the IBC: Up to 18 Stories of Mass Timber, WoodWorks
+64
+Solutions for Building Taller
+
+--- PAGE 65 ---
+REQUIRED FIRE-RESISTANCE RATINGS BY  
+CONSTRUCTION TYPE (IBC TABLE 601)
+Building Element I-A I-B IV-A IV-B IV-C IV-HT
+Primary Structural Frame 3* 2* 3 2 2 HT
+Ext. Bearing Walls 3* 2* 3 2 2 2
+Int. Bearing Walls 3* 2* 3 2 2 1/HT
+Floor Construction 2 2* 2 2 2 HT
+Roof Construction 1 1/2* 1* 1 1/2 1 1 HT
+*These values can be reduced based on certain conditions in IBC 403.2.1, which do not apply to Type IV buildings.
+Source: Tall Wood Buildings in the IBC: Up to 18 Stories of Mass Timber, WoodWorks
+Along with a summary of code changes, the paper outlines the results of fire tests, 
+managed by the A WC and the U.S. Forest Products Laboratory at the US Bureau of Alcohol, 
+Tobacco, Firearms and Explosives (ATF) Fire Research Laboratory, that were instrumental 
+to the adoption of these new construction types into the code.
+Learn More
+65
+Solutions for Building Taller
+
+--- PAGE 66 ---
+This paper builds on Tall Wood Buildings in 2021 IBC and provides an in-depth look at 
+the requirements for shaft walls, including when and where wood can be used.
+A shaft is defined in Section 202 of the 2021 IBC as “an enclosed space extending through 
+one or more stories of a building, connecting vertical openings in successive floors, or 
+floors and roof.” This applies to stairs, elevators, and mechanical/electrical/plumbing 
+(MEP) chases in multi-story buildings.
+Tall wood structures using construction types IV-A, IV-B, or IV-C must be constructed 
+from mass timber or noncombustible materials (or a combination thereof). This means that 
+mass timber may be used for shaft walls in tall wood construction Types IV-A, IV-B, and 
+IV-C, with one exception: Type IV-A buildings that exceed 12 stories or 180 feet. When used 
+as shaft walls in Type IV-B or IV-C buildings (or IV-A buildings that do not exceed 12 stories 
+or 180 feet) mass timber must be covered on both faces with noncombustible materials.
+Shaft enclosures are required to have an FRR of not less than 2 hours when connecting four 
+or more stories. An FRR of not less than 1 hour is required for shaft enclosures connecting 
+less than four stories. Shaft enclosures are also required to have an FRR not less than the 
+floor assembly penetrated.
+Shaft Wall Requirements  
+in Tall Timber Buildings
+FRR REQUIREMENTS FOR TALL MASS 
+TIMBER STRUCTURES (HOURS)
+Building Element IV-A IV-B IV-C
+Primary Frame 3 2 2
+Exterior Bearing Walls 3 2 2
+Interior Bearing Walls 3 2 2
+Roof Construction 1.5 1 1
+Primary Frame at Roof 2 1 1
+Floor Construction 2 2 2
+Source: Demonstrating Fire-Resistance Ratings for Mass Timber Elements in Tall 
+Wood Structures, WoodWorks
+66
+Solutions for Building Taller
+
+--- PAGE 67 ---
+Mass timber shaft walls are required to have noncombustible protection: 80 minutes for 
+Types IV-A and IV-B (or 120 minutes for load-bearing shaft walls in Type IV-A), and 40 
+minutes for Type IV-C. The remaining time required to meet the full 2-hour FRR (or 3-hour 
+FRR for load-bearing shaft walls in Type IV-A) must be demonstrated through the inherent 
+fire resistance of the mass timber element, or by other means approved by the building 
+official.
+In addition to the FRR and contribution of noncombustible protection, designers must 
+consider factors such as acoustics and structural loads when choosing shaft wall 
+assemblies for tall wood buildings.
+Learn More
+67
+Solutions for Building Taller
+
+--- PAGE 68 ---
+PROJECT NAME: Carbon12
+LOCATION: Portland, OR
+OWNER/DEVELOPER: Kaiser Group
+ARCHITECT: PATH Architecture
+STRUCTURAL ENGINEER: Munzing
+FABRICATOR: Structurlam
+PHOTOS: Andrew Pogue
+68
+
+--- PAGE 69 ---
+Changes to the 2021 IBC have created opportunities for wood buildings that are larger 
+and taller than allowed in past versions of the code. Occupant safety, and the need to 
+ensure fire performance in particular, was a fundamental consideration as the changes 
+were developed and approved. The primary way to demonstrate that a building will meet 
+the required level of passive fire protection, regardless of structural materials, is through 
+hourly FRRs of its elements and assemblies. 
+FRRs for the new mass timber construction types are similar to those required for 
+Type I construction, which is primarily steel and concrete. In addition to meeting FRR 
+requirements, all mass timber elements used in Types IV-A, IV-B, and IV-C construction 
+must meet minimum size criteria prescribed in IBC Section 2304.11.
+Definitions of the new construction types, found in IBC Sections 602.4.1, 602.4.2, and 
+602.4.3, dictate that only mass timber or noncombustible materials can be used for the 
+structural systems. This includes guidelines for whether the wood may be exposed on the 
+building’s interior, or must be covered with noncombustible protection. The exception: no 
+exposed timber is allowed at shaft walls, within concealed spaces, or on the exterior side 
+of exterior walls.
+General allowances for exposed timber include:
+• Type IV-A: No exposed timber permitted
+• Type IV-B: Limited exposed timber permitted, as follows:
+• Ceilings (including integral exposed beams) up to 20% 
+of floor area in dwelling unit or fire area,or
+• Walls (including integral exposed columns) up to 40% 
+of floor area in dwelling unit or fire area, or
+• A combination of each using sum of ratios (actual 
+exposed/ allowable exposed wood) not to exceed 1.0
+• Type IV-C: All exposed timber permitted
+The paper includes a review of contribution of noncombustible protection to FRR, 
+contribution of mass timber to FRR, noncombustible protection on top of mass timber 
+floors and example assemblies.
+Demonstrating Fire-
+Resistance Ratings for 
+Mass Timber Elements 
+in Tall Wood
+Learn More
+69
+Solutions for Building Taller
+
+--- PAGE 70 ---
+Concealed spaces, such as those created by a dropped ceiling in a floor/ceiling 
+assembly or by a stud wall assembly, have unique requirements in the IBC to address the 
+potential of fire spread in non-visible areas of a building. 
+The choice of construction type can have a significant impact on concealed space 
+requirements for mass timber building elements. Because mass timber products such 
+as CLT are prescriptively recognized for Type IV construction, there is a common 
+misperception that exposed mass timber building elements cannot be used or exposed in 
+other construction types. This is not the case. In addition to Type IV buildings, structural 
+mass timber elements—including CLT, glulam, NLT, structural composite lumber (SCL), 
+and tongue-and-groove (T&G) decking—can be used and exposed in the following 
+construction types, whether or not a fire-resistance rating is required.
+• Type III – Floors, roofs, and interior walls may be any material 
+permitted by code, including mass timber; exterior walls are required 
+to be noncombustible or fire retardant-treated wood.
+• Type V – Floors, roofs, interior walls, and exterior walls (i.e., the entire 
+structure) may be constructed of mass timber.
+• Types I and II – Mass timber may be used in select circumstances 
+such as roof construction—including the primary frame in the 2021 
+IBC—in Types I-B, II-A, or II-B; exterior columns and arches when 
+20 feet or more of horizontal separation is provided; and balconies, 
+canopies and similar projections.
+In addition, this paper delves into allowances and requirements for concealed spaces - 
+low-, mid-rise and tall timber; and mechanical plenums in mass timber buildings.
+Concealed Spaces in 
+Mass Timber and Heavy 
+Timber Structures
+Learn More
+70
+Solutions for Building Taller
+
+--- PAGE 71 ---
+Jointly developed by ICC and A WC, this handbook provides an overview of requirements 
+for mass timber construction as found in the 2021 International Building Code ® (IBC®). 
+The document reviews the 2015 IBC’s recognition of cross-laminated timber (CLT), the 
+reorganization of heavy timber provisions in the 2018 IBC, followed by the historic changes 
+in the 2021 IBC and International Fire Code® (IFC®) for tall mass timber construction. 
+More than 100 full-color photos, illustrations, and tables enhance comprehension and help 
+users visualize code requirements. Content accurately reflects mass timber provisions in 
+the 2015, 2018, and 2021 IBC, and 2021 IFC. Results are provided for five fire tests in a fully 
+furnished structure constructed to simulate Types IV-A, IV-B, and IV-C. Includes detailed 
+examples of code application and methods of determining code compliance, application 
+of energy, sound transmission, structural loads, and other code provisions to mass timber 
+construction. For users preparing for ICC certification exams, the book includes 50 
+practice questions.
+Mass Timber Buildings  
+and the IBC ® Code Guide
+Learn More
+71
+Solutions for Building Taller
+
+--- PAGE 72 ---
+PROJECT NAME: Seattle Mass Timber Tower Rendering
+LOCATION: Seattle, W A
+CONTRIBUTORS: DLR Group, Martha Schwartz Partners, Fast+Epp, Swinerton, WoodWorks, Heartland
+RENDERINGS: DLR Group
+72
+
+--- PAGE 73 ---
+This 100-page report provides an insightful comparison between a mass timber (design 
+case) and cast-in-place post-tension concrete (baseline) as structural framing systems for 
+a 12-story, hypothetical mixed-use building in Seattle. The case study tower is 214 feet 
+tall with the roof of the highest occupied floor at 180 feet height. The mixed-use program 
+includes street level retail, five floors of commercial offices, and a hotel.
+The study includes an analysis of system design, structural cost, and constructibility, 
+while highlighting the overall challenges and opportunities of tall wood construction. Fire 
+performance, environmental footprint, and life safety are investigated along with health 
+and wellness, procurement and labor, and risk management and insurance.
+A valuable resource of interest to design teams looking to delve deeper into the cost-
+benefits of tall mass timber building solutions. The report includes a rich appendix of 
+practical modeling, construction scheduling, and illustrated design examples.
+Tall With Timber
+A MASS TIMBER TOWER CASE STUDY
+Learn More
+73
+Solutions for Building Taller
+
+--- PAGE 74 ---
+Mass 
+Timber and 
+Sustainability 
+When it comes to ensuring a more sustainable built environment, material choices matter. 
+Wood is a naturally renewable material for building, with a lighter environmental footprint than steel 
+or concrete. Increasing the use of mass timber products can play an important role in achieving 
+ambitious eco-friendly design goals and low or even zero carbon construction. 
+Timber stores carbon and, with the least embodied energy of all major building materials, it 
+requires less energy from harvest to transport, manufacturing, installation, maintenance, and 
+disposal or recycling. Harvesting and replanting increases forests’ carbon sink potential as the 
+rate of sequestration is greater during young, vigorous growth. Active forest management, or forest 
+thinning, mitigates wildfires, cuts carbon emissions, replenishes area waterways, expands wildlife 
+habitat, and creates jobs in rural areas.
+Mass timber’s sustainability as a building material rests on the sustainability of our forest practices. 
+North America has more certified forests than anywhere else in the world, a seal of approval based 
+on the latest best practices. Forest management in the U.S. operates under federal, state, and 
+local regulations to protect water quality, wildlife habitat, soil, and other natural resources. Modern 
+forestry standards ensure a continuous cycle of growing, harvesting, and replanting. In fact, strong 
+markets for wood products encourage forest owners to keep their lands as forests and invest in 
+practices to keep trees healthy. 
+In this section, three Case Studies demonstrate how mass timber can meet ambitious sustainability 
+objectives in diverse regions of the country. The Ask an Expert Q&A answers common questions 
+design teams may have about carbon accounting and the impact of mass timber on the health of 
+our forests. Resources include summaries and links to helpful information and continuing education 
+courses.
+74
+Mass Timber and Sustainability
+
+--- PAGE 75 ---
+PROJECT NAME: Cedar Speedster
+LOCATION: Seattle, W A
+OWNER/DEVELOPER: Revelution LLC
+ARCHITECT: Weber Thompson
+STRUCTURAL ENGINEER: DCI Engineers
+CONTRACTOR: Turner Construction Company
+PHOTOS: Image courtesy Weber Thompson
+75
+
+--- PAGE 76 ---
+Platte 15
+DENVER’S FIRST CLT WORKSPACE BRINGS CONTEMPORARY 
+SUSTAINABILITY TO HISTORIC DOWNTOWN
+PROJECT DETAILS
+ARCHITECT: OZ Architecture
+SIZE: Five stories; 150,418 ft2
+CONSTRUCTION TYPE: Type III-B
+OWNER: Crescent Real Estate LLC
+LOCATION: Denver, CO
+STRUCTURAL ENGINEER: KL&A Engineers & Builders
+GENERAL CONTRACTOR: Adolfson & Peterson Construction
+TIMBER SUPPL Y AND INSTALLATION: Nordic Structures/FGP Construction
+This five-story workspace–located in one of Denver’s most 
+popular neighborhoods–incorporates a mass-timber frame, built 
+using glue-laminated timber (glulam) beams and columns, as well 
+as cross-laminated timber (CLT) floor and roof panels.The majority 
+of the five floors are dedicated to office space, with ground floor 
+retail and two levels of concrete below. Soaring interior ceiling 
+heights, outdoor patios, and a rooftop deck provide unobstructed 
+views and plenty of appeal for potential tenants.
+Sustainability was a driving factor for the design team’s decision 
+to use mass timber. “When tenants see the warmth of wood, 
+it definitely resonates,” said Conrad Suszynski, Co-CEO of 
+Crescent Real Estate. “It also resonates with us. We’re committed 
+to sustainable building; it’s intrinsic to who we are and what 
+we aspire to be. We wanted to reduce the carbon footprint of 
+Platte Fifteen, and mass timber helped us get there. We think it’s 
+industry’s job to be pushing these trends, and we are committed 
+to finding a way to make it all work.” 
+Photo credit: JC Buck
+76
+Mass Timber and Sustainability
+
+--- PAGE 77 ---
+A design is more sustainable when the building itself can be quickly, 
+easily, and efficiently constructed. Platte Fifteen’s mass timber 
+system delivered on every level, reducing construction time by 20 
+percent compared with a traditional steel structure. Mass timber’s 
+construction and structural efficiency meant less waste. The 30x30 
+grid maximized tenant value, moreover leaving wood exposed to 
+the interior eliminated the need for additional finishes.
+Platte Fifteen has a relatively conventional lateral system for a 
+five-story structure. There were no wood shear walls in the design; 
+lateral resistance is provided by the concrete core in combination 
+with a glulam frame with steel rod bracing. The final design includes 
+3-ply CLT panels with glulam beams and exposed columns with 
+minimalized connections. The roof—which is also 3-ply CLT—
+supports a terrace with large tree planters and Colorado snow loads. 
+The CLT floor panels are topped with three inches of concrete, but 
+the team used CLT as the diaphragm instead of concrete topping.
+Photo credit: JC Buck
+Photo credit: JC Buck
+Learn More
+77
+Mass Timber and Sustainability
+
+--- PAGE 78 ---
+John W. Olver Design  
+Building at the University  
+of Massachusetts Amherst
+EXPOSED MASS TIMBER STRUCTURE AS A TEACHING TOOL
+PROJECT DETAILS
+LOCATION: Amherst, MA
+SIZE: 87,500 ft2
+TOTAL COST: $52 Million
+CONSTRUCTION COST: $36 Million
+CONSTRUCTION TYPE: IV
+COMPLETED: January 2017
+CLIENT: University Of Massachusetts Building Authority
+ARCHITECT: Leers Weinzapfel Associates
+STRUCTURAL ENGINEER: Equilibrium Consulting • Simpson Gumpertz & Heger (EOR)
+CONSTRUCTION MANAGER: Suffolk
+TIMBER SUPPL Y: Nordic Structures
+TIMBER INSTALLATION North & South Construction • Bensonwood
+Photo: Albert Vererka / Esto
+78
+Mass Timber and Sustainability
+
+--- PAGE 79 ---
+The John W. Olver Design Building at the University of 
+Massachusetts Amherst could be described as a ‘living-learning’ 
+facility for architecture; building and construction technology; 
+and landscape architecture and regional planning. Designed 
+to be as much a lesson in itself as a place to learn, the building 
+demonstrates to students firsthand advanced sustainable design 
+and building technologies.
+The four-story, 87,500-square-foot John W. Olver Design Building 
+at the University of Massachusetts Amherst features a glulam 
+column-and-beam frame, glulam brace frame, CLT shear walls, 
+timber-concrete composite floor system, and unconventional 
+cantilevered forms.
+As is often the case with innovative building designs, there were 
+additional measures needed to get code approval. “Transparent 
+and early engagement with building officials was very important,” 
+said Chung. “We initiated discussions with the state building 
+inspector during schematic design and provided updates at all 
+critical stages. By the time the construction documents were  
+done and we were ready to submit for official variances, the 
+building inspector had all the information he needed to write a 
+letter of support to the variance committee.” 
+Life cycle assessment (LCA) was used to quantify the 
+environmental benefits of using a mass timber structure. Along 
+with carbon storing benefits, the facility saves the equivalent of 
+over 2,500 metric tons of carbon when compared to a traditional 
+energy-intensive steel and concrete building.
+The facility meets Massachusetts’ stretch energy code, which 
+emphasizes energy performance, over prescriptive requirements. 
+Results are promising: the facility is already surpassing its energy 
+targets. It is predicted to have a total site energy use intensity 
+(EUI) of 43 kBTU/SF/year, compared against an EUI of 62 kBTU/
+SF/year for the baseline design—a 50% improvement over the 
+base code. 
+To learn more consult the Environmental Building Declaration—
+Design Building, University of Massachusetts, Amherst Technical 
+Report and Summary.
+Photo: Albert Vererka / Esto
+Learn More
+79
+Mass Timber and Sustainability
+
+--- PAGE 80 ---
+Bullitt Center
+TIMBER FRAME TEACHES ENVIRONMENTAL  
+AND STRUCTURAL LESSONS
+PROJECT DETAILS
+LOCATION: Seattle, W A
+SIZE: 52,000 ft2
+TOTAL PROJECT COST: $32.5 million
+ARCHITECT: Miller Hull Partnership
+DATE COMPLETED: 2013
+OWNER: Bullitt Foundation
+DEVELOPER: Point32
+ARCHITECT: Miller Hull Partnership
+CONTRACTOR: Schuchart Construction
+STRUCTURAL ENGINEER: DCI Engineers
+MEP ENGINEERING: PAE
+LANDSCAPE ARCHITECTURE: Berger Partnership
+MECHANICAL ENGINEERING: PSF Mechanical
+Photo credit: John Stamets
+80
+Mass Timber and Sustainability
+
+--- PAGE 81 ---
+From its inception, the Bullitt Center in Seattle set out to achieve 
+ambitious sustainability targets. The six-story, 52,000-square-foot 
+mass timber office is designed to meet stringent requirements of 
+the Living Building Challenge (LBC)—using photovoltaic cells to 
+generate enough electricity to sustain the needs of its tenants, 
+recycling its own water and waste, and reducing energy use by 
+more than 80 percent compared to an average office building. 
+At the heart of this state-of-the-art structure lies a heavy timber 
+frame—a traditional building system that is increasingly being used 
+in new and innovative ways. The podium structure (four floors of 
+wood over two stories of reinforced concrete) is built with a Type 
+IV heavy timber frame—Douglas-fir glulam beams and columns, 
+finished to an industrial appearance grade. A solid dimension lumber 
+wood deck forms the floors and roof; the Douglas-fir members were 
+set on edge and then nailed to one another to form a solid panel. 
+CDX plywood is used for roof and floor diaphragms and for some 
+wall panels.
+Life cycle assessment played an important role in achieving the 
+project’s sustainability goals. “More people are paying attention to 
+life cycle assessment, and wood is coming out as the winner when 
+it fits within the structural criteria for the project,” Court said. “In 
+fact, I think one of the things we learned with the Bullitt Center is 
+that wood has the structural capability to do way more than we’re 
+letting it do right now. People need to look at wood with fresh eyes, 
+especially because it has so many environmental virtues over 
+concrete or steel.”
+Along with carbon storing benefits of the wood used in the project, 
+it all comes from sustainably managed forests. All of the wood in 
+the project, including the lumber that comprised the glulam beams 
+and columns, is certified as Forest Stewardship Council (FSC) 100% 
+(formerly known as FSC Pure). And to further reduce its carbon 
+footprint, all wood products come from mills within about 600 miles 
+of the job site.
+The building is designed to a life expectancy of 250 years, making 
+it significantly more sustainable than the average office building 
+designed for a 40- or 50-year lifespan. The total potential carbon 
+benefit of the facility is 1,703 metric tons of CO2, equivalent to 325 
+cars off the road for a year or the energy to operate a home for 145 
+years.
+Photo credit: John StametsPhoto credit: John Stamets
+Learn More
+81
+Mass Timber and Sustainability
+
+--- PAGE 82 ---
+“Wood is the only true 
+sustainable building 
+material: it literally 
+regrows itself. Wood 
+construction is so fast, 
+and the tolerances are so 
+accurate.”
+SHAWN BRANNON
+PROJECT MANAGER
+ADOLFSON & PETERSON CONSTRUCTION
+82
+Mass Timber and Sustainability
+
+--- PAGE 83 ---
+Does increased demand for wood products cause reduction in 
+supply of forests?
+I know it’s counter-intuitive, but forest product demand can actually lead to more forests. 
+The alternative economic hypothesis suggests that forest product demand provides 
+revenue and policy incentives to support sustainable forest management. Industrial timber 
+revenues can contribute to avoiding land-use change, even in the US. In general, data 
+shows that global regions with the highest levels of industrial timber harvest and forest 
+product output are also regions with the lowest rates of deforestation. And indeed, we can 
+see from empirical data that higher demand leads to more supply (growth). With a higher 
+demand for forest products, landowners have revenue and incentives to invest in forest 
+planting and management, which can keep forests as forests and increase investment in 
+forest productivity.
+Q+A
+Edie Sonne Hall
+How do you know if the mass timber products you’re specifying for a project are 
+harvested from sustainable forests? Will an increased demand for wood products cause 
+deforestation?  Forestry expert Edie Sonne Hall answers some of these questions and 
+more. Sonne Hall has a Ph.D. in forestry from the University of Washington and specializes 
+in forest carbon accounting and life cycle assessment.  She brings over twenty years of 
+experience developing sustainable forestry strategies and policies at the state, regional, 
+national, and international level.
+EDIE SONNE HALL
+Founder and Principal
+Three Trees Consulting
+USFS 2014 US Forest Resources Facts and Historical Trends.
+83
+Mass Timber and Sustainability
+
+--- PAGE 84 ---
+Does wood product demand cause deforestation?
+This is, almost by definition, not true. Deforestation (land-use change) occurs when there 
+is a higher demand for the land than wood products. Demand for wood products does 
+not contribute to deforestation, and in fact, provides incentives to keep land as forests 
+instead of converting it to other uses like agriculture or development. In fact, in the US and 
+Canada, where there is a healthy forest products market, there is “extremely low risk of 
+deforestation.” Note, while the U.S. is the largest producer of industrial roundwood, not all 
+of the wood products consumed in the U.S. are harvested domestically. Specifiers should 
+still be aware of where their wood products come from and take appropriate precautions if 
+sourcing from areas with higher risk of sourcing controversial wood.
+How can we be assured of forest sustainability? If we are 
+harvesting trees, what are we doing to water, wildlife, and all those 
+beautiful forests? 
+We can be assured that timber is harvested sustainably in ways that support water quality, 
+biodiversity, and habitat through mechanisms like forest certification, responsible fiber 
+sourcing standards, and best management practices. 
+Forest certification is a mechanism for forest monitoring and labeling timber, wood and 
+pulp products, and non-timber forest products, where the quality of forest management 
+is judged against a series of agreed standards (WWF, 2018) related to water quality, 
+biodiversity, wildlife, and forests with exceptional conservation value. The highest level 
+of sustainability assurance is third-party forest certification. The three major certification 
+systems—Sustainable Forestry Initiative (SFI), Forest Stewardship Council (FSC), and 
+American Tree Farm System (ATFS)—all have slightly different principles and procedures. 
+There are about 96 million acres of certified forests in the US, which is about 19% of total 
+US timberland—above the global average of 11%.
+The next level of assurance can be achieved from responsible fiber sourcing. The three 
+major responsible fiber sourcing standards are: PEFC Controlled Sources, FSC Controlled 
+Wood, and SFI Fiber Sourcing. These requirements include measures to limit the risk 
+of fiber coming from undesirable sources such as high conservation forests or illegally 
+harvested forests, protect water quality, provide training to foresters, engage in research, 
+and outreach to landowners. 
+An additional way to assess forest management impact on water in the US is by tracking 
+compliance of Best Management Practices (BMPs). These are regionally appropriate 
+guidelines for streamside buffers and road construction to reduce erosion and maintain 
+water quality. BMPs are tracked in the US and are above 90% compliance in all states.
+Q+A
+84
+Mass Timber and Sustainability
+
+--- PAGE 85 ---
+Is using wood the best carbon mitigation pathway? Isn’t it better 
+to let trees grow?
+Wood products as building materials are one important climate solution because they take 
+less energy/emissions to manufacture than other materials, and store carbon through the 
+useful lifetime of the product. 
+The 2016 UN Food and Agriculture Organization report, “Forestry for a Low Carbon 
+Future,” lists six key strategies for integrating forests and wood products into climate 
+change strategies: 1) plant more trees, 2) increase carbon density/stocks in existing 
+forests, 3) increase wood product carbon storage, 4) reduce deforestation and degradation, 
+5) use biomass for energy, replacing fossil fuel, and 6) use wood products in construction 
+materials, avoiding fossil fuel emissions in manufacturing products with higher combined 
+emissions. 
+That is not to say you should implement all these strategies in all forests. Wood products 
+are one critical forest use that can be complementary with many other forest uses for 
+climate and conservation benefits. 
+Q+A
+85
+Mass Timber and Sustainability
+
+--- PAGE 86 ---
+Buildings consume nearly half the energy produced in the United States, use three-
+quarters of the electricity, and account for nearly half of all carbon dioxide (CO2) emissions. 
+The magnitude of their impacts is the driving force behind many initiatives to improve 
+tomorrow’s structures—from energy regulations and government procurement policies, 
+to green building rating systems and programs such as the Architecture 2030 Challenge. 
+The building sector has a critical role to play in what happens over the next 30 years. 
+Not only do buildings account for almost 40 percent of global GHG emissions, but the 
+increasing urbanization of the population means that 2.48 trillion square feet of building 
+is expected to be added to the global building stock by 2060. This number is essentially 
+double the current building stock, making the choice of materials in buildings over the next 
+decades that much more important.
+How to Calculate the 
+Wood Carbon Footprint 
+of a Building
+86
+Mass Timber and Sustainability
+
+--- PAGE 87 ---
+Understanding a material’s impact at every stage of its life is essential for designers looking 
+to compare alternate designs or simply make informed choices about the products they 
+use. Life-cycle assessment (LCA) is an internationally recognized method for measuring 
+the environmental impacts of materials, assemblies, or whole buildings from extraction 
+or harvest of raw materials through manufacturing, transportation, installation, use, 
+maintenance, and disposal or recycling. 
+One of the reasons wood tends to have lower embodied carbon is that it requires far 
+less energy to manufacture than other materials—and very little fossil-fuel energy, since 
+most of the energy used comes from converting residual bark and sawdust to electrical 
+and thermal energy. For example, the production of steel, cement, and glass requires 
+temperatures of up to 3,500 degrees Fahrenheit, which is achieved with large amounts of 
+fossil-fuel energy.
+Embodied carbon of different materials can be compared if they have the same functional 
+equivalency, which means they provide the same service for the same length of time. The 
+difference between these two values is referred to as the substitution benefit, meaning 
+the avoided emissions achieved by using the lower embodied carbon material instead 
+of the higher embodied carbon material. LCA studies consistently demonstrate wood’s 
+substitution benefits.
+Wood is comprised of about 50 percent carbon by dry weight, and a wood building is 
+providing physical storage of carbon that would otherwise be emitted back into the 
+atmosphere. In a wood building, the carbon is kept out of the atmosphere for the lifetime 
+of the structure—or longer if the wood is reclaimed and reused or manufactured into other 
+products. In 2013, one study estimated the global stock of carbon stored in wood products 
+in use was approximately 19,671 Gt (billion metric tons) CO2e, increasing an average of 
+315.3 Gt CO2e/yr. 
+Architects and engineers can use whole building LCA tools to help evaluate environmental 
+impacts of building designs. These tools use life-cycle inventory data to readily assess 
+material choices. For example, the Athena Impact Estimator for Buildings gives users 
+access to life-cycle data without requiring advanced skills.
+An EPD is a standardized, third-party-verified label that communicates the environmental 
+performance of a product. Data for an EPD is based on an LCA report, third-party verified 
+for conformance to a specific set of product category rules (PCR). 
+Growing forests absorb, store, and release carbon over extended periods of time. This 
+cycle is a closed-loop cycle through natural processes of growth, decay, and disturbances. 
+It is also a closed-loop cycle when forests are harvested for use in products or energy. The 
+biogenic carbon cycle fundamentally differs from the open/one-way flow of fossil carbon 
+to the atmosphere. 
+No one material is the best choice for every application. There are tradeoffs associated 
+with each, and each has benefits that could outweigh the other material choices based 
+on a project’s design objectives. Nonetheless, with growing pressure to reduce the 
+environmental impacts of buildings beyond operational performance, LCA is an important 
+tool helping designers make wise low carbon material choices, such as mass timber.
+Learn More
+87
+Mass Timber and Sustainability
+
+--- PAGE 88 ---
+PROJECT NAME: Princeton University Laboratory for Embodied Computation 
+LOCATION: Princeton, NJ
+OWNER/DEVELOPER: Princeton University
+ARCHITECT: The Living (Design Architect), NK Architects (AOR)
+STRUCTURAL ENGINEER: Buro Happold Consulting Engineers
+CONTRACTOR: Epic Construction
+PHOTOS: Michael Moran, Pablo Marvel
+88
+
+--- PAGE 89 ---
+As green building has evolved beyond its initial emphasis on energy efficiency, greater 
+attention has been given to the choice of structural materials and the degree to which 
+they influence a building’s environmental footprint. Increasingly, wood from sustainably 
+managed forests is viewed as a responsible choice. When evaluating mass timber as a 
+building material, design teams are increasingly considering long-term forest sustainability 
+as well as attributes such as low embodied energy and light carbon footprint. 
+In the U.S. and Canada, forest sustainability is measured against criteria and indicators 
+that represent the full range of forest values, including biodiversity, ecosystem condition 
+and productivity, soil and water, global ecological cycles, economic and social benefits, 
+and social responsibility. Sustainability criteria and indicators form the basis of individual 
+country regulations as well as third-party sustainable forest certification programs.
+Using wood in buildings can provide an incentive to landowners to keep forested lands 
+forested instead of converting them to uses such as urban development. Learn how 
+specifying wood can contribute to forest sustainability. 
+The Impact of Wood 
+Use on North  
+American Forests
+Learn More
+89
+Mass Timber and Sustainability
+
+--- PAGE 90 ---
+Architects can incorporate sustainable features into their designs through their 
+choice of building materials. Wood building products and components fit well within many 
+sustainable building scenarios, while also adding other benefits such as natural warmth 
+and beauty. It is renewable and sustainable, and wood products typically require less 
+energy to produce than other building materials. Green building standards also recognize 
+wood’s contribution to improved energy performance over time. With two of the most well-
+known programs, LEED and Green Globes, it is possible to earn 8-10 percent of potential 
+credits through substantial use of wood in construction. 
+The Role of Wood 
+Products in Green 
+Building
+Learn More
+90
+Mass Timber and Sustainability
+
+--- PAGE 91 ---
+“There’s an aesthetic 
+aspect that is 
+unmatched, but one of 
+the best things about 
+mass timber is its ability 
+to sequester carbon.”
+ADAM ARNDT
+PRESIDENT
+CATAL YST CONSTRUCTION
+91
+Mass Timber and Sustainability
+
+--- PAGE 92 ---
+Occupant health and well-being is more important than ever, especially given the fact 
+that Americans, on average, are spending approximately 90 percent of their time indoors. 
+As a result, building professionals are rethinking how we design, use, and occupy buildings. 
+COVID-19 is also changing the ways in which buildings are designed. Design teams are 
+incorporating touchless entries, improved ventilation systems, and design features that 
+allow people to spread out with renewed interest. 
+But the increased focus on beneficial spaces is not just on occupant safety; designers are 
+looking for simple ways to improve the way people feel inside a building, through design 
+choices such as the use of exposed wood. When wood is left exposed as the structure or 
+an interior finish material, it helps complement biophilic design goals as people associate 
+the grain, texture, visual warmth, and color of wood with nature.
+This resource explores architecture designed to improve the well-being of building 
+occupants. It examines ways in which buildings can be designed to help reduce stress, 
+promote healing, support learning, improve employee productivity, and enhance retail 
+customer experience; and delves into the role of wellness-focused building standards and 
+their overlap with existing green building standards.
+Designing Beneficial 
+Spaces for Living, 
+Working, and  
+Well-being
+Learn More
+92
+Mass Timber and Sustainability
+
+--- PAGE 93 ---
+PROJECT NAME: Freedom House
+LOCATION: Green Bay, WI
+OWNER/DEVELOPER: Freedom House Ministries Green Bay
+ARCHITECT: Berners Schober
+STRUCTURAL ENGINEER: RA Smith, Inc.
+CONTRACTOR: Immel Construction
+PHOTOS: Tricia Shay Photography
+93
+
+--- PAGE 94 ---
+Timber City is a research initiative of Gray Organschi Architecture, supported by the 
+Hines Research Fund For Advanced Sustainability at Yale University. It’s focused on how 
+mass timber can help transform urban centers from being a source of carbon emissions to 
+a carbon sink through the development of new buildings and structural typologies in wood. 
+Research explores topics such as: factors influencing the regional supply of mass timber, 
+mass timber’s role in a low carbon economy along with an investigation of the complex 
+spatial, architectural, legal, and logistical challenges of constructing timber buildings in 
+dense urban centers.
+Timber City
+A SUSTAINABLE RESEARCH INITIATIVE
+Learn More
+94
+Mass Timber and Sustainability
+
+--- PAGE 95 ---
+PROJECT NAME: The Kendeda Building for Innovative Sustainable Design
+LOCATION: Atlanta, GA
+OWNER/DEVELOPER: Georgia Institute of Technology
+ARCHITECT: The Miller Hull Partnership in collaboration with Lord Aeck Sargent, a Katerra Company
+STRUCTURAL ENGINEER: Uzun + Case
+CONTRACTOR: Skanska USA
+PHOTOS: Jonathan Hillyer, Miller Hull, Lord Aeck Sargent
+95
+
+--- PAGE 96 ---
+Conclusion
+96
+Conclusion
+
+--- PAGE 97 ---
+As design professionals look to the decade ahead there are many challenges on the 
+horizon, from addressing pressing environmental and social issues to accommodating 
+rapid population growth and shifting market demands. There is an increasing understanding 
+that the built environment is inextricably linked to many of the complex issues of our day. 
+While these problems are global in scale and, in some cases, beyond the influence of the 
+AEC industry alone, there are actions design professionals are taking in their day-to-day 
+practice that can begin to make an impact. Expanding the use of mass timber in all types of 
+buildings, from industrial and commercial to civic and multifamily, can play an important 
+role in tackling the 21st-century challenges facing the built environment. 
+Mass timber design applications are broad. A range of mass timber products, from newer 
+innovations like CLT and DLT to tried-and-tested technologies such as NLT and glulam, 
+are opening up even more possibilities. Mass timber products combined with concrete, 
+steel and light-frame wood construction can deliver building solutions for virtually any 
+occupancy type. They lend well to modularized prefabrication and open flexible grid 
+configurations.  
+Mass timber performs when it comes to safety, thermal efficiency, acoustics, durability, 
+moisture management and biophilic design. Rigorous testing has proven mass timber is 
+fire-safe and offers natural fire resistance.   
+And when it comes to reducing a building’s environmental footprint, lifecycle assessment 
+and carbon accounting demonstrate mass timber’s benefits. Not only is sustainably 
+harvested wood a low carbon alternative to extracting energy-intensive materials, but 
+timber buildings store carbon that would otherwise be emitted back into the atmosphere.
+With all of these advantages, understanding mass timber design and construction is 
+quickly becoming essential knowledge for building professionals today. While not new, 
+mass timber building systems are emerging technologies evolving in response to ongoing 
+engineering advancements. As a ‘living document,’ this manual will be regularly updated 
+with the most recent research, product information and other important findings to help 
+AEC professionals stay up-to-date with the industry’s latest resources. 
+All of the resources referenced in this manual are available for 
+free download in one easy access folder here:
+www.WoodWorks.org/MTdesignmanual
+97
+Conclusion
+
+--- PAGE 98 ---
+1. 14 Patterns of Biophilic Design, Improving Health & Well-Being in the Built 
+Environment, https:/ /www.terrapinbrightgreen.com/reports/14-patterns/
+2. Building Trends, Mass Timber, https:/ /www.woodworks.org/publications-media/
+building-trends-mass-timber/
+3. Designing Beneficial Spaces for Living, Working, and Well-being, https:/ /www.
+thinkwood.com/education/designing-beneficial-spaces-for-living-working-and-well-
+being
+4. Wood Handbook, Chapter 4, Mechanical Properties of Wood, https:/ /www.fpl.fs.fed.
+us/documnts/fplgtr/fplgtr113/ch04.pdf
+5. Literature Review of Cost Information on Mid-Rise Mass-Timber Building 
+Projects, https:/ /sustain.ubc.ca/sites/default/files/Mass%20Timber%20Cost%20
+Review_2019.pdf
+6. Wood is Leveling Up to Combat America's Housing Crunch, Think Wood, https:/ /
+www.thinkwood.com/blog/overbuilds-and-infills-level-up
+7. Cross-Laminated Timber Will Save Time, Labor Costs On Local Commercial 
+Construction Projects, https:/ /www.bisnow.com/seattle/news/construction-
+development/cross-laminated-timber-will-save-time-labor-costs-on-local-
+commercial-construction-projects-99301
+8. Urbanization, Our World in Data, https:/ /ourworldindata.org/urbanizationv
+Sources
+98
+Sources

@@ -1,0 +1,12 @@
+erect_id: DEMO-L4-ZONE-A
+level: Level 4 Zone A
+connections:
+  hardware_kits_matched: true
+  incomplete_patterns: [KN-12A, BR-4]
+qa:
+  pick_hold_points_clear: true
+assembly:
+  fire_sequencing_ok: true
+  mep_openings_coordinated: true
+safety:
+  violations: []

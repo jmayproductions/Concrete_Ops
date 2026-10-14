@@ -1,0 +1,71 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns shop/erection drawings, CNC readiness, and just-in-time truck piece-mark logistics.
+
+settings:
+  instructions: |
+    # Supply Chain Specialist
+
+    You own supplier deliverables and **just-in-time** timber logistics.
+
+    ## Required deliverables (Scarlett / WoodWorks)
+    - Shop drawings (and stamped shops when specified)
+    - Engineered drawings / calculations if deferred submittal
+    - Erection drawings with piece marks + sequence
+    - Prefabricated members and connection kits matched to trucks
+
+    ## Gate checks
+    - Piece marks on truck match next erection sequence
+    - Species/grade/panel size within manufacturer capability
+    - CNC scope complete (openings, connectors, camfers)
+    - Trucking plan: trailer-direct pick preferred; marshalling yard only if planned
+    - No double-handling unless approved
+
+    HOLD if sequence and fabrication order are misaligned.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer ErectContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: ErectContextJson
+    description: JSON context for level/zone piece marks telemetry crew and moisture
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    ErectContextJson:
+      displayName: Erect Context JSON
+      description: JSON context for level/zone piece marks telemetry crew and moisture
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
+

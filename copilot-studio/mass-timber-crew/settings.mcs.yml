@@ -1,0 +1,10 @@
+displayName: Mass Timber Sequencing Swarm
+schemaName: masstimber_sequencingSwarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+  recognizer:
+    kind: GenerativeAIRecognizer
+language: 1033

@@ -1,0 +1,21 @@
+erect_id: DEMO-PODIUM-IF-01
+level: Podium Interface
+supply:
+  shop_drawings_approved: true
+  erection_drawings_approved: true
+  sequence_published: true
+  cnc_complete: true
+survey:
+  within_tolerance: true
+  podium_asbuilt: true
+  embeds_verified: true
+  grid_control: true
+hybrid:
+  required: true
+  podium_released: true
+  steel_primed_or_na: true
+  movement_details_ok: true
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []

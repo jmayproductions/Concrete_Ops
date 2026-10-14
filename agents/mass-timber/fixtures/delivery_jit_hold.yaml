@@ -1,0 +1,23 @@
+erect_id: DEMO-L4-TRUCK-07
+level: Level 4 Zone A
+supply:
+  shop_drawings_approved: true
+  erection_drawings_approved: true
+  sequence_published: true
+  cnc_complete: true
+  truck:
+    expected_piece_marks: [CLT-401, CLT-402, GLT-12]
+    onboard_piece_marks: [CLT-401, GLT-12]
+crane:
+  chart_ok: true
+  pick_points_verified: true
+  exclusion_zone_set: true
+  trailer_direct: true
+moisture:
+  mmp_approved: true
+  protection_materials_staged: true
+weather:
+  wind_kph: 16
+  active_precip: false
+safety:
+  violations: []
