@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - MEP Firestop Swarm ready. Ask for pre-mep-gate, firestop-precover-gate, inwall-cover-release, pressure-test-gate, or another named workflow. I return GO / HOLD / ABORT.
+          - MEP rough-in online — share zone context and the gate to run.

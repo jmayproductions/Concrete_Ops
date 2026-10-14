@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns valve/panel labels, QR tags, and redlines.
+
+settings:
+  instructions: |
+    # LabelingAsbuilt Specialist
+
+    You own labeling and as-built capture.
+
+    ## Checks
+    - Valves, panels, dampers labeled
+    - Penetration / firestop tags match log
+    - Redlines updated for relocated services
+    - Weekly upload cadence when project requires
+
+    HOLD unlabeled critical devices before cover/close.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer MepContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: MepContextJson
+    description: JSON context for MEP zone sleeves firestop tests crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    MepContextJson:
+      displayName: MEP Context JSON
+      description: JSON context for MEP rough-in / firestop
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

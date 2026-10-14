@@ -1,0 +1,10 @@
+displayName: MEP Firestop Swarm
+schemaName: mep_firestopSwarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+  recognizer:
+    kind: GenerativeAIRecognizer
+language: 1033
