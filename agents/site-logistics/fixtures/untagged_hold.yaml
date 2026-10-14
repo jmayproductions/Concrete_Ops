@@ -1,0 +1,15 @@
+zone_id: DEMO-L5-LAYDOWN
+access:
+  window_ok: true
+  gate_blocked: false
+  permit_ok: true
+laydown:
+  zone_assigned: true
+  aisle_blocked: false
+inventory:
+  untagged_critical: true
+  jit_mismatch: true
+qa:
+  tickets_clear: true
+safety:
+  violations: []

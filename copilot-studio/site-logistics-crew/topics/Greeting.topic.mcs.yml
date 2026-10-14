@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Site Logistics Swarm ready. Ask for pre-delivery-gate, floor-load-gate, crane-drop-gate, temp-utilities-gate, or another named workflow. I return GO / HOLD / ABORT.
+          - Logistics online — share drop/zone context and the gate to run.

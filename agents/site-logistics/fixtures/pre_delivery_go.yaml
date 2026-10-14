@@ -1,0 +1,66 @@
+zone_id: DEMO-L5-LAYDOWN
+drop_id: Steel-L5-01
+access:
+  window_ok: true
+  gate_blocked: false
+  permit_ok: true
+laydown:
+  zone_assigned: true
+  aisle_blocked: false
+floor_load:
+  staged_psf: 40
+  rating_psf: 100
+  overload: false
+  drywall_overstack: false
+  spread_ok: true
+material:
+  unit_weight_lb: 80
+  two_person: false
+  lift_assist: false
+  method: forklift
+lift_path:
+  reserved: true
+  conflict: false
+crane:
+  required: false
+  people_in_swing: false
+  exclusion_marked: true
+traffic:
+  routes_marked: true
+  ped_vehicle_conflict: false
+temp_power:
+  required: false
+  gfci: true
+  daisy_chain: false
+temp_heat_water:
+  required: false
+  heat_active: false
+  water_active: false
+  open_flame_undesignated: false
+  co_monitor: true
+  backflow: true
+inventory:
+  untagged_critical: false
+  jit_mismatch: false
+hazard:
+  red_uncontrolled_staging: false
+housekeeping:
+  egress_blocked: false
+  aisle_debris: false
+crew:
+  roles:
+    - logistics_lead
+    - gate_guard
+    - forklift_op
+    - rigger_spotter
+    - traffic_flagger
+    - qc_tech
+    - safety_watch
+  headcount: 8
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+  tickets_clear: true
+  closeout_clear: true
+safety:
+  violations: []

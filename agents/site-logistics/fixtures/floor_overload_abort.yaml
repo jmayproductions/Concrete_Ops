@@ -1,0 +1,16 @@
+zone_id: DEMO-L3
+floor_load:
+  staged_psf: 140
+  rating_psf: 100
+  overload: true
+  spread_ok: false
+  drywall_overstack: true
+material:
+  unit_weight_lb: 120
+  two_person: false
+  lift_assist: false
+  method: forklift
+qa:
+  tickets_clear: true
+safety:
+  violations: []

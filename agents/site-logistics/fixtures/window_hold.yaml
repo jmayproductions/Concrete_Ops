@@ -1,0 +1,12 @@
+zone_id: DEMO-GATE
+access:
+  window_ok: false
+  gate_blocked: true
+  permit_ok: false
+traffic:
+  routes_marked: false
+  ped_vehicle_conflict: true
+qa:
+  tickets_clear: true
+safety:
+  violations: []

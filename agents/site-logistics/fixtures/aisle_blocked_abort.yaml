@@ -1,0 +1,13 @@
+zone_id: DEMO-L5-LAYDOWN
+laydown:
+  zone_assigned: true
+  aisle_blocked: true
+hazard:
+  red_uncontrolled_staging: false
+housekeeping:
+  egress_blocked: true
+  aisle_debris: true
+qa:
+  tickets_clear: true
+safety:
+  violations: []

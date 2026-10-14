@@ -1,0 +1,15 @@
+zone_id: DEMO-CRANE-DROP
+crane:
+  required: true
+  people_in_swing: true
+  exclusion_marked: false
+lift_path:
+  reserved: true
+  conflict: false
+laydown:
+  zone_assigned: true
+  aisle_blocked: false
+qa:
+  tickets_clear: true
+safety:
+  violations: []
