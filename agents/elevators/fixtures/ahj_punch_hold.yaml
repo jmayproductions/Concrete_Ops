@@ -1,0 +1,20 @@
+zone_id: DEMO-BANK-A-CAR2
+ahj:
+  permit_current: true
+  scheduled: true
+  passed: false
+  open_punch: [sill_gap, phone_test]
+  required_for_turnover: true
+devices:
+  governor_ok: true
+  safeties_ok: true
+  buffers_ok: true
+  interlocks_ok: true
+  bypassed: false
+hoistway:
+  clearances_ok: true
+  overhead_ok: true
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

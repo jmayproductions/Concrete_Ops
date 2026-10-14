@@ -1,0 +1,82 @@
+zone_id: DEMO-BANK-A-CAR2
+car_id: Car-2
+equipment:
+  shops_approved: true
+  machine_approved: true
+  controller_approved: true
+pit_mr:
+  pit_ready: true
+  mr_ready: true
+  power_ready: true
+  waterproofing_ok: true
+  hvac_ok: true
+rails:
+  plumb_ok: true
+  brackets_ok: true
+  joints_ok: true
+hoistway:
+  clearances_ok: true
+  projections: []
+  overhead_ok: true
+  unprotected_opening: false
+entrances:
+  plumb_set: true
+  rated_unlabeled: false
+  binding: false
+cab:
+  platform_ok: true
+  overweight: false
+electrical:
+  controller_set: true
+  machine_set: true
+  disconnects_labeled: true
+  grounded: true
+devices:
+  governor_ok: true
+  safeties_ok: true
+  buffers_ok: true
+  interlocks_ok: true
+  bypassed: false
+ahj:
+  permit_current: true
+  scheduled: true
+  passed: true
+  open_punch: []
+  required_for_turnover: true
+temp_run:
+  agreement: true
+  qualified_operator: true
+  barricades_ok: true
+  unauthorized: false
+  public_use: false
+turnover:
+  om_manuals: true
+  keys_transferred: true
+  training_complete: true
+weather:
+  hoistway_open: false
+  protected: true
+  mr_not_weathertight: false
+  equipment_set: true
+  freezing_hydraulics: false
+crew:
+  roles:
+    - elevators_lead
+    - mechanic
+    - helper
+    - electrician
+    - adjuster
+    - qc_tech
+    - safety_watch
+  headcount: 8
+  briefing_complete: true
+  fatigued_workers: []
+qa:
+  pre_hold_points_clear: true
+  install_hold_points_clear: true
+suspended:
+  no_secondary: false
+pit_entry:
+  no_permit: false
+safety:
+  violations: []

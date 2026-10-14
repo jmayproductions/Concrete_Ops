@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Stop-work for open hoistway, fall risk, bypassed safeties.
+
+settings:
+  instructions: |
+    # SafetyFailsafe Specialist
+
+    You have stop-work authority. FAIL => swarm **ABORT**.
+
+    ## Fail conditions
+    - Open hoistway without barricades / fall protection
+    - Safety devices bypassed outside controlled procedure
+    - Unauthorized temporary run / public exposure
+    - Working under suspended load without secondary protection
+    - Confined pit entry without permit/attendant when required
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer ElevatorsContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: ElevatorsContextJson
+    description: JSON context for elevators rails pit AHJ temporary run
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    ElevatorsContextJson:
+      displayName: Elevators Context JSON
+      description: JSON context for elevators / VTR
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

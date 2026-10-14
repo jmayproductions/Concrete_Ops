@@ -1,0 +1,10 @@
+displayName: Elevators VTR Swarm
+schemaName: elevators_vtr_swarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+  recognizer:
+    kind: GenerativeAIRecognizer
+language: 1033

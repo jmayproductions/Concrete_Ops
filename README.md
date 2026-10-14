@@ -35,6 +35,19 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Elevators / VTR Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for elevators and vertical transportation:
+
+- [`copilot-studio/elevators-crew/`](copilot-studio/elevators-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/ElevatorsVTR-Swarm-CopilotStudio-DropIn.zip`](packages/ElevatorsVTR-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.elevators_swarm.api --port 8092
+python -m modules.elevators_swarm.cli run pre-elevator-gate -c agents/elevators/fixtures/pre_elevator_go.yaml
+```
+
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

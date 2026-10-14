@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Elevators VTR Swarm ready. Ask for pre-elevator-gate, rail-install-runbook, temporary-run-gate, ahj-inspection-gate, elevator-turnover, or another named workflow. I return GO / HOLD / ABORT.
+          - Elevators online — share car/bank context and the gate to run.

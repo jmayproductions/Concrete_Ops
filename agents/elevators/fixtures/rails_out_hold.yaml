@@ -1,0 +1,13 @@
+zone_id: DEMO-BANK-A-CAR2
+rails:
+  plumb_ok: false
+  brackets_ok: false
+  joints_ok: true
+hoistway:
+  clearances_ok: false
+  projections: [conduit_clamp]
+  overhead_ok: true
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []
