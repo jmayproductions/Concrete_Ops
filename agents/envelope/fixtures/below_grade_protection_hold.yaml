@@ -1,0 +1,23 @@
+zone_id: DEMO-EAST-WALL
+substrate:
+  clean: true
+  dry: true
+  cured: true
+  voids_patched: true
+below_grade:
+  membrane_installed: true
+  laps_sealed: true
+  no_pinholes: true
+  wet_film_mils: 65
+  protection_board: false
+drainage:
+  requires_protection: true
+  protection_installed: false
+  drains_clear: true
+weather:
+  temp_f: 55
+  wind_kph: 10
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

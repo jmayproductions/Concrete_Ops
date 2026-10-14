@@ -1,0 +1,10 @@
+displayName: Envelope Waterproofing Swarm
+schemaName: envelope_waterproofingSwarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+  recognizer:
+    kind: GenerativeAIRecognizer
+language: 1033

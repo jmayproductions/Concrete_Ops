@@ -1,0 +1,64 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns flood, ELD, and ASTM water penetration tests.
+
+settings:
+  instructions: |
+    # WaterTest Specialist
+
+    You own water testing gates.
+
+    ## Checks
+    - Method: flood test, ELD, hose, ASTM E331/E1105 as specified
+    - Test pressure / duration / acceptance criteria recorded
+    - Failures mapped with photos / locations
+    - Retest after repairs
+
+    HOLD if required water test not run before covering critical work.
+    FAIL active leakage beyond acceptance.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer EnvelopeContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: EnvelopeContextJson
+    description: JSON context for envelope zone substrate membrane tests crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    EnvelopeContextJson:
+      displayName: Envelope Context JSON
+      description: JSON context for envelope / waterproofing
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

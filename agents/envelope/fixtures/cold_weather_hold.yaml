@@ -1,0 +1,21 @@
+zone_id: DEMO-ROOF-B
+substrate:
+  clean: true
+  dry: true
+  cured: true
+  slope_ok: true
+wrb:
+  installed: true
+  laps_sealed: true
+  transitions_detailed: true
+weather:
+  temp_f: 32
+  membrane_min_f: 40
+  wind_kph: 12
+crew:
+  roles: [envelope_lead, membrane_tech, flashing_tech, sealant_tech, qc_tech, safety_watch]
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []

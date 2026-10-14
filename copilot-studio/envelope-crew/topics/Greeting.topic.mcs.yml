@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Envelope Waterproofing Swarm ready. Ask for pre-envelope-gate, below-grade-wp-runbook, roofing-membrane-runbook, water-test-gate, air-barrier-test-gate, or another named workflow. I return GO / HOLD / ABORT.
+          - Envelope online — share zone context and the gate to run.

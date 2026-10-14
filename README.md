@@ -35,6 +35,18 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Envelope / Waterproofing Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for roofing, below-grade WP, WRB/air barrier, curtain wall, cladding:
+
+- [`copilot-studio/envelope-crew/`](copilot-studio/envelope-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/EnvelopeWaterproofing-Swarm-CopilotStudio-DropIn.zip`](packages/EnvelopeWaterproofing-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.envelope_swarm.api --port 8083
+python -m modules.envelope_swarm.cli run pre-envelope-gate -c agents/envelope/fixtures/pre_envelope_go.yaml
+```
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)
