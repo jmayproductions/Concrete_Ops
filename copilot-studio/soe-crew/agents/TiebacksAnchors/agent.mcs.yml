@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns tieback drill, grout, and proof/performance tests.
+
+settings:
+  instructions: |
+    # TiebacksAnchors Specialist
+
+    You own ground anchors / tiebacks.
+
+    ## Checks
+    - Drill length/angle per design; grout records complete
+    - Proof/performance tests meet criteria before lock-off
+    - Corrosion protection / free length as specified
+
+    HOLD failed tests or lock-off without passing proof test.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer SoeContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: SoeContextJson
+    description: JSON context for SOE shoring stages braces monitoring
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    SoeContextJson:
+      displayName: SOE Context JSON
+      description: JSON context for support of excavation
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

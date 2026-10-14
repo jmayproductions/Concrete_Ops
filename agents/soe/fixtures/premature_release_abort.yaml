@@ -1,0 +1,18 @@
+zone_id: DEMO-BASEMENT-NORTH
+release:
+  required: true
+  permanent_structure_ready: false
+  sequence_ok: false
+  monitoring_during: false
+monitoring:
+  baseline_set: true
+  readings_current: true
+  alarm_exceeded: false
+loads:
+  required: true
+  cells_active: true
+  overload: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

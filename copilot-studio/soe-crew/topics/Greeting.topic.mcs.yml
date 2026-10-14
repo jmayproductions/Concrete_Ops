@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - SOE Shoring Swarm ready. Ask for pre-soe-gate, excavation-stage-gate, strut-waler-gate, tieback-test-gate, monitoring-alarm-gate, brace-release-gate, or another named workflow. I return GO / HOLD / ABORT.
+          - SOE online — share wall/stage context and the gate to run.
