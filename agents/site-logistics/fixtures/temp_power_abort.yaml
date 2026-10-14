@@ -1,0 +1,16 @@
+zone_id: DEMO-TEMP
+temp_power:
+  required: true
+  gfci: false
+  daisy_chain: true
+temp_heat_water:
+  required: true
+  heat_active: true
+  water_active: true
+  open_flame_undesignated: true
+  co_monitor: false
+  backflow: false
+qa:
+  tickets_clear: true
+safety:
+  violations: []

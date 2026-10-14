@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns staging vs floor live-load rating.
+
+settings:
+  instructions: |
+    # FloorLiveLoad Specialist
+
+    You own floor load.
+
+    ## Checks
+    - Staging weight ≤ live load (e.g. 50/100 psf class)
+    - Pallets spread; no point overload
+    - Drywall ≤3 bundles flat
+
+    FAIL intentional overload of floor rating.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer LogisticsContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: LogisticsContextJson
+    description: JSON context for deliveries laydown floor load crane
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    LogisticsContextJson:
+      displayName: Logistics Context JSON
+      description: JSON context for Site Logistics
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

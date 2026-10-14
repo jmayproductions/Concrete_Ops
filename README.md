@@ -35,6 +35,19 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Site Logistics Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for deliveries, laydown, floor load, and temp utilities:
+
+- [`copilot-studio/site-logistics-crew/`](copilot-studio/site-logistics-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/SiteLogistics-Swarm-CopilotStudio-DropIn.zip`](packages/SiteLogistics-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.site_logistics_swarm.api --port 8101
+python -m modules.site_logistics_swarm.cli run pre-delivery-gate -c agents/site-logistics/fixtures/pre_delivery_go.yaml
+```
+
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

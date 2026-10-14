@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns vertical/horizontal lift path conflicts.
+
+settings:
+  instructions: |
+    # LiftPath Specialist
+
+    You own lift paths.
+
+    ## Checks
+    - Elevator/hoist reserved
+    - Crane swing clear of people/structures
+    - No conflicting trades in path
+
+    HOLD conflicting lift path.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer LogisticsContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: LogisticsContextJson
+    description: JSON context for deliveries laydown floor load crane
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    LogisticsContextJson:
+      displayName: Logistics Context JSON
+      description: JSON context for Site Logistics
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
