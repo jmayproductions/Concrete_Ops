@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns weather holds for lifts, bolting, and welding.
+
+settings:
+  instructions: |
+    # WeatherGate Specialist
+
+    You own weather holds for steel erection.
+
+    ## Holds
+    - Wind above project pick limit
+    - Lightning / active storm
+    - Welding / coating weather limits without shelter
+    - Ice / snow on members creating slip or fit-up risk
+
+    Missing weather data => HOLD.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer ErectContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: ErectContextJson
+    description: JSON context for level/zone piece marks bolting welding crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    ErectContextJson:
+      displayName: Erect Context JSON
+      description: JSON context for steel erection
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

@@ -1,0 +1,78 @@
+erect_id: DEMO-L5-GRID-AD
+level: Level 5 Grid A-D
+pre_erect_go: true
+fab:
+  shops_approved: true
+  erection_drawings_approved: true
+  sequence_published: true
+  mill_certs_matched: true
+  member_damage: false
+  truck:
+    expected_piece_marks: [C-501, B-512, BR-5A]
+    onboard_piece_marks: [C-501, B-512, BR-5A]
+    heat_numbers_matched: true
+anchors:
+  within_tolerance: true
+  layout_verified: true
+  leveling_plates_set: true
+  baseplate_elevation_ok: true
+crane:
+  chart_ok: true
+  pick_plan_verified: true
+  exclusion_zone_set: true
+bracing:
+  plan_issued: true
+  braces_installed: true
+  stability_locked: true
+bolting:
+  kits_matched: true
+  incomplete_joints: []
+  pretension_required: true
+  tension_log_complete: true
+welding:
+  required: true
+  wps_available: true
+  welders_qualified: true
+  visual_accepted: true
+  ndt_required: true
+  ndt_complete: true
+  cracked_weld: false
+plumb:
+  within_tolerance: true
+  columns_checked: true
+decking:
+  required: true
+  framing_ready: true
+  attachment_pattern_ok: true
+fireproofing:
+  required: true
+  surface_prep_ok: true
+  sequencing_ok: true
+coatings:
+  damage: false
+  touchup_plan: true
+grout:
+  materials_approved: true
+  alignment_accepted: true
+weather:
+  wind_kph: 20
+  lightning: false
+  active_precip: false
+crew:
+  roles:
+    - erect_lead
+    - crane_operator
+    - rigger
+    - connector
+    - welder
+    - brace_crew
+    - qc_tech
+    - safety_watch
+  headcount: 12
+  briefing_complete: true
+  fatigued_workers: []
+qa:
+  pre_hold_points_clear: true
+  pick_hold_points_clear: true
+safety:
+  violations: []

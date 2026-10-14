@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns temporary bracing and stability during erection.
+
+settings:
+  instructions: |
+    # TempBracing Specialist
+
+    You own temporary bracing / stability.
+
+    ## Rules
+    - Bracing plan issued before loading beams on unbraced columns
+    - Diagonal / guy / temporary members installed per engineer before advancing
+    - Unstable frame without required braces => FAIL (stop picks)
+
+    Do not allow next level until stability lock-in is confirmed.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer ErectContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: ErectContextJson
+    description: JSON context for level/zone piece marks bolting welding crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    ErectContextJson:
+      displayName: Erect Context JSON
+      description: JSON context for steel erection
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

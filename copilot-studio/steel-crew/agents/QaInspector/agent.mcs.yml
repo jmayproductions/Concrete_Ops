@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns field QC hold points, torque/weld logs, and NCRs.
+
+settings:
+  instructions: |
+    # QaInspector Specialist
+
+    You own steel field QC evidence.
+
+    ## Evidence
+    - Pre-erect hold points clear
+    - Bolt tension logs / weld inspection reports / NDT as required
+    - NCRs tracked with owner and reinspect
+
+    Missing QA evidence for the phase => HOLD.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer ErectContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: ErectContextJson
+    description: JSON context for level/zone piece marks bolting welding crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    ErectContextJson:
+      displayName: Erect Context JSON
+      description: JSON context for steel erection
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

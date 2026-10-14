@@ -35,6 +35,18 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Structural Steel Erection Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for AISC / RCSC / AWS D1.1 steel erection:
+
+- [`copilot-studio/steel-crew/`](copilot-studio/steel-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/SteelErection-Swarm-CopilotStudio-DropIn.zip`](packages/SteelErection-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.steel_swarm.api --port 8082
+python -m modules.steel_swarm.cli run pre-erect-gate -c agents/steel/fixtures/pre_erect_go.yaml
+```
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

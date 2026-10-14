@@ -1,0 +1,10 @@
+erect_id: DEMO-L5-GRID-AD
+bolting:
+  kits_matched: true
+  incomplete_joints: [MJ-B12]
+  pretension_required: true
+  tension_log_complete: false
+qa:
+  pick_hold_points_clear: true
+safety:
+  violations: []
