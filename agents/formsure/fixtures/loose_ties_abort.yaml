@@ -1,0 +1,16 @@
+zone_id: DEMO-WALL-B2
+ties:
+  spacing_ok: false
+  tension_ok: false
+  loose_or_missing: true
+bracing:
+  installed: true
+  torque_ok: true
+  incomplete: false
+pressure:
+  within_design: true
+  blowout_risk: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

@@ -35,6 +35,19 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### FormSure / Formwork Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for form erect, pour pressure/drop, and strip:
+
+- [`copilot-studio/formsure-crew/`](copilot-studio/formsure-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/FormSureFormwork-Swarm-CopilotStudio-DropIn.zip`](packages/FormSureFormwork-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.formsure_swarm.api --port 8097
+python -m modules.formsure_swarm.cli run pre-pour-form-gate -c agents/formsure/fixtures/pre_pour_go.yaml
+```
+
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

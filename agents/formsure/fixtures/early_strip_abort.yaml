@@ -1,0 +1,20 @@
+zone_id: DEMO-SLAB-S4
+shores:
+  plumb_locked: true
+  bearing_ok: true
+  unstable: false
+strip:
+  required: true
+  strength_proof: true
+  strength_pct: 55
+  min_strength_pct: 70
+  reshore_required: true
+  reshore_ready: false
+load_transfer:
+  deflection_ok: true
+  sagging: false
+  reshore_missing: true
+qa:
+  strip_docs_clear: true
+safety:
+  violations: []

@@ -1,0 +1,18 @@
+zone_id: DEMO-WALL-B2
+ties:
+  spacing_ok: true
+  tension_ok: true
+  loose_or_missing: false
+bracing:
+  installed: true
+  torque_ok: true
+  incomplete: false
+pressure:
+  pour_rate_m_per_hr: 3.5
+  design_rate_m_per_hr: 2.0
+  within_design: false
+  blowout_risk: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

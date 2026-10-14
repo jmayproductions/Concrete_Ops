@@ -1,0 +1,10 @@
+displayName: FormSure Formwork Swarm
+schemaName: formsure_formwork_swarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+  recognizer:
+    kind: GenerativeAIRecognizer
+language: 1033

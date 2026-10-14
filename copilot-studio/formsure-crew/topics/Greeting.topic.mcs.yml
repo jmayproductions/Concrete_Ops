@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - FormSure Formwork Swarm ready. Ask for pre-pour-form-gate, strip-readiness-gate, pour-drop-gate, form-pressure-gate, or another named workflow. I return GO / HOLD / ABORT.
+          - Formwork online — share zone/element context and the gate to run.

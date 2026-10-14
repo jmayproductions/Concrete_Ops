@@ -1,0 +1,13 @@
+zone_id: DEMO-SLAB-S4
+shores:
+  plumb_locked: false
+  bearing_ok: false
+  unstable: false
+load_transfer:
+  deflection_ok: true
+  sagging: false
+  reshore_missing: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []
