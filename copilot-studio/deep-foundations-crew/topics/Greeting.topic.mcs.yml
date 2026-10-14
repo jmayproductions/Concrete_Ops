@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Deep Foundations Swarm ready. Ask for pre-foundation-gate, tip-elevation-gate, tremie-pour-runbook, driven-pile-runbook, integrity-test-gate, or another named workflow. I return GO / HOLD / ABORT.
+          - Foundations online — share shaft/pile ID context and the gate to run.

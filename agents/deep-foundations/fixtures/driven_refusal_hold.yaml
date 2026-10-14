@@ -1,0 +1,22 @@
+zone_id: DEMO-PILE-P40
+materials:
+  mix_approved: true
+  cage_shops_approved: true
+  certs_ok: true
+survey:
+  staked: true
+driving:
+  required: true
+  criteria_met: false
+  refusal_short: true
+  eng_direction: false
+  damaged: false
+weather:
+  lightning: false
+  high_wind: false
+geotech:
+  accepted: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

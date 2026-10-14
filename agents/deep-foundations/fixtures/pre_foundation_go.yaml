@@ -1,0 +1,81 @@
+zone_id: DEMO-SHAFT-S12
+element_id: S-12
+materials:
+  mix_approved: true
+  cage_shops_approved: true
+  certs_ok: true
+survey:
+  staked: true
+  location_out_of_tolerance: false
+drilling:
+  required: true
+  diameter_ok: true
+  depth_ok: true
+  verticality_ok: true
+  collapse: false
+casing_slurry:
+  required: true
+  unstable: false
+  slurry_in_spec: true
+tip:
+  at_criteria: true
+  cleanout_done: true
+  sediment_in: 0.25
+  max_sediment_in: 1.0
+cage:
+  matches_shops: true
+  spacers_ok: true
+  elevation_ok: true
+  contaminated: false
+concrete:
+  required: true
+  wet_hole: true
+  tremie: true
+  pour_interrupted: false
+  volume_cy: 42
+  theoretical_cy: 40
+  tickets_logged: true
+driving:
+  required: false
+integrity:
+  required: true
+  tests_complete: true
+  open_anomalies: []
+capacity:
+  required: true
+  criteria_met: true
+  rejects_open: false
+weather:
+  lightning: false
+  high_wind: false
+  freezing: false
+  cold_weather_concrete: true
+  flooding_holes: false
+  casing_control: true
+geotech:
+  tip_confirmed: true
+  accepted: true
+crew:
+  roles:
+    - foundations_lead
+    - drill_op
+    - crane_op
+    - cage_crew
+    - concrete_tech
+    - qc_tech
+    - safety_watch
+  headcount: 9
+  briefing_complete: true
+  fatigued_workers: []
+qa:
+  pre_hold_points_clear: true
+  install_hold_points_clear: true
+hole:
+  unprotected: false
+utilities:
+  dig_without_locate: false
+  utility_strike: false
+rigging:
+  unsafe: false
+safety:
+  violations: []

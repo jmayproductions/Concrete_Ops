@@ -1,0 +1,21 @@
+zone_id: DEMO-SHAFT-S12
+hole:
+  unprotected: true
+survey:
+  staked: true
+drilling:
+  required: true
+  diameter_ok: true
+  depth_ok: true
+  verticality_ok: true
+casing_slurry:
+  required: true
+  unstable: false
+  slurry_in_spec: true
+weather:
+  lightning: false
+  high_wind: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

@@ -1,0 +1,24 @@
+zone_id: DEMO-SHAFT-S12
+materials:
+  mix_approved: true
+  cage_shops_approved: true
+  certs_ok: true
+cage:
+  matches_shops: true
+  spacers_ok: true
+  elevation_ok: true
+concrete:
+  wet_hole: true
+  tremie: true
+  pour_interrupted: true
+  volume_cy: 30
+  theoretical_cy: 40
+  tickets_logged: true
+weather:
+  lightning: false
+  high_wind: false
+  freezing: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

@@ -1,0 +1,13 @@
+zone_id: DEMO-SHAFT-S12
+integrity:
+  required: true
+  tests_complete: true
+  open_anomalies: [CSL_tube_2_soft_zone]
+capacity:
+  required: true
+  criteria_met: false
+  rejects_open: true
+geotech:
+  accepted: false
+qa:
+  install_hold_points_clear: true
