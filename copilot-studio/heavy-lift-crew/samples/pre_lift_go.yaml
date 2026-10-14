@@ -1,0 +1,68 @@
+zone_id: DEMO-PICK-P12
+pick_id: Panel-P12
+plan:
+  critical: true
+  approved: true
+  weight_known: true
+  radius_known: true
+  roles_named: true
+certs:
+  crane_inspection_current: true
+  operator_certified: true
+  rigger_qualified: true
+ground:
+  outriggers_set: true
+  mats_ok: true
+  soft_ground: false
+rigging:
+  inspected: true
+  capacity_ok: true
+  damaged: false
+path:
+  obstructed: false
+  blind_uncontrolled: false
+power_lines:
+  present: true
+  clearance_ok: true
+  spotter_plan: true
+  encroachment: false
+exclusion:
+  marked: true
+  under_load: false
+  breached: false
+comms:
+  signal_person: true
+  channel_confirmed: true
+  lost_during_critical: false
+weather:
+  wind_mph: 12
+  wind_limit_mph: 20
+  lightning: false
+  poor_visibility: false
+chart:
+  within_chart: true
+  config_match: true
+  unknown_weight: false
+  critical: true
+taglines:
+  required: true
+  uncontrolled_spin: false
+  riding_load: false
+tandem:
+  required: false
+crew:
+  roles:
+    - lift_lead
+    - crane_op
+    - rigger
+    - signal_person
+    - spotter
+    - qc_tech
+    - safety_watch
+  headcount: 8
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+  install_hold_points_clear: true
+safety:
+  violations: []
