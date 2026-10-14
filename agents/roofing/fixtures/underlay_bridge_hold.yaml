@@ -1,0 +1,16 @@
+zone_id: DEMO-BLDG-A-EAST
+zone:
+  ice_damming_risk: true
+underlayment:
+  required: true
+  laps_ok: false
+  bridging: true
+  wrinkles: true
+ice_water:
+  required: true
+  installed: true
+  coverage_ok: false
+qa:
+  photo_log_clear: true
+safety:
+  violations: []

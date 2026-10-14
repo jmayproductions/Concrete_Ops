@@ -1,0 +1,19 @@
+zone_id: DEMO-BLDG-A-EAST
+flashing:
+  step_missing: true
+  headwall_missing: true
+  interwoven: false
+  wall_overlap_ok: false
+valley:
+  present: true
+  flashed: false
+  exposed_fasteners_in_path: true
+penetrations:
+  present: true
+  unsealed: true
+  caulk_only: true
+  boots_centered: false
+qa:
+  photo_log_clear: true
+safety:
+  violations: []

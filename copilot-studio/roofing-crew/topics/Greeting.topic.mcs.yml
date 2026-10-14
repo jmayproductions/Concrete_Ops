@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Roofing QAQC Swarm ready. Ask for pre-roof-gate, fastener-gate, flashing-gate, membrane-flat-gate, or another named workflow. I return GO / HOLD / ABORT.
+          - Roofing online — share roof/zone context and the gate to run.

@@ -1,0 +1,79 @@
+zone_id: DEMO-BLDG-A-EAST
+roof_id: BldgA-East
+zone:
+  high_wind: false
+  coastal: false
+  ice_damming_risk: true
+deck:
+  wet: false
+  unsound: false
+  fastened: true
+underlayment:
+  required: true
+  laps_ok: true
+  bridging: false
+  wrinkles: false
+ice_water:
+  required: true
+  installed: true
+  coverage_ok: true
+fasteners:
+  nails_per_shingle: 4
+  staples: false
+  manufacturer_variance: false
+  skippers: false
+  overdriven_consecutive: 0
+  flush_ok: true
+  penetration_ok: true
+  enhanced: false
+shingles:
+  system: asphalt
+  required: true
+  starter_strip: true
+  offset_ok: true
+  stacked_joints: false
+  exposure_ok: true
+flashing:
+  step_missing: false
+  headwall_missing: false
+  interwoven: true
+  wall_overlap_ok: true
+valley:
+  present: true
+  flashed: true
+  exposed_fasteners_in_path: false
+penetrations:
+  present: true
+  unsealed: false
+  caulk_only: false
+  boots_centered: true
+ridge:
+  required: true
+  vent_continuous: true
+  caps_secured: true
+  unsealed_slot: false
+membrane:
+  required: false
+  open_seams: false
+  drainage_clear: true
+  flashings_ok: true
+fall_protection:
+  unprotected_edge: false
+  controls_ok: true
+crew:
+  roles:
+    - roof_lead
+    - deck_hand
+    - shingler
+    - flasher
+    - membrane_tech
+    - qc_tech
+    - safety_watch
+  headcount: 9
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+  photo_log_clear: true
+  final_punch_clear: true
+safety:
+  violations: []

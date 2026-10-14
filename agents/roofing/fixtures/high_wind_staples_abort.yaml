@@ -1,0 +1,24 @@
+zone_id: DEMO-COASTAL
+zone:
+  high_wind: true
+  coastal: true
+fasteners:
+  nails_per_shingle: 4
+  staples: true
+  manufacturer_variance: false
+  skippers: false
+  overdriven_consecutive: 0
+  flush_ok: true
+  penetration_ok: true
+  enhanced: false
+shingles:
+  system: asphalt
+  required: true
+  starter_strip: true
+  offset_ok: true
+  stacked_joints: false
+  exposure_ok: true
+qa:
+  photo_log_clear: true
+safety:
+  violations: []
