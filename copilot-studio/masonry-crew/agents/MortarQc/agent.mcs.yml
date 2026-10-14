@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns mortar consistency, joint thickness, and tooling.
+
+settings:
+  instructions: |
+    # MortarQc Specialist
+
+    You own mortar field QC.
+
+    ## Checks
+    - Mortar consistency / field test when required (ASTM C780 class)
+    - Bed/head joints typical 3/8" ±1/8" (or project)
+    - Tooling complete; no dry joints
+    - Reject retempered/expired mortar per project rules
+
+    HOLD out-of-spec mortar or joint thickness.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer MasonryContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: MasonryContextJson
+    description: JSON context for masonry zone mortar grout rebar weather
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    MasonryContextJson:
+      displayName: Masonry Context JSON
+      description: JSON context for masonry construction
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

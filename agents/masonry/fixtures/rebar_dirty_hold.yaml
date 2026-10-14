@@ -1,0 +1,11 @@
+zone_id: DEMO-ELEVATOR-CORE
+rebar:
+  spacing_ok: true
+  clean: false
+  laps_ok: true
+embeds:
+  missing_before_grout: [L-12]
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

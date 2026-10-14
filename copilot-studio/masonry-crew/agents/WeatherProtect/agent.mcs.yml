@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns hot/cold weather masonry protection.
+
+settings:
+  instructions: |
+    # WeatherProtect Specialist
+
+    You own weather protection for masonry.
+
+    ## Holds
+    - Frost / freezing of mortar or units without approved cold-weather procedures
+    - Hot/dry conditions without curing protection (premature drying)
+    - Active precip saturating unprotected work
+
+    Missing weather when required => HOLD.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer MasonryContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: MasonryContextJson
+    description: JSON context for masonry zone mortar grout rebar weather
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    MasonryContextJson:
+      displayName: Masonry Context JSON
+      description: JSON context for masonry construction
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

@@ -1,0 +1,20 @@
+zone_id: DEMO-STAIR-1-CMU
+materials:
+  mortar_approved: true
+  grout_approved: true
+  units_certified: true
+  rebar_approved: true
+layout:
+  control_lines: true
+  coursing_set: true
+  bond_confirmed: true
+weather:
+  freezing: true
+  cold_weather_procedures: false
+crew:
+  roles: [masonry_lead, mason, tender, rebar_setter, grout_tech, qc_tech, safety_watch]
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []
