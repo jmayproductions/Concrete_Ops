@@ -35,6 +35,19 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Deep Foundations Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for drilled shafts, driven piles, and caissons:
+
+- [`copilot-studio/deep-foundations-crew/`](copilot-studio/deep-foundations-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/DeepFoundations-Swarm-CopilotStudio-DropIn.zip`](packages/DeepFoundations-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.deep_foundations_swarm.api --port 8089
+python -m modules.deep_foundations_swarm.cli run pre-foundation-gate -c agents/deep-foundations/fixtures/pre_foundation_go.yaml
+```
+
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

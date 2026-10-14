@@ -1,0 +1,15 @@
+zone_id: DEMO-SHAFT-S12
+tip:
+  at_criteria: true
+  cleanout_done: true
+  sediment_in: 3.0
+  max_sediment_in: 1.0
+casing_slurry:
+  required: true
+  unstable: false
+  slurry_in_spec: true
+geotech:
+  tip_confirmed: false
+  accepted: false
+qa:
+  install_hold_points_clear: true

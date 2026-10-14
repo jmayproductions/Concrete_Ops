@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns temporary casing and slurry stability.
+
+settings:
+  instructions: |
+    # CasingSlurry Specialist
+
+    You own hole stability methods.
+
+    ## Checks
+    - Casing length/seal adequate for soils/water
+    - Slurry properties (density/viscosity/sand) in spec when used
+    - No loss of slurry head that risks collapse
+
+    HOLD unstable hole or out-of-spec slurry before cage/concrete.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer FoundationsContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: FoundationsContextJson
+    description: JSON context for deep foundations shafts piles tip concrete
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    FoundationsContextJson:
+      displayName: Foundations Context JSON
+      description: JSON context for deep foundations
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

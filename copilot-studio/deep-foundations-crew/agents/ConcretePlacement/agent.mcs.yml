@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns dry-hole and tremie placement, volume vs theoretical.
+
+settings:
+  instructions: |
+    # ConcretePlacement Specialist
+
+    You own shaft/pile concrete placement.
+
+    ## Checks
+    - Placement method matches hole condition (dry vs tremie)
+    - Tremie sealed / continuous pour; no cold joints from interruption beyond limit
+    - Actual volume ≥ theoretical (or documented overbreak reason)
+    - Slump/flow and tickets logged
+
+    HOLD interrupted tremie, short volume, or wrong method.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer FoundationsContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: FoundationsContextJson
+    description: JSON context for deep foundations shafts piles tip concrete
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    FoundationsContextJson:
+      displayName: Foundations Context JSON
+      description: JSON context for deep foundations
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

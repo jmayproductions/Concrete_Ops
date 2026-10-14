@@ -1,0 +1,10 @@
+displayName: Deep Foundations Swarm
+schemaName: deep_foundations_swarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+  recognizer:
+    kind: GenerativeAIRecognizer
+language: 1033
