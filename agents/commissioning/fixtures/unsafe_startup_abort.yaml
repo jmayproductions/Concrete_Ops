@@ -1,0 +1,12 @@
+zone_id: DEMO-MCC-02
+startup:
+  unsafe_energize: true
+  loto_cleared: false
+  safeties_ok: false
+prefunctional:
+  install_complete: true
+  checklist_signed: true
+qa:
+  logs_clear: true
+safety:
+  violations: []

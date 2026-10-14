@@ -1,0 +1,70 @@
+zone_id: DEMO-AHU-01
+system_id: AHU-01
+plan:
+  systems:
+    - AHU-01
+    - VAV-L3
+  approved: true
+  targets_defined: true
+prefunctional:
+  install_complete: true
+  checklist_signed: true
+  open_critical_pf: false
+startup:
+  unsafe_energize: false
+  loto_cleared: true
+  safeties_ok: true
+tab:
+  required: true
+  within_tolerance: true
+  report_attached: true
+functional:
+  script_complete: true
+  modes_proven: true
+  claimed_pass: true
+  witness_required: true
+  witnessed: true
+witness:
+  required: true
+  signed: true
+calibration:
+  required: true
+  current: true
+performance:
+  measured: true
+  deviation_pct: 4.5
+  limit_pct: 10
+  retest_locked: false
+  retest_passed: false
+issues:
+  open_critical: false
+  deferred_unsigned: false
+  handover_forced: false
+om:
+  manuals_uploaded: true
+  training_done: true
+  training_scheduled: true
+seasonal:
+  required: true
+  scheduled: true
+life_safety:
+  required: false
+  tested: true
+  interface_failed: false
+crew:
+  roles:
+    - cx_lead
+    - cxa
+    - tab_tech
+    - controls_tech
+    - trade_foreman
+    - owner_witness
+    - safety_watch
+  headcount: 8
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+  logs_clear: true
+  cx_binder_clear: true
+safety:
+  violations: []

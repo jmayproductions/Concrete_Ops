@@ -1,0 +1,18 @@
+zone_id: DEMO-AHU-01
+functional:
+  script_complete: true
+  modes_proven: true
+  claimed_pass: true
+  witness_required: true
+  witnessed: false
+witness:
+  required: true
+  signed: false
+performance:
+  measured: true
+  deviation_pct: 3
+  limit_pct: 10
+qa:
+  logs_clear: true
+safety:
+  violations: []

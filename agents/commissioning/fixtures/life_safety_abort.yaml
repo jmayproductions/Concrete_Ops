@@ -1,0 +1,18 @@
+zone_id: DEMO-FA-01
+life_safety:
+  required: true
+  tested: true
+  interface_failed: true
+functional:
+  script_complete: true
+  modes_proven: true
+  claimed_pass: true
+  witness_required: true
+  witnessed: true
+witness:
+  required: true
+  signed: true
+qa:
+  logs_clear: true
+safety:
+  violations: []

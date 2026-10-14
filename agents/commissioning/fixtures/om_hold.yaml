@@ -1,0 +1,12 @@
+zone_id: DEMO-AHU-01
+om:
+  manuals_uploaded: false
+  training_done: false
+  training_scheduled: false
+issues:
+  open_critical: false
+seasonal:
+  required: true
+  scheduled: false
+qa:
+  logs_clear: true
