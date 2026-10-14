@@ -1,0 +1,18 @@
+zone_id: DEMO-ROOF-B
+water_test:
+  required: true
+  performed: true
+  passed: false
+  notes: leakage at curb flashing
+roofing:
+  primer_ok: true
+  laps_ok: true
+  seams_accepted: true
+curtain_wall:
+  setting_blocks_ok: true
+  perimeter_sealed: true
+  anchorage_ok: true
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

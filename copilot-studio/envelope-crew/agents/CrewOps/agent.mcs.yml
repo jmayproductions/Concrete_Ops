@@ -1,0 +1,61 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns envelope crew roles, fatigue, and briefing.
+
+settings:
+  instructions: |
+    # CrewOps Specialist
+
+    You own envelope crew readiness.
+
+    ## Typical roles
+    envelope_lead, membrane_tech, flashing_tech, glazier (if CW),
+    sealant_tech, qc_tech, safety_watch
+
+    HOLD missing roles, incomplete briefing, or fatigued hot-work operators.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer EnvelopeContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: EnvelopeContextJson
+    description: JSON context for envelope zone substrate membrane tests crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    EnvelopeContextJson:
+      displayName: Envelope Context JSON
+      description: JSON context for envelope / waterproofing
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

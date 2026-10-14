@@ -1,0 +1,78 @@
+zone_id: DEMO-ROOF-B
+area: Roof Area B
+substrate:
+  clean: true
+  dry: true
+  cured: true
+  slope_ok: true
+  voids_patched: true
+wrb:
+  installed: true
+  laps_sealed: true
+  transitions_detailed: true
+  open_deficiencies: []
+below_grade:
+  membrane_installed: true
+  laps_sealed: true
+  no_pinholes: true
+  wet_film_mils: 70
+  min_mils: 60
+  protection_board: true
+roofing:
+  primer_ok: true
+  laps_ok: true
+  seams_accepted: true
+  seam_pull_fail: false
+flashing:
+  penetrations_flashed: true
+  terminations_complete: true
+  critical_missing: []
+curtain_wall:
+  required: true
+  setting_blocks_ok: true
+  perimeter_sealed: true
+  anchorage_ok: true
+cladding:
+  wrb_accepted: true
+  drainage_cavity_clear: true
+  weeps_open: true
+  flashings_integrated: true
+sealants:
+  joints_prepped: true
+  tooled: true
+  adhesion_fail: false
+  weeps_blocked: false
+water_test:
+  required: true
+  performed: true
+  passed: true
+air_test:
+  required: true
+  performed: true
+  passed: true
+drainage:
+  requires_protection: true
+  protection_installed: true
+  drains_clear: true
+  standing_water: false
+weather:
+  temp_f: 62
+  wind_kph: 18
+  active_precip: false
+crew:
+  roles:
+    - envelope_lead
+    - membrane_tech
+    - flashing_tech
+    - sealant_tech
+    - glazier
+    - qc_tech
+    - safety_watch
+  headcount: 9
+  briefing_complete: true
+  fatigued_workers: []
+qa:
+  pre_hold_points_clear: true
+  install_hold_points_clear: true
+safety:
+  violations: []

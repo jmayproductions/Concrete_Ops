@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns blower-door / air leakage verification.
+
+settings:
+  instructions: |
+    # AirBarrierTest Specialist
+
+    You own air barrier testing.
+
+    ## Checks
+    - Blower door / whole-building or mockup per project
+    - Target leakage (e.g. ≤0.4 cfm/sf @ 75 Pa class — use project)
+    - Leak paths mapped (smoke/IR) with owners
+    - Retest after remediation
+
+    HOLD missing required air test before enclosure closeout.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer EnvelopeContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: EnvelopeContextJson
+    description: JSON context for envelope zone substrate membrane tests crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    EnvelopeContextJson:
+      displayName: Envelope Context JSON
+      description: JSON context for envelope / waterproofing
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
