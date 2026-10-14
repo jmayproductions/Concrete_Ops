@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Structural Steel Erection Swarm ready. Ask for pre-erect-gate, delivery-piece-gate, level-erect-runbook, bolting-qa, welding-ndt-gate, decking-release, or another named workflow. I return GO / HOLD / ABORT.
+          - Steel erection online — share level/grid context and the gate to run.

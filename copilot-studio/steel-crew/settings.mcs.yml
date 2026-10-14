@@ -1,0 +1,10 @@
+displayName: Structural Steel Erection Swarm
+schemaName: steel_erectionSwarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+  recognizer:
+    kind: GenerativeAIRecognizer
+language: 1033

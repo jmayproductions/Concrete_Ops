@@ -1,0 +1,16 @@
+erect_id: DEMO-L5-GRID-AD
+welding:
+  required: true
+  wps_available: true
+  welders_qualified: true
+  visual_accepted: true
+  ndt_required: true
+  ndt_complete: false
+  cracked_weld: false
+weather:
+  wind_kph: 12
+  active_precip: false
+qa:
+  pick_hold_points_clear: true
+safety:
+  violations: []

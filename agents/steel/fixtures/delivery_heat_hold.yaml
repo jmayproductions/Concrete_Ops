@@ -1,0 +1,18 @@
+erect_id: DEMO-L5-TRUCK-03
+fab:
+  shops_approved: true
+  erection_drawings_approved: true
+  sequence_published: true
+  mill_certs_matched: true
+  truck:
+    expected_piece_marks: [C-501, C-502, B-512]
+    onboard_piece_marks: [C-501, B-512]
+    heat_numbers_matched: false
+crane:
+  chart_ok: true
+  pick_plan_verified: true
+  exclusion_zone_set: true
+weather:
+  wind_kph: 15
+safety:
+  violations: []
