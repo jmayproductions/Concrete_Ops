@@ -1,0 +1,23 @@
+zone_id: DEMO-L3-OFFICES
+scaffold:
+  unsafe: true
+egress:
+  blocked: true
+inwall:
+  mep_signed: true
+  firestop_photos: true
+  open_ncrs: []
+board:
+  type_ok: true
+  fasteners_ok: true
+materials:
+  studs_approved: true
+  board_approved: true
+  assemblies_approved: true
+weather:
+  high_humidity: false
+  building_dry: true
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

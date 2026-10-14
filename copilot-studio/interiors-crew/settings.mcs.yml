@@ -1,0 +1,10 @@
+displayName: Interiors Drywall Swarm
+schemaName: interiors_drywall_swarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+  recognizer:
+    kind: GenerativeAIRecognizer
+language: 1033

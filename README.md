@@ -35,6 +35,19 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Interiors / Drywall / Shafts Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for framing, shaftwall, fire/STC, and board:
+
+- [`copilot-studio/interiors-crew/`](copilot-studio/interiors-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/InteriorsDrywall-Swarm-CopilotStudio-DropIn.zip`](packages/InteriorsDrywall-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.interiors_swarm.api --port 8091
+python -m modules.interiors_swarm.cli run pre-interiors-gate -c agents/interiors/fixtures/pre_interiors_go.yaml
+```
+
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

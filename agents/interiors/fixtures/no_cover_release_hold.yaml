@@ -1,0 +1,20 @@
+zone_id: DEMO-L3-OFFICES
+inwall:
+  mep_signed: false
+  firestop_photos: false
+  open_ncrs: [NCR-441]
+blocking:
+  required: true
+  missing: [grab_bar_wet_wall]
+  documented: false
+fire_rated:
+  required: true
+  ul_design_match: true
+  layers_ok: true
+  fastener_pattern_ok: true
+  head_of_wall_ok: true
+  compromised: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

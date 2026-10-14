@@ -1,0 +1,82 @@
+zone_id: DEMO-L3-OFFICES
+area: Level 3 offices
+materials:
+  studs_approved: true
+  board_approved: true
+  assemblies_approved: true
+layout:
+  control_lines: true
+  openings_set: true
+  conflicts: []
+framing:
+  spacing_ok: true
+  gauge_ok: true
+  plumb_ok: true
+  bracing_ok: true
+shaftwall:
+  required: true
+  ul_design_match: true
+  liner_continuous: true
+  penetrations_open: false
+acoustics:
+  required: true
+  assembly_match: true
+  seals_ok: true
+  flanking: false
+fire_rated:
+  required: true
+  ul_design_match: true
+  layers_ok: true
+  fastener_pattern_ok: true
+  head_of_wall_ok: true
+  compromised: false
+blocking:
+  required: true
+  missing: []
+  documented: true
+board:
+  type_ok: true
+  fasteners_ok: true
+  damaged_left: false
+finish:
+  level_met: true
+  required_level: 4
+  defects: []
+  dry: true
+openings:
+  required: true
+  plumb_square: true
+  rated_unlabeled: false
+inwall:
+  mep_signed: true
+  firestop_photos: true
+  open_ncrs: []
+weather:
+  high_humidity: false
+  building_dry: true
+  freezing: false
+  heat_for_mud: true
+  wet_board_storage: false
+crew:
+  roles:
+    - interiors_lead
+    - framer
+    - hanger
+    - taper
+    - shaft_tech
+    - qc_tech
+    - safety_watch
+  headcount: 12
+  briefing_complete: true
+  fatigued_workers: []
+qa:
+  pre_hold_points_clear: true
+  install_hold_points_clear: true
+scaffold:
+  unsafe: false
+egress:
+  blocked: false
+hot_work:
+  no_permit: false
+safety:
+  violations: []

@@ -1,0 +1,61 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Stop-work for scaffold, fire-rated compromise, egress.
+
+settings:
+  instructions: |
+    # SafetyFailsafe Specialist
+
+    You have stop-work authority. FAIL => swarm **ABORT**.
+
+    ## Fail conditions
+    - Unsafe scaffold / lift / stilts
+    - Fire-rated shaft or exit enclosure compromised without protection
+    - Egress path blocked by materials staging
+    - Hot work without permit near finishes
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer InteriorsContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: InteriorsContextJson
+    description: JSON context for interiors framing drywall shafts fire STC
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    InteriorsContextJson:
+      displayName: Interiors Context JSON
+      description: JSON context for interiors / drywall
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

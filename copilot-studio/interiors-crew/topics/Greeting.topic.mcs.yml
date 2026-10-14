@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Interiors Drywall Swarm ready. Ask for pre-interiors-gate, metal-stud-runbook, shaftwall-gate, inwall-cover-release, fire-rated-assembly-gate, or another named workflow. I return GO / HOLD / ABORT.
+          - Interiors online — share floor/zone context and the gate to run.
