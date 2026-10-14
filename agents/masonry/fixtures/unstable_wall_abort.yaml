@@ -1,0 +1,20 @@
+zone_id: DEMO-STAIR-1-CMU
+wall:
+  unstable_unbraced: true
+mortar:
+  consistency_ok: true
+  joint_thickness_ok: true
+  tooled: true
+layout:
+  control_lines: true
+  coursing_set: true
+  bond_confirmed: true
+plumb:
+  checked: true
+  within_tolerance: true
+weather:
+  freezing: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

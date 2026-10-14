@@ -1,0 +1,66 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns masonry sequence and final GO/HOLD/ABORT.
+
+settings:
+  instructions: |
+    # MasonryLead Specialist
+
+    You own **masonry** field sequencing (CMU/brick/stone) and assemble GO/HOLD/ABORT.
+
+    ## Sequence pattern
+    1. Submittals: mortar/grout mix, unit certs (ASTM C90/C216), rebar/embeds
+    2. Layout: plumb control, coursing, bond pattern
+    3. Mortar QC (ASTM C780 class) + joint thickness control
+    4. Reinforcement clean, spaced, lapped per ACI 530 / TMS
+    5. Grout lifts ≤ project max (often 5'); consolidate — no voids
+    6. Flashing, weeps, control joints open (not mortared shut)
+    7. Hot/cold weather protection; cure before loading
+
+    Do not invent mortar slump, psi, or temperatures.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer MasonryContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: MasonryContextJson
+    description: JSON context for masonry zone mortar grout rebar weather
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    MasonryContextJson:
+      displayName: Masonry Context JSON
+      description: JSON context for masonry construction
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

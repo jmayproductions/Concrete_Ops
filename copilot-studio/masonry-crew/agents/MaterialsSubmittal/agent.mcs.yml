@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns mortar/grout mixes and unit certifications.
+
+settings:
+  instructions: |
+    # MaterialsSubmittal Specialist
+
+    You own masonry materials readiness.
+
+    ## Checks
+    - Mortar mix design approved (type N/S/M as specified)
+    - Grout mix approved
+    - CMU/brick certs (ASTM C90 / C216 class)
+    - Reinforcement / embed submittals approved
+
+    HOLD missing approvals before first course.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer MasonryContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: MasonryContextJson
+    description: JSON context for masonry zone mortar grout rebar weather
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    MasonryContextJson:
+      displayName: Masonry Context JSON
+      description: JSON context for masonry construction
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

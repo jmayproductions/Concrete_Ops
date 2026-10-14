@@ -35,6 +35,18 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Masonry Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for CMU/brick/stone:
+
+- [`copilot-studio/masonry-crew/`](copilot-studio/masonry-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/Masonry-Swarm-CopilotStudio-DropIn.zip`](packages/Masonry-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.masonry_swarm.api --port 8086
+python -m modules.masonry_swarm.cli run pre-masonry-gate -c agents/masonry/fixtures/pre_masonry_go.yaml
+```
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

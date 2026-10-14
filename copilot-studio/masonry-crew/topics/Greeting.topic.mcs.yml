@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Masonry Swarm ready. Ask for pre-masonry-gate, daily-layup-runbook, rebar-pregrout-gate, grout-lift-runbook, flashing-weep-qa, or another named workflow. I return GO / HOLD / ABORT.
+          - Masonry online — share wall/zone context and the gate to run.

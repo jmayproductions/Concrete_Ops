@@ -1,0 +1,10 @@
+zone_id: DEMO-GRID-B-VENEER
+flashing:
+  flashing_installed: true
+  weeps_open: false
+  end_dams_ok: true
+control_joints:
+  located_per_shops: true
+  mortared_closed: false
+qa:
+  install_hold_points_clear: true

@@ -1,0 +1,15 @@
+zone_id: DEMO-STAIR-1-CMU
+rebar:
+  spacing_ok: true
+  clean: true
+  laps_ok: true
+grout:
+  lift_ft: 6.5
+  max_lift_ft: 5.0
+  consolidated: true
+weather:
+  freezing: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []
