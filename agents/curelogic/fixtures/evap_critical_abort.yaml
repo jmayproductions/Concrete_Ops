@@ -1,0 +1,22 @@
+zone_id: DEMO-DECK-D3
+plan:
+  method: fog
+  approved: true
+  duration_days: 7
+evap:
+  rate_g_m2_hr: 1.4
+  cover_or_mist: false
+  aggressive_controls: false
+  pour_delayed: false
+weather:
+  temp_c: 32
+  rh_pct: 22
+  wind_kmh: 28
+  method_switched: false
+hot:
+  required: true
+  controls_staged: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

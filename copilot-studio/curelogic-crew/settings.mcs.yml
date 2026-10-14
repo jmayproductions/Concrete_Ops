@@ -1,0 +1,10 @@
+displayName: CureLogic Curing Swarm
+schemaName: curelogic_curing_swarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+  recognizer:
+    kind: GenerativeAIRecognizer
+language: 1033

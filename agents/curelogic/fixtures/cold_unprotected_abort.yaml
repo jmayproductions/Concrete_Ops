@@ -1,0 +1,21 @@
+zone_id: DEMO-DECK-D3
+plan:
+  method: blanket
+  approved: true
+  duration_days: 7
+weather:
+  temp_c: 2
+  rh_pct: 60
+  wind_kmh: 8
+cover:
+  required: true
+  edges_sealed: false
+  lifted: true
+  cold_rated: false
+cold:
+  required: true
+  protection_active: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

@@ -35,6 +35,19 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### CureLogic / Curing Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for evaporation, thermal envelope, and maturity release:
+
+- [`copilot-studio/curelogic-crew/`](copilot-studio/curelogic-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/CureLogicCuring-Swarm-CopilotStudio-DropIn.zip`](packages/CureLogicCuring-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.curelogic_swarm.api --port 8098
+python -m modules.curelogic_swarm.cli run pre-cure-gate -c agents/curelogic/fixtures/pre_cure_go.yaml
+```
+
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

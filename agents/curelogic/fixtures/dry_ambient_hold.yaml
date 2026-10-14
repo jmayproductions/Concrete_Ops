@@ -1,0 +1,29 @@
+zone_id: DEMO-DECK-D3
+plan:
+  method: membrane
+  approved: true
+  duration_days: 7
+moisture:
+  protection_active: false
+  below_dewpoint_risk: false
+evap:
+  rate_g_m2_hr: 0.4
+weather:
+  temp_c: 28
+  rh_pct: 22
+  wind_kmh: 10
+  rh_low_hours: 3
+qa:
+  pre_hold_points_clear: true
+crew:
+  roles:
+    - cure_lead
+    - pour_boss
+    - finish_foreman
+    - cure_tech
+    - maturity_tech
+    - qc_tech
+    - safety_watch
+  briefing_complete: true
+safety:
+  violations: []

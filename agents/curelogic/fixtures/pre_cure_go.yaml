@@ -1,0 +1,76 @@
+zone_id: DEMO-DECK-D3
+pour_id: Deck-D3
+plan:
+  method: membrane
+  approved: true
+  duration_days: 7
+moisture:
+  protection_active: true
+  below_dewpoint_risk: false
+evap:
+  rate_g_m2_hr: 0.35
+  cover_or_mist: false
+  aggressive_controls: false
+  pour_delayed: false
+thermal:
+  monitored: true
+  core_c: 42
+  surface_c: 36
+  delta_limit_c: 20
+  peak_limit_c: 75
+  insulation_active: false
+  mitigated: false
+weather:
+  temp_c: 22
+  rh_pct: 55
+  wind_kmh: 12
+  rh_low_hours: 0
+  method_switched: false
+wet:
+  saturated: true
+  continuous: true
+membrane:
+  logged: true
+  coverage_ok: true
+  dry_spots: false
+  astm_c309: true
+cover:
+  required: false
+  edges_sealed: true
+  lifted: false
+  cold_rated: true
+maturity:
+  required: false
+  release_requested: false
+  proof: true
+  strength_pct: 85
+  min_strength_pct: 70
+cold:
+  required: false
+  protection_active: true
+hot:
+  required: false
+  controls_staged: true
+steam:
+  required: false
+  logged: true
+  ramp_c_per_hr: 10
+  peak_c: 55
+  max_c: 70
+crew:
+  roles:
+    - cure_lead
+    - pour_boss
+    - finish_foreman
+    - cure_tech
+    - maturity_tech
+    - qc_tech
+    - safety_watch
+  headcount: 8
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+  install_hold_points_clear: true
+  release_docs_clear: true
+safety:
+  violations: []
