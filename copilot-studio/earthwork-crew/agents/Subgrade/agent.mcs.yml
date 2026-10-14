@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns proof-roll, soft spots, and subgrade acceptance.
+
+settings:
+  instructions: |
+    # Subgrade Specialist
+
+    You own subgrade acceptance.
+
+    ## Checks
+    - Proof-roll completed; soft spots mapped
+    - Undercut/replace of pumping areas complete when required
+    - Moisture conditioning within project window
+    - Geotech / SI accept before fill or pavement section
+
+    HOLD pumping subgrade or skipped proof-roll.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer EarthworkContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: EarthworkContextJson
+    description: JSON context for earthwork excavation fill weather utilities
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    EarthworkContextJson:
+      displayName: Earthwork Context JSON
+      description: JSON context for earthwork / site civil
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

@@ -1,0 +1,25 @@
+zone_id: DEMO-PAD-A
+materials:
+  import_approved: true
+  organics_ok: true
+  aggregate_ok: true
+survey:
+  benchmarks_ok: true
+  stakes_current: true
+utilities:
+  ticket_valid: true
+  marks_visible: true
+erosion:
+  perimeter_bmps: false
+  inlet_protection: false
+  entrance_stabilized: false
+weather:
+  frozen_subgrade: false
+  saturated: false
+crew:
+  roles: [earthwork_lead, excavator_op, grader_op, roller_op, laborer, qc_tech, safety_watch]
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []

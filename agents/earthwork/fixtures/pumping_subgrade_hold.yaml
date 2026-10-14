@@ -1,0 +1,15 @@
+zone_id: DEMO-PAD-A
+subgrade:
+  proof_roll_done: true
+  pumping: true
+  soft_spots_open: true
+  accepted: false
+geotech:
+  recommendations_followed: false
+  accepted: false
+weather:
+  frozen_subgrade: false
+  saturated: true
+  dry_workable: false
+qa:
+  install_hold_points_clear: true

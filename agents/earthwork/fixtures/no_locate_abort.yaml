@@ -1,0 +1,18 @@
+zone_id: DEMO-SEWER-TRENCH
+utilities:
+  ticket_valid: false
+  marks_visible: false
+  dig_without_locate: true
+survey:
+  benchmarks_ok: true
+  stakes_current: true
+excavation:
+  to_plan: true
+  depth_ft: 6
+weather:
+  frozen_subgrade: false
+  saturated: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

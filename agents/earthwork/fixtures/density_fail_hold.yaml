@@ -1,0 +1,23 @@
+zone_id: DEMO-PAD-A
+materials:
+  import_approved: true
+  organics_ok: true
+  aggregate_ok: true
+compaction:
+  lift_in: 8
+  max_lift_in: 12
+  density_ok: false
+  moisture_ok: true
+  tests_logged: true
+geotech:
+  recommendations_followed: true
+  si_density_required: true
+  si_density_complete: true
+  accepted: true
+weather:
+  frozen_subgrade: false
+  saturated: false
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []
