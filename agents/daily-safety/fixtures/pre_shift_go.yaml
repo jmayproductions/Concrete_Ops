@@ -1,0 +1,65 @@
+zone_id: DEMO-SITE-DAY
+task: Tower day + Level 5 weld
+briefing:
+  complete: true
+  has_high_risk: true
+  high_risk_called_out: true
+ppe:
+  missing: []
+  damaged_in_use: false
+hot_work:
+  required: true
+  permit_valid: true
+  no_permit: false
+  combustibles_cleared: true
+  extinguisher_staged: true
+  active: false
+fire_watch:
+  required: true
+  present_during: true
+  post_watch_complete: true
+cse:
+  required: false
+loto:
+  required: false
+fall:
+  required: true
+  unprotected: false
+  harness_ok: true
+  anchorage_ok: true
+excavation:
+  required: false
+crane:
+  required: true
+  exclusion_marked: true
+  signal_person: true
+  under_load: false
+incident:
+  stop_work: false
+  serious_incident: false
+  continuing: false
+weather:
+  lightning: false
+  high_wind: false
+  extreme_temp: false
+  controls: true
+  site_evacuate: false
+impairment:
+  observed_impairment: false
+  fatigue_risk: false
+crew:
+  roles:
+    - safety_lead
+    - supervisor
+    - fire_watch
+    - cse_attendant
+    - competent_person
+    - first_aid
+    - qc_tech
+  headcount: 14
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+  install_hold_points_clear: true
+safety:
+  violations: []

@@ -1,0 +1,10 @@
+displayName: Daily Safety Swarm
+schemaName: daily_safety_swarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+  recognizer:
+    kind: GenerativeAIRecognizer
+language: 1033

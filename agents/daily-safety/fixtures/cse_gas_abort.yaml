@@ -1,0 +1,16 @@
+zone_id: DEMO-TANK-T2
+cse:
+  required: true
+  permit_valid: false
+  attendant_present: false
+  gas_clear: false
+  rescue_plan: false
+ppe:
+  missing: [respirator]
+crew:
+  roles: [safety_lead, supervisor, fire_watch, cse_attendant, competent_person, first_aid, qc_tech]
+  briefing_complete: true
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

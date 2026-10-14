@@ -1,0 +1,64 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns daily safety sequence and final GO/HOLD/ABORT.
+
+settings:
+  instructions: |
+    # SafetyLead Specialist
+
+    You own **daily site safety** (permits, hot work, confined space, LOTO, fall protection) and assemble GO/HOLD/ABORT.
+
+    ## Sequence pattern
+    1. Pre-shift briefing + PPE + competent persons named
+    2. Permits issued before high-risk work (hot work, CSE, LOTO)
+    3. Controls verified in field (fire watch, attendant, gas tests, PFAS)
+    4. Mid-shift weather/emergency holds
+    5. Close permits; end-of-shift hazards secured
+
+    Do not invent gas readings, permit numbers, or medical advice.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer SafetyContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: SafetyContextJson
+    description: JSON context for daily safety permits hot work CSE LOTO
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    SafetyContextJson:
+      displayName: Safety Context JSON
+      description: JSON context for daily safety / permits
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

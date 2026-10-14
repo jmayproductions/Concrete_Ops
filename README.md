@@ -35,6 +35,19 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Daily Safety Swarm (Copilot Studio)
+
+Same pattern — field GO/HOLD/ABORT for permits, hot work, CSE, LOTO, and fall protection:
+
+- [`copilot-studio/daily-safety-crew/`](copilot-studio/daily-safety-crew/) — parent + 16 child agents; open `START_HERE.md`
+- Drop-in zip: [`packages/DailySafety-Swarm-CopilotStudio-DropIn.zip`](packages/DailySafety-Swarm-CopilotStudio-DropIn.zip)
+
+```bash
+python -m modules.daily_safety_swarm.api --port 8095
+python -m modules.daily_safety_swarm.cli run pre-shift-safety-gate -c agents/daily-safety/fixtures/pre_shift_go.yaml
+```
+
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)
