@@ -1,0 +1,68 @@
+zone_id: DEMO-WALL-B2
+sample:
+  sample_id: CYL-B2-45
+  pour_zone: Wall-B2
+  cast_time_known: true
+  traceable: true
+cast:
+  method_ok: true
+  cracked_green: false
+  mold_damaged: false
+initial_cure:
+  logged: true
+  temp_min_c: 18
+  temp_max_c: 24
+  frozen: false
+transport:
+  rigid_box: true
+  shock_damage: false
+  unprotected: false
+lab_cure:
+  moist: true
+  continuous: true
+break:
+  age_days: 28
+  within_tolerance: true
+cylinder:
+  required: true
+  ends_prepped: true
+  set_complete: true
+  strength_mpa: 36.2
+  avg_mpa: 36.2
+  lowest_mpa: 35.1
+core:
+  required: false
+  tested: false
+flexural:
+  required: false
+spec:
+  fc_mpa: 35.0
+strength:
+  fc_mpa: 35.0
+  avg_mpa: 36.2
+  lowest_mpa: 35.1
+  consecutive_below: 0
+field_lab:
+  required: false
+  field_to_lab_ratio: 0.88
+  lab_suspiciously_high: false
+handling:
+  deviation_score: 2
+  invalid_as_sole_evidence: false
+crew:
+  roles:
+    - lab_lead
+    - field_tech
+    - lab_tech
+    - break_tech
+    - qc_tech
+    - engineer_reviewer
+    - safety_watch
+  headcount: 7
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+  coc_clear: true
+  break_reports_clear: true
+safety:
+  violations: []

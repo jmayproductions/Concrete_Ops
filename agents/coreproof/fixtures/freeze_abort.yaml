@@ -1,0 +1,28 @@
+zone_id: DEMO-WALL-B2
+sample:
+  sample_id: CYL-B2-01
+  pour_zone: Wall-B2
+  cast_time_known: true
+  traceable: true
+cast:
+  method_ok: true
+  cracked_green: false
+initial_cure:
+  logged: true
+  temp_min_c: -2
+  temp_max_c: 5
+  frozen: true
+crew:
+  roles:
+    - lab_lead
+    - field_tech
+    - lab_tech
+    - break_tech
+    - qc_tech
+    - engineer_reviewer
+    - safety_watch
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []
