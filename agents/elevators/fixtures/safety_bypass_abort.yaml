@@ -1,0 +1,17 @@
+zone_id: DEMO-BANK-A-CAR2
+devices:
+  governor_ok: true
+  safeties_ok: true
+  buffers_ok: true
+  interlocks_ok: false
+  bypassed: true
+temp_run:
+  agreement: false
+  qualified_operator: false
+  barricades_ok: false
+  unauthorized: true
+  public_use: true
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

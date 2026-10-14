@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns pit, machine room, and control space readiness.
+
+settings:
+  instructions: |
+    # PitMachineRoom Specialist
+
+    You own pit / machine room readiness.
+
+    ## Checks
+    - Pit dimensions, sump, waterproofing, ladder/access
+    - Machine room / control space size, lighting, HVAC, fire rating
+    - Permanent or approved temporary power available
+    - Smoke/heat detection per code when required
+
+    HOLD incomplete pit/MR before equipment set.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer ElevatorsContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: ElevatorsContextJson
+    description: JSON context for elevators rails pit AHJ temporary run
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    ElevatorsContextJson:
+      displayName: Elevators Context JSON
+      description: JSON context for elevators / VTR
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

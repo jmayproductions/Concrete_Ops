@@ -1,0 +1,23 @@
+zone_id: DEMO-BANK-A-CAR2
+equipment:
+  shops_approved: true
+  machine_approved: true
+  controller_approved: true
+pit_mr:
+  pit_ready: false
+  mr_ready: false
+  power_ready: false
+  waterproofing_ok: false
+  hvac_ok: false
+weather:
+  hoistway_open: true
+  protected: false
+  mr_not_weathertight: true
+  equipment_set: false
+crew:
+  roles: [elevators_lead, mechanic, helper, electrician, adjuster, qc_tech, safety_watch]
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []
