@@ -1,0 +1,15 @@
+zone_id: DEMO-BLDG-A-EAST
+zone:
+  high_wind: false
+fasteners:
+  nails_per_shingle: 3
+  staples: false
+  skippers: true
+  overdriven_consecutive: 5
+  flush_ok: false
+  penetration_ok: false
+  enhanced: false
+qa:
+  photo_log_clear: true
+safety:
+  violations: []

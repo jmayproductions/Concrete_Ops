@@ -1,0 +1,22 @@
+zone_id: DEMO-FLAT-TPO
+deck:
+  wet: false
+  unsound: false
+  fastened: true
+shingles:
+  system: membrane
+  required: false
+membrane:
+  required: true
+  open_seams: false
+  drainage_clear: false
+  flashings_ok: false
+penetrations:
+  present: true
+  unsealed: false
+  caulk_only: false
+  boots_centered: true
+qa:
+  photo_log_clear: true
+safety:
+  violations: []
