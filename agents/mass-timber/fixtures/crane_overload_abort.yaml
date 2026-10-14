@@ -1,0 +1,21 @@
+erect_id: DEMO-L4-ZONE-A
+level: Level 4 Zone A
+panels:
+  sequence: [CLT-410]
+  seated: true
+  force_fit: false
+  field_cut_unapproved: false
+connections:
+  hardware_kits_matched: true
+  incomplete_patterns: []
+moisture:
+  mmp_approved: true
+  protection_materials_staged: true
+finish:
+  padded_rigging: true
+qa:
+  pick_hold_points_clear: true
+crane:
+  overload: true
+safety:
+  violations: []

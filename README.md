@@ -35,6 +35,22 @@ python -m modules.agent_swarm.cli run pre-pour-gate -c agents/concrete-crew/fixt
 
 Workflows: pour, PT, tilt-up, SOG, shotcrete, CIP walls, elevated deck / strip-reshore, mass thermal, curing lifecycle.
 
+### Mass Timber Sequencing Swarm (Copilot Studio)
+
+Same pattern as ConcreteOps — field erection GO/HOLD/ABORT for CLT/NLT/DLT/MPP/glulam/hybrid:
+
+- [`copilot-studio/mass-timber-crew/`](copilot-studio/mass-timber-crew/) — parent + 16 child agents (`.mcs.yml`); open `START_HERE.md`
+- Drop-in zip: [`packages/MassTimber-SequencingSwarm-CopilotStudio-DropIn.zip`](packages/MassTimber-SequencingSwarm-CopilotStudio-DropIn.zip)
+
+**Backend twin:**
+
+```bash
+python -m modules.mass_timber_swarm.api --port 8081
+python -m modules.mass_timber_swarm.cli run pre-erect-gate -c agents/mass-timber/fixtures/pre_erect_go.yaml
+```
+
+Workflows: pre-erect, JIT delivery, level erect, panel/glulam, bracing/diaphragm, moisture, connections, hybrid interface, topping release, level closeout.
+
 ---
 
 ## 🧠 Upcoming in v1.1 (Q4 2025)

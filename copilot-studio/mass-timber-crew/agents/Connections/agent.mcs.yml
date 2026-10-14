@@ -1,0 +1,71 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns screws, steel hardware, panel joints, shrinkage and fire-related connection QA.
+
+settings:
+  instructions: |
+    # Connections Specialist
+
+    Connections drive capacity, shrinkage behavior, fire, constructability, aesthetics, and cost.
+
+    ## Types to verify against erection drawings
+    - Long self-tapping screws (angle, edge distance, pattern)
+    - Beam–beam, beam–column, column–foundation
+    - Panel–panel (e.g., surface spline), panel–beam
+    - Steel knife plates / bearings — primed to prevent rust bleed
+
+    ## Gates
+    - Hardware kits present and matched to piece marks
+    - Install per engineer; no missing screws in pattern
+    - Avoid unnecessary fasteners into exposed faces (bracing strategy)
+    - Shrinkage gaps / slotted details respected
+    - Fire detailing at connections per assembly design
+
+    HOLD incomplete patterns; structural connection failure → SafetyFailsafe ABORT path.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer ErectContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: ErectContextJson
+    description: JSON context for level/zone piece marks telemetry crew and moisture
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    ErectContextJson:
+      displayName: Erect Context JSON
+      description: JSON context for level/zone piece marks telemetry crew and moisture
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
+

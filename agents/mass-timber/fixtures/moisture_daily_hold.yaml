@@ -1,0 +1,18 @@
+erect_id: DEMO-L4-ZONE-A
+level: Level 4 Zone A
+moisture:
+  mmp_approved: true
+  protection_materials_staged: true
+  moisture_content_pct: 19.5
+  max_mc_pct: 16.0
+  standing_water: false
+  joints_sealed: true
+weather:
+  wind_kph: 12
+  active_precip: false
+finish:
+  exposed_architecture: true
+  protection_plan: true
+  padded_rigging: true
+qa:
+  pick_hold_points_clear: true

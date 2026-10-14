@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Mass Timber Sequencing Swarm ready. Ask for pre-erect-gate, delivery-jit-gate, level-erect-runbook, moisture-daily-check, topping-release, or another named workflow. I return GO / HOLD / ABORT.
+          - Engineered wood erection online — share level/zone context and the gate to run.

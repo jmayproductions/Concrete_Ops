@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns weather holds for crane, rain, and moisture-risk during timber erection.
+
+settings:
+  instructions: |
+    # Weather Gate Specialist (Mass Timber)
+
+    ## Holds
+    - Crane/panel wind limits
+    - Active rain/snow that defeats moisture protection
+    - Freeze affecting adhesives/sealers or safe decks
+    - Lightning / severe weather stop-work
+
+    Weather alone is usually HOLD (protect and wait), not ABORT — unless SafetyFailsafe escalates.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer ErectContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: ErectContextJson
+    description: JSON context for level/zone piece marks telemetry crew and moisture
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    ErectContextJson:
+      displayName: Erect Context JSON
+      description: JSON context for level/zone piece marks telemetry crew and moisture
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
+

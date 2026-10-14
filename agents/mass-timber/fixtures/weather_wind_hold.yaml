@@ -1,0 +1,48 @@
+erect_id: DEMO-L4-ZONE-A
+level: Level 4 Zone A
+pre_erect_go: true
+supply:
+  shop_drawings_approved: true
+  erection_drawings_approved: true
+  sequence_published: true
+  cnc_complete: true
+survey:
+  within_tolerance: true
+  podium_asbuilt: true
+  embeds_verified: true
+  grid_control: true
+hybrid:
+  podium_released: true
+  steel_primed_or_na: true
+  movement_details_ok: true
+crane:
+  chart_ok: true
+  pick_points_verified: true
+  exclusion_zone_set: true
+  trailer_direct: true
+moisture:
+  mmp_approved: true
+  protection_materials_staged: true
+bracing:
+  plan_issued: true
+  shear_wall_brace_plan: true
+weather:
+  wind_kph: 48
+  wind_hold_kph: 40
+  active_precip: false
+crew:
+  roles:
+    - erect_lead
+    - crane_operator
+    - rigger
+    - connector
+    - brace_crew
+    - qc_tech
+    - safety_watch
+  headcount: 10
+  briefing_complete: true
+  fatigued_workers: []
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []
