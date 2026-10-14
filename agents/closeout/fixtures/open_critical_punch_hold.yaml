@@ -1,0 +1,19 @@
+zone_id: DEMO-L3
+require_critical_clear: true
+rooms:
+  walkable: true
+  ceilings_complete: true
+  systems_operating: true
+  safe_access: true
+punch:
+  walk_complete: true
+  photos_logged: true
+  items_without_owner: []
+  open_critical: [egress-stair-2-handrail, fire-door-3B-label]
+crew:
+  roles: [closeout_lead, qa_lead, pm_rep, trade_rep, safety_watch]
+  briefing_complete: true
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []

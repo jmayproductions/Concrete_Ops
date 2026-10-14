@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Closeout Turnover Swarm ready. Ask for pre-closeout-gate, punchlist-walk, life-safety-gate, tco-readiness-gate, turnover-package-gate, or another named workflow. I return GO / HOLD / ABORT.
+          - Closeout online — share zone/floor context and the gate to run.
