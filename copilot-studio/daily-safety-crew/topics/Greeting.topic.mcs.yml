@@ -1,0 +1,11 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendGreeting
+      activity:
+        text:
+          - Daily Safety Swarm ready. Ask for pre-shift-safety-gate, hot-work-permit-gate, confined-space-entry, loto-release-gate, fall-protection-gate, or another named workflow. I return GO / HOLD / ABORT.
+          - Safety online — share task/permit context and the gate to run.

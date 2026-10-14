@@ -1,0 +1,7 @@
+zone_id: DEMO-SITE-DAY
+incident:
+  stop_work: true
+  serious_incident: true
+  continuing: true
+safety:
+  violations: []

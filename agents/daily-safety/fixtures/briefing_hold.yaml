@@ -1,0 +1,19 @@
+zone_id: DEMO-SITE-DAY
+briefing:
+  complete: false
+  has_high_risk: true
+  high_risk_called_out: false
+ppe:
+  missing: [fr_clothing]
+impairment:
+  fatigue_risk: true
+weather:
+  lightning: false
+  high_wind: true
+crew:
+  roles: [safety_lead, supervisor, fire_watch, cse_attendant, competent_person, first_aid, qc_tech]
+  briefing_complete: false
+qa:
+  pre_hold_points_clear: true
+safety:
+  violations: []

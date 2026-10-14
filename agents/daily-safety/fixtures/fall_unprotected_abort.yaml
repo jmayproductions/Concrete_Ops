@@ -1,0 +1,12 @@
+zone_id: DEMO-DECK-EDGE
+fall:
+  required: true
+  unprotected: true
+  harness_ok: false
+  anchorage_ok: false
+ppe:
+  missing: [harness]
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

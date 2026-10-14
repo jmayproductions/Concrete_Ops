@@ -1,0 +1,18 @@
+zone_id: DEMO-L5-WELD
+hot_work:
+  required: true
+  permit_valid: false
+  no_permit: true
+  combustibles_cleared: false
+  extinguisher_staged: false
+  active: true
+fire_watch:
+  required: true
+  present_during: false
+  post_watch_complete: false
+ppe:
+  missing: []
+qa:
+  install_hold_points_clear: true
+safety:
+  violations: []

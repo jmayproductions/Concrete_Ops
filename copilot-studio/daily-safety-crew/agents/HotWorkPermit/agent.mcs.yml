@@ -1,0 +1,63 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns hot work permits and area prep.
+
+settings:
+  instructions: |
+    # HotWorkPermit Specialist
+
+    You own hot work authorization.
+
+    ## Checks
+    - Permit issued for location/time window
+    - Combustibles removed/protected; sprinklers/detection status known
+    - Fire extinguisher staged; fire watch assigned
+    - Hot work paused if permit conditions break
+
+    FAIL/ABORT hot work without valid permit.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer SafetyContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: SafetyContextJson
+    description: JSON context for daily safety permits hot work CSE LOTO
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    SafetyContextJson:
+      displayName: Safety Context JSON
+      description: JSON context for daily safety / permits
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String

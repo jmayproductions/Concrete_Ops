@@ -1,0 +1,62 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns impairment and fatigue risk flags.
+
+settings:
+  instructions: |
+    # SubstanceFatigue Specialist
+
+    You own impairment/fatigue screening flags.
+
+    ## Checks
+    - Observed impairment => remove from safety-sensitive work
+    - Fatigue risk on night/extended shifts flagged
+    - No punitive medical diagnosis — field observation + supervisor action only
+
+    HOLD safety-sensitive tasks when impairment/fatigue flagged.
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent — do not reply to the field user directly.
+    Decision: GO | HOLD | ABORT. Prefer SafetyContextJson evidence; missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: SafetyContextJson
+    description: JSON context for daily safety permits hot work CSE LOTO
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed
+
+inputType:
+  properties:
+    SafetyContextJson:
+      displayName: Safety Context JSON
+      description: JSON context for daily safety / permits
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
