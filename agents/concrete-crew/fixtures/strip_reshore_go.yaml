@@ -1,0 +1,34 @@
+pour_id: DECK-L5-A
+crew:
+  roles: [strip_lead, carpenter, qc_tech, safety_watch]
+  headcount: 6
+  briefing_complete: true
+  fatigued_workers: []
+finish_accepted: true
+curing:
+  started: true
+  temperature_f: 72
+  moisture: 0.9
+  strength_estimate_psi: 3500
+  age_days: 5
+  protection_ok: true
+  release:
+    activity: strip
+    age_days: 5
+    strength_psi: 3500
+    min_days: 3
+    min_release_psi: 3000
+deck:
+  load_path_ok: true
+  strip:
+    strength_psi: 3500
+    min_strip_psi: 3000
+    reshore_levels: 2
+    min_reshore_levels: 2
+    reshore_plan_published: true
+    backshores_required: true
+    backshores_installed: true
+    load_path_ok: true
+site_conditions:
+  wind_speed: 6
+  evaporation_rate: 0.08

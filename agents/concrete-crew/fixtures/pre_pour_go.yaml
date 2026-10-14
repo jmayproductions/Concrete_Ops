@@ -1,0 +1,49 @@
+pour_id: DEMO-L3-DECK-A
+area: Level 3 Deck A
+volume_cy: 120
+mix:
+  ticket_id: T-1001
+  psi: 4000
+  w_c_ratio: 0.42
+  slump: 5.0
+  air_content: 5.5
+weather:
+  temp_f: 68
+  wind_kph: 12
+  rain_mm: 0
+readiness:
+  forms_ready: true
+  rebar_ready: true
+  cylinders_ready: true
+crew:
+  roles:
+    - pour_lead
+    - pump_operator
+    - vibrator
+    - finisher
+    - qc_tech
+    - safety_watch
+  headcount: 8
+  briefing_complete: true
+  fatigued_workers: []
+  briefing_items:
+    - pour_identity
+    - mix_method
+    - qc_hold_points
+    - weather_protocol
+    - stop_work_radio
+    - breaks_hydration
+telemetry:
+  slump: 5.0
+  temperature: 72
+site_conditions:
+  wind_speed: 8
+  evaporation_rate: 0.1
+pre_pour_go: true
+pour_completed: true
+finish_accepted: true
+curing:
+  started: true
+  owner: QC-Tech-07
+  finish_accepted: true
+exceptions: []

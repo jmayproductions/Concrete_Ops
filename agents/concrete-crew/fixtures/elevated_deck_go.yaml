@@ -1,0 +1,31 @@
+pour_id: DECK-L5-A
+elevated_pre_pour_go: true
+mix:
+  ticket_id: DECK-T1
+  psi: 5000
+  w_c_ratio: 0.42
+  slump: 5.0
+  air_content: 5.0
+weather:
+  temp_f: 68
+  wind_kph: 10
+  rain_mm: 0
+readiness:
+  forms_ready: true
+  rebar_ready: true
+  cylinders_ready: true
+crew:
+  roles: [pour_lead, pump_operator, deck_hand, qc_tech, safety_watch]
+  headcount: 8
+  briefing_complete: true
+  fatigued_workers: []
+deck:
+  layout_type: pan
+  supports_verified: true
+  pour_strips_mapped: true
+  forms_ready: true
+  load_path_ok: true
+  pour_strip_sequence: [A1, A2, A3]
+site_conditions:
+  wind_speed: 8
+  evaporation_rate: 0.1

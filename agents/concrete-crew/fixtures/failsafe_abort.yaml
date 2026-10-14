@@ -1,0 +1,35 @@
+pour_id: DEMO-L2-SLAB
+area: Level 2 Slab
+volume_cy: 60
+mix:
+  ticket_id: T-2001
+  psi: 4000
+  w_c_ratio: 0.42
+  slump: 5.0
+  air_content: 5.5
+weather:
+  temp_f: 88
+  wind_kph: 10
+  rain_mm: 0
+readiness:
+  forms_ready: true
+  rebar_ready: true
+  cylinders_ready: true
+crew:
+  roles:
+    - pour_lead
+    - pump_operator
+    - vibrator
+    - finisher
+    - qc_tech
+    - safety_watch
+  headcount: 7
+  briefing_complete: true
+  fatigued_workers: []
+telemetry:
+  slump: 7.5
+  temperature: 98
+site_conditions:
+  wind_speed: 22
+  evaporation_rate: 0.3
+pre_pour_go: true

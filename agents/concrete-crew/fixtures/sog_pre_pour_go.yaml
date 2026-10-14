@@ -1,0 +1,36 @@
+pour_id: SOG-WAREHOUSE-A
+area: Warehouse SOG A
+mix:
+  ticket_id: SOG-T1
+  psi: 4000
+  w_c_ratio: 0.42
+  slump: 5.0
+  air_content: 5.0
+weather:
+  temp_f: 70
+  wind_kph: 8
+  rain_mm: 0
+readiness:
+  forms_ready: true
+  rebar_ready: true
+  cylinders_ready: true
+crew:
+  roles: [pour_lead, screed_operator, finisher, qc_tech, safety_watch]
+  headcount: 8
+  briefing_complete: true
+  fatigued_workers: []
+sog:
+  proof_roll_accepted: true
+  vapor_barrier_continuous: true
+  joints_set: true
+  dowels_set: true
+  reinforcement_ready: true
+  edge_forms_ready: true
+  subgrade:
+    bearing_capacity_ksf: 2.0
+    groundwater_depth_ft: 5.0
+    slope_percent: 1.5
+    proof_roll_accepted: true
+site_conditions:
+  wind_speed: 6
+  evaporation_rate: 0.1

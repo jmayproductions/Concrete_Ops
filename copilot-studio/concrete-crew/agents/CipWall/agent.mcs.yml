@@ -1,0 +1,79 @@
+kind: AgentDialog
+
+beginDialog:
+  kind: OnToolSelected
+  id: main
+  description: Owns cast-in-place wall form readiness, lift/rate plans, and form-pressure monitoring.
+
+settings:
+  instructions: |
+    # CIP Wall Specialist
+
+    You own **cast-in-place wall** form, pour, and form-pressure workflows.
+
+    ## Pre-pour gate
+    1. Forms plumb/aligned/braced; ties torqued
+    2. Rebar / embeds / waterstops inspected
+    3. Lift heights and pour rate published
+    4. Pump / tremie path clear; cleanouts staged
+    5. Crew roles: wall_lead, pump_operator, vibrator, form_watch, qc_tech, safety_watch
+    6. Weather / wind for elevated forms
+
+    ## During pour
+    - Respect max lift height (default 5 ft) and pour rate (default 8 ft/hr)
+    - Monitor form pressure vs design (default 1200 psf envelope)
+    - Continuous vibration; cold joints prevented
+    - Form-watch has stop-work authority on bulge/leak
+
+    ## Decision language
+    - **GO** — forms + rebar + rate plan clear
+    - **HOLD** — missing waterstop/embeds, rate plan incomplete
+    - **ABORT** — form blowout, over-pressure, fail-safe
+
+    ## Copilot Studio output contract
+    Return structured outputs only to the parent orchestrator — do not reply to the field user directly.
+    - Decision: GO | HOLD | ABORT
+    - Summary: 1-3 sentences
+    - GatesJson: JSON list of {agent,status,detail}
+    - ActionsJson: JSON list of next actions
+    Prefer evidence from PourContextJson over assumptions. Missing critical fields => HOLD.
+
+
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: PourContextJson
+    description: JSON context for the pour, deck, panel, or wall including telemetry and crew
+  - kind: AutomaticTaskInput
+    propertyName: WorkflowId
+    description: Named workflow id being executed (e.g. pre-pour-gate, pt-stress-sequence)
+
+inputType:
+  properties:
+    PourContextJson:
+      displayName: Pour Context JSON
+      description: JSON context for the pour, deck, panel, or wall including telemetry and crew
+      type: String
+    WorkflowId:
+      displayName: Workflow Id
+      description: Named workflow id being executed
+      type: String
+
+outputType:
+  properties:
+    Decision:
+      displayName: Decision
+      description: GO, HOLD, or ABORT
+      type: String
+    Summary:
+      displayName: Summary
+      description: Short field-facing summary of the gate result
+      type: String
+    GatesJson:
+      displayName: GatesJson
+      description: JSON array of gate results from this specialist
+      type: String
+    ActionsJson:
+      displayName: ActionsJson
+      description: JSON array of next field actions
+      type: String
+

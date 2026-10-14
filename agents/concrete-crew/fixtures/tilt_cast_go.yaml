@@ -1,0 +1,34 @@
+pour_id: TILT-BED-01
+panel_id: P-101
+area: Panel Bed 1
+mix:
+  ticket_id: TILT-T1
+  psi: 5000
+  w_c_ratio: 0.40
+  slump: 4.5
+  air_content: 5.0
+weather:
+  temp_f: 72
+  wind_kph: 10
+  rain_mm: 0
+readiness:
+  forms_ready: true
+  rebar_ready: true
+  cylinders_ready: true
+crew:
+  roles: [tilt_lead, crane_operator, rigger, brace_crew, qc_tech, safety_watch]
+  headcount: 10
+  briefing_complete: true
+  fatigued_workers: []
+tilt:
+  panels:
+    - id: P-101
+      forms_ready: true
+      bond_breaker_applied: true
+      reveals_set: true
+      panel_id_marked: true
+      embeds_complete: true
+      weld_plates_complete: true
+site_conditions:
+  wind_speed: 6
+  evaporation_rate: 0.1

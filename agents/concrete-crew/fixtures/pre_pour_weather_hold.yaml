@@ -1,0 +1,34 @@
+pour_id: DEMO-L3-DECK-B
+area: Level 3 Deck B
+volume_cy: 90
+mix:
+  ticket_id: T-1002
+  psi: 4000
+  w_c_ratio: 0.42
+  slump: 5.0
+  air_content: 5.5
+weather:
+  temp_f: 64
+  wind_kph: 48
+  rain_mm: 3.2
+readiness:
+  forms_ready: true
+  rebar_ready: true
+  cylinders_ready: true
+crew:
+  roles:
+    - pour_lead
+    - pump_operator
+    - vibrator
+    - finisher
+    - qc_tech
+    - safety_watch
+  headcount: 8
+  briefing_complete: true
+  fatigued_workers: []
+telemetry:
+  slump: 5.0
+  temperature: 70
+site_conditions:
+  wind_speed: 12
+  evaporation_rate: 0.12

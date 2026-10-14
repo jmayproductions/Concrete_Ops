@@ -1,0 +1,39 @@
+pour_id: CIP-WALL-GRID-B
+cip_pre_pour_go: true
+mix:
+  ticket_id: WALL-T1
+  psi: 4500
+  w_c_ratio: 0.43
+  slump: 5.5
+  air_content: 5.0
+weather:
+  temp_f: 65
+  wind_kph: 14
+  rain_mm: 0
+readiness:
+  forms_ready: true
+  rebar_ready: true
+  cylinders_ready: true
+crew:
+  roles: [wall_lead, pump_operator, vibrator, form_watch, qc_tech, safety_watch]
+  headcount: 7
+  briefing_complete: true
+  fatigued_workers: []
+cip_wall:
+  forms_plumb: true
+  ties_torqued: true
+  rebar_inspected: true
+  waterstops_ok: true
+  embeds_ok: true
+  lift_plan_published: true
+  cleanouts_staged: true
+  pour:
+    lift_height_ft: 4.0
+    rate_ft_per_hr: 6.0
+    form_pressure_psf: 900
+    vibration_continuous: true
+    form_bulge: false
+    form_leak: false
+site_conditions:
+  wind_speed: 9
+  evaporation_rate: 0.1

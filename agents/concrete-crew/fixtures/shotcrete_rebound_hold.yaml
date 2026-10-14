@@ -1,0 +1,26 @@
+pour_id: SHOT-TUNNEL-1
+shotcrete_pre_shoot_go: true
+weather:
+  temp_f: 70
+  wind_kph: 10
+  rain_mm: 0
+crew:
+  roles: [nozzleman, blowpipe, pump_operator, qc_tech, safety_watch]
+  headcount: 5
+  briefing_complete: true
+  fatigued_workers: []
+shotcrete:
+  substrate_clean: true
+  substrate_ssd: true
+  reinforcement_cover_ok: true
+  nozzleman_certified: true
+  test_panels_scheduled: true
+  exclusion_zone_set: true
+  placement:
+    rebound_pct: 28
+    layer_thickness_in: 5.0
+    cold_joint_unprepared: true
+    uncontrolled_hazard: false
+site_conditions:
+  wind_speed: 7
+  evaporation_rate: 0.1

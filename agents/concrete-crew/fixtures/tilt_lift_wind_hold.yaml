@@ -1,0 +1,39 @@
+pour_id: TILT-ERECT-01
+panel_id: P-101
+weather:
+  temp_f: 70
+  wind_kph: 45
+  rain_mm: 0
+crew:
+  roles: [tilt_lead, crane_operator, rigger, brace_crew, qc_tech, safety_watch]
+  headcount: 10
+  briefing_complete: true
+  fatigued_workers: []
+readiness:
+  forms_ready: true
+  rebar_ready: true
+  cylinders_ready: true
+tilt:
+  wind_hold_kph: 40
+  crane_chart_ok: true
+  exclusion_zone_set: true
+  lift_order: [P-101, P-102]
+  panels:
+    - id: P-101
+      strength_psi: 4500
+      min_lift_psi: 4000
+      pick_points_verified: true
+      braces_staged: true
+      braces_secured: false
+      lifted: false
+    - id: P-102
+      strength_psi: 4600
+      min_lift_psi: 4000
+      pick_points_verified: true
+      braces_staged: true
+      braces_secured: false
+      lifted: false
+site_conditions:
+  # Keep below fail-safe wind (>20) so this fixture exercises weather HOLD, not ABORT
+  wind_speed: 12
+  evaporation_rate: 0.12

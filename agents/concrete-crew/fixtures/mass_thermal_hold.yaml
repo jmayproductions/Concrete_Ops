@@ -1,0 +1,30 @@
+pour_id: MAT-RAFT-1
+volume_cy: 800
+mix:
+  ticket_id: MASS-T1
+  psi: 4000
+  w_c_ratio: 0.40
+  slump: 4.5
+  air_content: 4.5
+weather:
+  temp_f: 78
+  wind_kph: 8
+  rain_mm: 0
+readiness:
+  forms_ready: true
+  rebar_ready: true
+  cylinders_ready: true
+crew:
+  roles: [pour_lead, pump_operator, deck_hand, qc_tech, safety_watch]
+  headcount: 10
+  briefing_complete: true
+  fatigued_workers: []
+mass:
+  volume_cy: 800
+  # missing precool_method on purpose
+  sensor_plan: false
+  insulation_staged: false
+  limits_published: false
+site_conditions:
+  wind_speed: 7
+  evaporation_rate: 0.12

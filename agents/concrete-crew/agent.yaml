@@ -1,0 +1,282 @@
+# ConcreteOps™ Crew Swarm — repeatable concrete crew workflows
+# Run: docker agent run ./agents/concrete-crew/agent.yaml
+# Pour: /pre-pour | /pour-day | /mid-pour | /closeout | /briefing | /hold-abort
+# PT: /pt-pre-stress | /pt-stress
+# Tilt-up: /tilt-cast | /tilt-lift | /tilt-brace
+# SOG: /sog-pre-pour | /sog-finish
+# Shotcrete: /shot-pre | /shot-place
+# CIP walls: /cip-pre-pour | /cip-pour
+
+models:
+  coordinator:
+    provider: openai
+    model: gpt-5
+    max_tokens: 16000
+  specialist:
+    provider: anthropic
+    model: claude-sonnet-4-5
+    max_tokens: 12000
+  local_fallback:
+    provider: dmr
+    model: ai/llama3.2
+
+agents:
+  root:
+    model: coordinator
+    description: ConcreteOps crew swarm coordinator for pour, PT stress, and tilt-up workflows.
+    instruction_file: instructions/root.md
+    sub_agents:
+      - pour-lead
+      - crew-ops
+      - qc-inspector
+      - weather-gate
+      - safety-failsafe
+      - materials-mix
+      - pt-stress
+      - tilt-up
+      - sog
+      - shotcrete
+      - cip-wall
+    toolsets:
+      - type: think
+      - type: todo
+      - type: filesystem
+      - type: shell
+      - type: memory
+    use_commands: true
+    max_iterations: 40
+    redact_secrets: true
+    fallback:
+      models: [specialist, local_fallback]
+      retries: 2
+      cooldown: 1m
+
+  pour-lead:
+    model: specialist
+    description: Owns pour lifecycle, placement sequencing, and final GO/HOLD/ABORT assembly.
+    instruction_file: instructions/pour-lead.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: shell
+      - type: todo
+    max_iterations: 25
+    redact_secrets: true
+    fallback:
+      models: [local_fallback]
+      retries: 1
+
+  crew-ops:
+    model: specialist
+    description: Owns manning, fatigue checks, clock status, and the standard crew briefing.
+    instruction_file: instructions/crew-ops.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: todo
+    max_iterations: 20
+    redact_secrets: true
+
+  qc-inspector:
+    model: specialist
+    description: Owns pre/during/post pour QC checklists, slump, temperature, and curing acceptance.
+    instruction_file: instructions/qc-inspector.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: todo
+    max_iterations: 20
+    redact_secrets: true
+
+  weather-gate:
+    model: specialist
+    description: Owns weather holds and cold/hot/rain/wind pour protocols.
+    instruction_file: instructions/weather-gate.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: fetch
+    max_iterations: 15
+    redact_secrets: true
+
+  safety-failsafe:
+    model: specialist
+    description: Stop-work authority — evaluates fail-safe thresholds and forces ABORT on violations.
+    instruction_file: instructions/safety-failsafe.md
+    readonly: true
+    toolsets:
+      - type: think
+      - type: filesystem
+    max_iterations: 15
+    redact_secrets: true
+
+  materials-mix:
+    model: specialist
+    description: Owns mix design acceptance, ticket checks, and delivery cadence.
+    instruction_file: instructions/materials-mix.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: todo
+    max_iterations: 15
+    redact_secrets: true
+
+  pt-stress:
+    model: specialist
+    description: Owns post-tension pre-stress gates, stressing sequence, elongation checks, and certification.
+    instruction_file: instructions/pt-stress.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: todo
+    max_iterations: 25
+    redact_secrets: true
+
+  tilt-up:
+    model: specialist
+    description: Owns tilt-up panel cast, cure-to-lift, erect day, and brace-release workflows.
+    instruction_file: instructions/tilt-up.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: todo
+      - type: shell
+    max_iterations: 25
+    redact_secrets: true
+
+  sog:
+    model: specialist
+    description: Owns slab-on-grade subgrade, vapor barrier, pour readiness, and FF/FL finish gates.
+    instruction_file: instructions/sog.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: todo
+    max_iterations: 20
+    redact_secrets: true
+
+  shotcrete:
+    model: specialist
+    description: Owns shotcrete pre-shoot readiness, layer control, and rebound quality gates.
+    instruction_file: instructions/shotcrete.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: todo
+    max_iterations: 20
+    redact_secrets: true
+
+  cip-wall:
+    model: specialist
+    description: Owns CIP wall form readiness, lift/rate plans, and form-pressure monitoring.
+    instruction_file: instructions/cip-wall.md
+    toolsets:
+      - type: think
+      - type: filesystem
+      - type: todo
+    max_iterations: 20
+    redact_secrets: true
+
+commands:
+  pre-pour:
+    description: Run the pre-pour gate workflow (mix → weather → QC → crew → failsafe → pour lead).
+    prompt: |
+      Execute workflow `pre-pour-gate` exactly as written in workflows/pre-pour-gate.md.
+      Delegate to specialists in the documented order. Return the standard WORKFLOW/DECISION/GATES/ACTIONS output.
+      Use any provided pour context from the user; if missing, HOLD and list required fields.
+
+  pour-day:
+    description: Run the pour-day execution runbook.
+    prompt: |
+      Execute workflow `pour-day-runbook` from workflows/pour-day-runbook.md.
+      Confirm pre-pour was GO, then run placement with QC and fail-safe watches.
+      Return WORKFLOW/DECISION/GATES/ACTIONS.
+
+  mid-pour:
+    description: Fast mid-pour health check.
+    prompt: |
+      Execute workflow `mid-pour-monitor` from workflows/mid-pour-monitor.md.
+      Be terse — crews need continue/slow/stop now.
+
+  closeout:
+    description: Post-pour closeout packet.
+    prompt: |
+      Execute workflow `post-pour-closeout` from workflows/post-pour-closeout.md.
+      Produce the closeout packet with curing owner and open NCRs.
+
+  briefing:
+    description: Standard crew briefing script.
+    prompt: |
+      Execute workflow `crew-briefing` from workflows/crew-briefing.md.
+      Mark BRIEFING COMPLETE only if all six script items were covered.
+
+  hold-abort:
+    description: Escalate a gate failure using standard HOLD/ABORT language.
+    prompt: |
+      Execute workflow `hold-abort` from workflows/hold-abort.md for the user's blocking condition.
+      State owner, evidence to preserve, and re-entry path.
+
+  pt-pre-stress:
+    description: PT pre-stress gate (strength, inventory, sequence, safety).
+    prompt: |
+      Execute workflow `pt-pre-stress-gate` from workflows/pt-pre-stress-gate.md.
+      Delegate in documented order. Return WORKFLOW/DECISION/GATES/ACTIONS.
+
+  pt-stress:
+    description: PT stressing sequence with elongation and certification checks.
+    prompt: |
+      Execute workflow `pt-stress-sequence` from workflows/pt-stress-sequence.md.
+      Flag any tendon outside elongation/psi tolerance as HOLD; broken strand/anchorage as ABORT.
+
+  tilt-cast:
+    description: Tilt-up panel cast gate.
+    prompt: |
+      Execute workflow `tilt-up-cast-gate` from workflows/tilt-up-cast-gate.md.
+      Missing embeds or weld plates are FAIL.
+
+  tilt-lift:
+    description: Tilt-up lift / erect day runbook.
+    prompt: |
+      Execute workflow `tilt-up-lift-day` from workflows/tilt-up-lift-day.md.
+      Wind is first-class. Never release the crane before braces are secured.
+
+  tilt-brace:
+    description: Tilt-up temporary brace release gate.
+    prompt: |
+      Execute workflow `tilt-up-brace-release` from workflows/tilt-up-brace-release.md.
+      HOLD if permanent connections are incomplete.
+
+  sog-pre-pour:
+    description: Slab-on-grade pre-pour gate (subgrade, vapor barrier, joints).
+    prompt: |
+      Execute workflow `sog-pre-pour-gate` from workflows/sog-pre-pour-gate.md.
+      Return WORKFLOW/DECISION/GATES/ACTIONS.
+
+  sog-finish:
+    description: SOG finish / FF-FL acceptance gate.
+    prompt: |
+      Execute workflow `sog-finish-fffl` from workflows/sog-finish-fffl.md.
+      HOLD if flatness/levelness outside tolerance.
+
+  shot-pre:
+    description: Shotcrete pre-shoot gate.
+    prompt: |
+      Execute workflow `shotcrete-pre-shoot-gate` from workflows/shotcrete-pre-shoot-gate.md.
+      Wind and substrate are first-class.
+
+  shot-place:
+    description: Shotcrete placement with rebound/layer control.
+    prompt: |
+      Execute workflow `shotcrete-placement` from workflows/shotcrete-placement.md.
+      High rebound or over-thick lifts → HOLD; uncontrolled hazard → ABORT.
+
+  cip-pre-pour:
+    description: CIP wall pre-pour gate (forms, ties, waterstops, rate plan).
+    prompt: |
+      Execute workflow `cip-wall-pre-pour-gate` from workflows/cip-wall-pre-pour-gate.md.
+
+  cip-pour:
+    description: CIP wall pour with lift height and form-pressure watches.
+    prompt: |
+      Execute workflow `cip-wall-pour` from workflows/cip-wall-pour.md.
+      Form bulge/over-pressure → ABORT.

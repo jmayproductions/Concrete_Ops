@@ -1,0 +1,21 @@
+pour_id: SOG-WAREHOUSE-A
+pour_completed: true
+crew:
+  roles: [pour_lead, screed_operator, finisher, qc_tech, safety_watch]
+  headcount: 6
+  briefing_complete: true
+  fatigued_workers: []
+weather:
+  temp_f: 72
+  wind_kph: 6
+  rain_mm: 0
+sog:
+  pour_completed: true
+  finish:
+    max_variation_in: 0.40
+    ff: 22
+    fl: 18
+    saw_cut_plan: null
+site_conditions:
+  wind_speed: 5
+  evaporation_rate: 0.08

@@ -1,0 +1,12 @@
+displayName: ConcreteOps Crew Swarm
+schemaName: concreteops_crewSwarm
+accessControlPolicy: ChatbotReaders
+authenticationMode: Integrated
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+
+  recognizer:
+    kind: GenerativeAIRecognizer
+
+language: 1033
