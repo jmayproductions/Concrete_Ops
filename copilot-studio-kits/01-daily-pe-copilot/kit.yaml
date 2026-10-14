@@ -1,0 +1,40 @@
+name: Daily PE Copilot
+id: structureops.pe.daily
+studio_shape: declarative_or_custom
+author_order: 1
+description_file: description.md
+instructions_file: instructions.md
+instruction_skills:
+  - skills/classify-request.md
+  - skills/evidence-gated-answer.md
+  - skills/escalate-or-block.md
+  - skills/draft-pe-action.md
+  - skills/detect-conflicts.md
+  - skills/use-project-sources.md
+knowledge:
+  - ../_shared/ironclad-law.md
+  - ../_shared/answer-contract.md
+  - ../_shared/evidence-tiers.md
+  - ../_shared/confidence-rules.md
+  - ../_shared/safety-flags.md
+  - knowledge/refusal-phrases.md
+  - knowledge/pe-lanes.md
+  - knowledge/conflict-types.md
+topics:
+  - topics/classify-and-answer.md
+  - topics/missing-evidence.md
+  - topics/report-conflict.md
+tools_file: tools.md
+tool_contracts:
+  - tools/sharepoint-library-read.md
+  - tools/autodesk-issue-read.md
+  - tools/autodesk-rfi-read.md
+workflows:
+  - workflows/ask-one-pe-task.md
+  - workflows/read-then-answer.md
+test_prompts: test-prompts.md
+suggested_sharepoint:
+  - Project PE site: RFIs, submittals, specs, drawing log, meeting minutes
+do_not_upload:
+  - demo_workspace
+  - backend/generated_docs

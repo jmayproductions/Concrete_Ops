@@ -1,0 +1,30 @@
+name: Safety and JHA
+id: structureops.pe.safety
+studio_shape: custom_topics
+author_order: 11
+parent_or_sibling: 05-trade-role-shells
+description_file: description.md
+instructions_file: instructions.md
+instruction_skills:
+  - skills/draft-jha.md
+  - skills/no-compliance-ruling.md
+  - skills/incident-draft-only.md
+  - skills/controls-need-a-source.md
+knowledge:
+  - ../_shared/ironclad-law.md
+  - ../_shared/answer-contract.md
+  - knowledge/jha-shape.md
+  - knowledge/control-hierarchy.md
+  - knowledge/pamphlet-index.md
+  - knowledge/incident-fields.md
+  - knowledge/hazard-families.md
+topics:
+  - topics/draft-jha.md
+  - topics/toolbox-talk.md
+  - topics/incident-note.md
+  - topics/corrective-action.md
+  - topics/hazard-question.md
+tools_file: tools.md
+workflows:
+  - workflows/jha-before-task.md
+test_prompts: test-prompts.md

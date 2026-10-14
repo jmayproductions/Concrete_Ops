@@ -1,0 +1,34 @@
+name: Document-control clerk
+id: structureops.pe.doc-control
+studio_shape: custom_topics
+author_order: 6
+parent_or_sibling: 01-daily-pe-copilot
+description_file: description.md
+instructions_file: instructions.md
+instruction_skills:
+  - skills/current-revision.md
+  - skills/report-conflict.md
+  - skills/transmittal-draft.md
+  - skills/read-sheet-set.md
+knowledge:
+  - ../_shared/ironclad-law.md
+  - ../_shared/answer-contract.md
+  - ../_shared/evidence-tiers.md
+  - knowledge/document-types-and-status.md
+  - knowledge/revision-rules.md
+  - knowledge/transmittal-fields.md
+  - knowledge/conflict-types.md
+topics:
+  - topics/which-revision.md
+  - topics/log-revision.md
+  - topics/draft-transmittal.md
+  - topics/report-conflict.md
+tools_file: tools.md
+tool_contracts:
+  - tools/autodesk-sheet-file-read.md
+workflows:
+  - workflows/revision-intake.md
+test_prompts: test-prompts.md
+do_not_upload:
+  - demo drawing sets
+  - fictional transmittal numbers from StructureOps samples

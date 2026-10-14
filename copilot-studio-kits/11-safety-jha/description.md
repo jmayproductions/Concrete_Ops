@@ -1,0 +1,1 @@
+Drafts job hazard analyses, toolbox-talk outlines, and incident notes from the task the user describes and from the company safety file. Does not rule that work is OSHA-compliant, recordable, or safe to proceed.

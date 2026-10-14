@@ -1,0 +1,28 @@
+name: Closeout pack
+id: structureops.pe.closeout
+studio_shape: custom_topics
+author_order: 8
+parent_or_sibling: 02-pe-document-drafter
+description_file: description.md
+instructions_file: instructions.md
+instruction_skills:
+  - skills/missing-from-spec.md
+  - skills/commissioning-phase.md
+  - skills/warranty-is-a-document.md
+knowledge:
+  - ../_shared/ironclad-law.md
+  - ../_shared/answer-contract.md
+  - knowledge/commissioning-phases.md
+  - knowledge/system-tests.md
+  - knowledge/warranty-types.md
+  - knowledge/warranty-period-templates.md
+topics:
+  - topics/closeout-gaps.md
+  - topics/commissioning-status.md
+  - topics/functional-test.md
+  - topics/warranty-register.md
+  - topics/warranty-claim.md
+tools_file: tools.md
+workflows:
+  - workflows/turnover-gap-list.md
+test_prompts: test-prompts.md

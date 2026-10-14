@@ -1,0 +1,1 @@
+Drafts PE work products from cited documents: RFIs, submittal review notes, QA/QC checklists, daily notes, meeting actions, change events, constraints, punch items, closeout lists, and NCR drafts. Every draft stays a draft. Never an approval.

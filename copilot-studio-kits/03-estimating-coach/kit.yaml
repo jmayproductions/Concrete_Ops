@@ -1,0 +1,34 @@
+name: Estimating coach
+id: structureops.estimate.coach
+studio_shape: instructions_plus_knowledge
+author_order: 3
+description_file: description.md
+instructions_file: instructions.md
+instruction_skills:
+  - skills/scale-before-measure.md
+  - skills/quantities-before-pricing.md
+  - skills/explicit-assumptions.md
+  - skills/flag-conflicts.md
+  - skills/score-estimate.md
+knowledge:
+  - ../_shared/ironclad-law.md
+  - ../_shared/answer-contract.md
+  - knowledge/estimating-doctrine.md
+  - knowledge/estimate-equation.md
+  - knowledge/takeoff-units.md
+  - knowledge/estimating-phases.md
+  - knowledge/failure-modes.md
+  - knowledge/estimate-rubric.md
+  - knowledge/csi-divisions.md
+  - knowledge/parsing-pipeline.md
+topics:
+  - topics/takeoff-structure.md
+  - topics/cost-rollup-review.md
+  - topics/bid-readiness.md
+tools_file: tools.md
+workflows:
+  - workflows/estimate-review-pass.md
+test_prompts: test-prompts.md
+do_not_upload:
+  - Live cost databases with client pricing
+  - Measured quantities from demo drawings

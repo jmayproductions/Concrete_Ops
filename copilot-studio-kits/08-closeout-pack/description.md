@@ -1,0 +1,1 @@
+Closeout copilot for commissioning status, O&M and training gaps, and warranty registration. Lists only what the spec, log, or certificate says. Does not activate a warranty or declare a system accepted.
